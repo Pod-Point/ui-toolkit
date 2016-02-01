@@ -1,0 +1,114 @@
+p, h1, h2, h3, h4, h5, h6, span, div, input, textarea, li {
+    color: $darkGrey;
+    font-family: "Myriad Pro", Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+a {
+    color: $darkGreen;
+    text-decoration: none;
+
+    &:focus {
+        text-decoration: none;
+        text-decoration-style: dashed;
+        outline: none;
+    }
+}
+
+p, li {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+p {
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 42px;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+ul {
+    margin-bottom: 20px;
+}
+
+img[data-lazy] {
+    opacity: 0;
+}
+
+main {
+    clear: both;
+}
+
+#activity-bar {
+    width: 100%;
+    height: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+img.background {
+    position: absolute;
+    left: 50%;
+}
+
+.back-to-top {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+
+    svg {
+        position: static;
+    }
+}
+
+@include resp-max($mobileMax) {
+    p, li {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    h2 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    h3 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .back-to-top {
+        width: 50px;
+        height: 50px;
+
+        svg {
+            position: relative;
+            top: 2px;
+            left: 0;
+            transform: scale(1.2);
+        }
+    }
+}

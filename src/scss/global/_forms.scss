@@ -1,0 +1,166 @@
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    /*
+        This looks like a weird hack. You're right! I can't stand the
+        yellow autofill background. I know when a field's been autofilled
+        because I can see with my eyes that the fields are filled and my
+        fingers aren't on the keyboard, they're up my nose.
+    */
+    box-shadow: 0 0 0px 500px white inset;
+}
+
+label {
+    color: $grey;
+    font-size: 24px;
+}
+
+.text-field.has-focus label,
+.text-field.has-content label {
+    color: $lightGrey;
+    transform: translateY(-30px), scale(.7), translateZ(0);
+    padding: 0;
+}
+
+/*
+    This is a seperate selector to the previous selection
+    because (of course) an IE bug where this selector invalidates
+    the previous too because of a parse error or whatnot.
+*/
+.text-field input:-webkit-autofill+label {
+    color: $lightGrey;
+    transform: translateY(-30px), scale(.7), translateZ(0);
+    padding: 0;
+}
+
+.text-field {
+    position: relative;
+    margin: 50px 0;
+
+    label {
+        cursor: text;
+        position: absolute;
+        left: 0;
+        top: 5px;
+        transition: all 300ms $mediumTail;
+        transform-origin: 0% 50%;
+    }
+
+    .input-group + label {
+        padding: 0 40px;
+    }
+
+    .error {
+        color: $red;
+        opacity: 0;
+        font-size: 18px;
+        margin-top: 10px;
+        transition: all 150ms ease-out;
+    }
+
+    &:after {
+        background: $lightGrey;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        transition: all 100ms linear;
+        transform-origin: 50% 0%;
+        position: absolute;
+        bottom: 0;
+    }
+
+    &.has-content:after {
+        background: $green;
+    }
+
+    &.has-focus:after {
+        background: $green;
+        transform: scaleY(3);
+    }
+
+    &.has-error {
+        &:after {
+            background: $red;
+        }
+
+        .error {
+            opacity: 1;
+        }
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    border: 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    height: 40px;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+textarea {
+    margin: 0;
+    padding: 5px 20px 0 0;
+    overflow-y: hidden;
+}
+
+button,
+.button {
+    background-color: $superLightGrey;
+    border-radius: 4px;
+    border: 0;
+    box-shadow: 0 2px 0 0 $lightGrey;
+    color: $darkGrey;
+    font-size: 24px;
+    padding: 16px 25px 13px;
+    outline: none;
+    text-shadow: 0 1px 0 $white;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &.cta {
+        background-color: $green;
+        box-shadow: 0 2px 0 0 $darkGreen;
+        color: $white;
+        float: right;
+        text-shadow: 0 -1px 0 $darkGreen;
+    }
+
+    &:active,
+    &.in-progress {
+        transform: translateY(2px);
+        text-decoration: none;
+        box-shadow: none;
+    }
+
+    &:active {
+        box-shadow: 0 1px 0 0 rgba($lightGrey, 0.5) inset;
+        transform: translateY(2px);
+        outline: none;
+
+        &.cta {
+            box-shadow: 0 1px 0 0 rgba($darkGreen, 0.5) inset;
+        }
+    }
+
+    @include resp-max($mobileMax) {
+        font-size: 18px;
+    }
+}
+
+button {
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 12px;
+        right: 18px;
+    }
+}

@@ -1,0 +1,28 @@
+$mobileMax: 760;
+
+/*
+    Colours
+*/
+$green: #8CC63F;
+$darkGreen: #5D9712;
+$red: #E9583A;
+$blue: #3AA8E9;
+$superLightGrey: #dedede;
+$lightGrey: #CACACA;
+$yellow: #ffe341;
+$grey: #888;
+$darkGrey: #333;
+$superDarkGrey: #222;
+$white: #fff;
+
+/*
+    Easing
+*/
+$mediumTail: cubic-bezier(.02,.65,.15,1.03);
+$bounceOut: cubic-bezier(0,1.01,.6,1.52);
+$strongEaseOut: cubic-bezier(.02,.65,.38,1.02);
+
+/*
+    Style settings
+*/
+$borderRadius: 4px;
