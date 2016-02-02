@@ -1,19 +1,21 @@
 body {
     color: $darkGrey;
     font-family: 'Myriad Pro', Helvetica, sans-serif;
+    font-size: 1rem;
     line-height: 1.5;
+    font-weight: 300;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol {
     margin-bottom: 1.5rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1.2;
+p, h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
 }
 
-p, li {
-    font-weight: 300;
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
 }
 
 ul, ol {
