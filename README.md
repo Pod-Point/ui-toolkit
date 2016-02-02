@@ -19,7 +19,7 @@ Then either link to the minified stylesheet:
 Or import the base Sass file into your project:
 
 ```sass
-@import 'path/to/node_modules/pp-frontend-framework/src/scss/style.css';
+@import 'path/to/node_modules/pp-frontend-framework/src/scss/style.scss';
 ```
 
 ## Development
