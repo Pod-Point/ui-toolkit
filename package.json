@@ -1,25 +1,26 @@
 {
   "name": "frontend-framework",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "bootstrap-sass": "^3.3.6"
-  },
-  "devDependencies": {
-    "node-sass": "^3.4.2",
-    "postcss-cli": "^2.4.1",
-    "autoprefixer": "^6.3.1",
-    "cssnano-cli": "^1.0.3"
-  },
+  "version": "0.1.0",
+  "description": "Rapid prototyping framework by POD Point",
+  "author": "Mike Francis <mike.francis@pod-point.com>",
+  "license": "Apache-2.0",
   "scripts": {
     "css-sass": "node-sass src/scss -o build/css",
     "css-autoprefix": "postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o build/css/style.css build/css/style.css",
     "css-minify": "cssnano --sourcemap build/css/style.css build/css/style.css",
     "compile-css": "npm run css-sass && npm run css-autoprefix",
+    "watch-css": "fsmonitor -s -p -d src/scss npm run compile-css",
     "build-css": "npm run compile-css && npm run css-minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.1",
+    "cssnano-cli": "^1.0.3",
+    "fsmonitor": "^0.2.4",
+    "node-sass": "^3.4.2",
+    "postcss-cli": "^2.4.1"
+  }
 }

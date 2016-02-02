@@ -10,11 +10,6 @@ select:-webkit-autofill {
     box-shadow: 0 0 0px 500px white inset;
 }
 
-label {
-    color: $grey;
-    font-size: 24px;
-}
-
 .text-field.has-focus label,
 .text-field.has-content label {
     color: $lightGrey;
@@ -150,7 +145,7 @@ button,
         }
     }
 
-    @include resp-max($mobileMax) {
+    @include resp-max($mobile-max) {
         font-size: 18px;
     }
 }
@@ -164,3 +159,34 @@ button {
         right: 18px;
     }
 }
+
+.form__group {
+    margin-bottom: 1.5rem;
+}
+
+    .form__label {
+        color: $grey;
+        font-size: 24px;
+    }
+
+    .form__control {
+
+    }
+
+        .radio,
+        .checkbox {
+            display: block;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            > input {
+                left: 0;
+                position: absolute;
+                top: 0.2rem
+            }
+        }

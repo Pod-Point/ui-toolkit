@@ -1,0 +1,57 @@
+body {
+    color: $darkGrey;
+    font-family: 'Myriad Pro', Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+    margin-bottom: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+}
+
+p, li {
+    font-weight: 300;
+}
+
+ul, ol {
+    margin-left: 2rem;
+    padding: 0;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
+ol li {
+    list-style-type: decimal;
+}
+
+a {
+    color: $darkGreen;
+    text-decoration: none;
+
+    &:focus {
+        text-decoration: none;
+        text-decoration-style: dashed;
+        outline: none;
+    }
+}
+
+h1 {
+    @include font-size($scale-kilo);
+}
+
+h2 {
+    @include font-size($scale-hecto);
+}
+
+h3 {
+    @include font-size($scale-deca);
+}
+
+img[data-lazy] {
+    opacity: 0;
+}

@@ -1,10 +1,18 @@
-@import 'inc/settings';
-@import 'inc/images';
-@import 'inc/responsive';
-@import 'inc/sprites';
-@import 'inc/z-index';
+@import
+    'variables/layout',
+    'variables/colours',
+    'variables/easing';
 
-@import 'global/reset';
-@import 'global/base';
-@import 'global/forms';
-@import 'global/images';
+@import
+    'mixins/typography',
+    'mixins/images',
+    'mixins/responsive',
+    'mixins/sprites',
+    'mixins/z-index';
+
+@import
+    'base/reset',
+    'base/grid',
+    'base/shared',
+    'base/forms',
+    'base/images';
