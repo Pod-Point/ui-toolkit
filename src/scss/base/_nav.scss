@@ -1,0 +1,59 @@
+.nav,
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    list-style: none;
+}
+
+.nav {
+    > li {
+        display: inline-block;
+
+        > a {
+            display: block;
+        }
+    }
+}
+
+.dropdown {
+    position: relative;
+
+    > a:after {
+        border: 0.25rem solid transparent;
+        border-top-color: $grey;
+        content: '';
+        margin-top: -0.125rem;
+        position: absolute;
+        top: 50%;
+        line-height: 0;
+        right: 1rem;
+    }
+}
+
+.dropdown-menu {
+    background-color: $superLightGrey;
+    display: none;
+    padding: ($line-height / 2) 0;
+    position: absolute;
+    min-width: 100%;
+
+    > li {
+        display: block;
+
+        &.separator {
+            background-color: $lightGrey;
+            height: 1px;
+            margin: ($line-height / 2) 0;
+        }
+
+        > a {
+            padding: ($line-height / 4) $line-height;
+        }
+    }
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}

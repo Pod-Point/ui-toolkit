@@ -10,16 +10,30 @@ The POD Point frontend framework is a library of base styles and components desi
 npm install --save-dev pp-frontend-framework
 ```
 
-Then either link to the minified stylesheet:
+Then either link to the production ready files:
 
 ```html
-<link rel="stylesheet" href="path/to/node_modules/pp-frontend-framework/build/css/style.css">
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/path/to/node_modules/pp-frontend-framework/build/css/style.css">
+</head>
+<body>
+    <script src="/path/to/node_modules/pp-frontend-framework/build/js/script.js"></script>
+</body>
+</html>
 ```
 
-Or import the base Sass file into your project:
+Or import the entry points into your project. For Sass, this is done by:
 
 ```sass
 @import 'path/to/node_modules/pp-frontend-framework/src/scss/style.scss';
+```
+
+And for the JavaScripts:
+
+```js
+require('/path/to/node_modules/pp-frontend-framework/src/js/script.js');
 ```
 
 ## Development

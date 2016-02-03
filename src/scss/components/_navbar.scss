@@ -1,0 +1,98 @@
+$navDarkBackgroundColour: #3E3C42;
+
+.navbar {
+    @include clearfix();
+
+    background-color: white;
+    border: 1px solid $superLightGrey;
+
+    > .container-fluid {
+        padding: 0;
+    }
+
+    .navbar__brand {
+        display: block;
+        float: left;
+        overflow: hidden;
+        padding: ($line-height / 2) $line-height;
+
+        > span {
+            @include sprite(pod-point-logo, .5);
+        }
+    }
+
+    .navbar__nav {
+        float: right;
+
+        a {
+            color: $grey;
+
+            &:hover {
+                background-color: $navDarkBackgroundColour;
+                color: $darkGreen;
+            }
+        }
+
+        > .nav {
+            > li {
+                &.dropdown > a {
+                    padding-right: 2rem;
+                }
+
+                > a {
+                    line-height: 40px;
+                    padding: ($line-height / 2) $line-height;
+                }
+            }
+        }
+    }
+}
+
+body > .navbar {
+    border-width: 0 0 1px;
+}
+
+.navbar--dark {
+    background-color: #4F4D54;
+    border-bottom: 0;
+
+    .navbar__brand {
+        background-color: $navDarkBackgroundColour;
+    }
+}
+
+.navbar--vertical {
+    .navbar__brand,
+    .navbar__nav {
+        float: none;
+    }
+
+    .navbar__nav {
+        margin: ($line-height * 2) 0;
+
+        > .nav > li {
+            margin: ($line-height / 2) 0;
+
+            > a {
+                line-height: normal;
+            }
+
+            .nav {
+                > li > a {
+                    color: white;
+                }
+            }
+        }
+
+        .nav {
+            li {
+                display: block;
+            }
+
+            a {
+                line-height: normal;
+                padding: ($line-height / 2) $line-height;
+            }
+        }
+    }
+}

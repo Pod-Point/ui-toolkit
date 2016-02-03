@@ -1,18 +1,18 @@
 /*
     Sprite and icon generator
-    
+
     Usage:
-    
+
         @include sprite(sprite-name);
             Grabs sprite-name from $sprites and sends its properties to sprite()
-            
+
         @include sprite-position(sprite-name)
             Repositions the spritesheet, assuming you've set sprite(same-spritesheet)
             on a more generic selector. This avoids repeating unnessary CSS if you've
             already used sprite() on a more generic selector.
 */
 
-$basePath: '/assets/img/spritesheets/';
+$basePath: '../img/spritesheets/';
 
 $spritesheets: (
     global: (
@@ -62,9 +62,10 @@ $sprites: (
     background-size: (map-get($spritesheet, width) * $proportion) (map-get($spritesheet, height) * $proportion);
     content: '';
     display: block;
-    width: $width * $proportion;
-    height: $height * $proportion;
-    
+    width: floor($width * $proportion);
+    height: floor($height * $proportion);
+    text-indent: -9999px;
+
     @if $position == center {
         position: absolute;
         top: 50%;
@@ -80,12 +81,12 @@ $sprites: (
     $height: map-get($sprite, height);
     $x: map-get($sprite, x);
     $y: map-get($sprite, y);
-    
+
     @include generate-sprite($spritesheet, $width, $height, $x, $y, $proportion, $position);
 }
 
 @mixin sprite-position($name, $proportion: 1) {
     $sprite: map-get($sprites, $name);
-    
+
     background-position: (map-get($sprite, x) * $proportion * -1) (map-get($sprite, y) * $proportion * -1);
 }
