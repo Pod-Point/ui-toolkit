@@ -2,6 +2,8 @@
 
 The POD Point frontend framework is a library of base styles and components designed for rapid prototyping.
 
+[View demo](https://pod-point.github.io/frontend-framework)
+
 ## Installation
 
 ```bash
