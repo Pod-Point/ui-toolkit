@@ -1,7 +1,5 @@
 # frontend-framework
 
-_Work in progress!_
-
 The POD Point frontend framework is a library of base styles and components designed for rapid prototyping.
 
 ## Installation
@@ -38,11 +36,13 @@ require('/path/to/node_modules/pp-frontend-framework/src/js/script.js');
 
 ## Development
 
-When working on the package, you'll probably want to watch the css - to do so run the command below:
+When working on the package, you'll probably want to run the watchers:
 
 ```bash
-npm run watch-css
+npm run watch
 ```
+
+Single 
 
 Once you've finished, you will need to run the following to package up the css, ready for building:
 
