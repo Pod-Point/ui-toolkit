@@ -1,5 +1,11 @@
 @import '../../../node_modules/normalize.css/normalize.css';
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 fieldset {
     border: 0;
     margin: 0;
