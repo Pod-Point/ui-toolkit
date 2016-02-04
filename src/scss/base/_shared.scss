@@ -7,7 +7,7 @@ body {
     font-weight: 300;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, ol {
+h1, h2, h3, h4, h5, h6, p, ul, ol, hr {
     margin-bottom: 1.5rem;
 }
 
@@ -54,4 +54,11 @@ h3 {
 
 img[data-lazy] {
     opacity: 0;
+}
+
+hr {
+    background-color: $lightGrey;
+    border: 0;
+    color: $lightGrey;
+    height: 1px;
 }

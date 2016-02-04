@@ -1,0 +1,23 @@
+/**
+ * Make a caret arrow.
+ */
+@mixin caret($direction, $colour, $size) {
+    border: $size solid transparent;
+
+    @if ($direction == 'up') {
+        $location: 'bottom';
+    } @else if ($direction == 'down') {
+        $location: 'top';
+    } @else if ($direction == 'right') {
+        $location: 'left';
+    } @else if ($direction == 'left') {
+        $location: 'right';
+    }
+
+    border-#{$location}-color: $colour;
+    content: '';
+    height: 0;
+    line-height: 0;
+    margin-#{$location}: -($size / 2);
+    width: 0;
+}
