@@ -9,7 +9,9 @@
 
 .nav {
     > li {
-        display: inline-block;
+        @media screen and (min-width: $screen-sm-min) {
+            display: inline-block;
+        }
 
         > a {
             display: block;
@@ -21,13 +23,9 @@
     position: relative;
 
     > a:after {
-        border: 0.25rem solid transparent;
-        border-top-color: $grey;
-        content: '';
-        margin-top: -0.125rem;
+        @include caret(down, $grey, 0.25rem);
         position: absolute;
-        top: 50%;
-        line-height: 0;
+        top: $line-height;
         right: 1rem;
     }
 }
@@ -36,8 +34,11 @@
     background-color: $superLightGrey;
     display: none;
     padding: ($line-height / 2) 0;
-    position: absolute;
     min-width: 100%;
+
+    @media screen and (min-width: $screen-sm-min) {
+        position: absolute;
+    }
 
     > li {
         display: block;
@@ -56,4 +57,16 @@
 
 .dropdown.open .dropdown-menu {
     display: block;
+}
+
+.collapse {
+    display: none;
+
+    @media screen and (min-width: $screen-sm-min) {
+        display: block;
+    }
+
+    &.in {
+        display: block;
+    }
 }
