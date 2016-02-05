@@ -45,6 +45,10 @@ $navDarkBackgroundColour: #3E3C42;
             border-color: $grey;
             color: $grey;
         }
+
+        @media screen and (min-width: $screen-sm-min) {
+            display: none;
+        }
     }
 
     .navbar__collapse {
