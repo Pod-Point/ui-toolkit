@@ -1,0 +1,72 @@
+.nav,
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    list-style: none;
+}
+
+.nav {
+    > li {
+        @media screen and (min-width: $screen-sm-min) {
+            display: inline-block;
+        }
+
+        > a {
+            display: block;
+        }
+    }
+}
+
+.dropdown {
+    position: relative;
+
+    > a:after {
+        @include caret(down, $grey, 0.25rem);
+        position: absolute;
+        top: $line-height;
+        right: 1rem;
+    }
+}
+
+.dropdown-menu {
+    background-color: $superLightGrey;
+    display: none;
+    padding: ($line-height / 2) 0;
+    min-width: 100%;
+
+    @media screen and (min-width: $screen-sm-min) {
+        position: absolute;
+    }
+
+    > li {
+        display: block;
+
+        &.separator {
+            background-color: $lightGrey;
+            height: 1px;
+            margin: ($line-height / 2) 0;
+        }
+
+        > a {
+            padding: ($line-height / 4) $line-height;
+        }
+    }
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.collapse {
+    display: none;
+
+    @media screen and (min-width: $screen-sm-min) {
+        display: block;
+    }
+
+    &.in {
+        display: block;
+    }
+}

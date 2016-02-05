@@ -1,0 +1,5 @@
+$global: mainNavShade, mainNav, mainNavToggle, pageCta;
+
+@mixin z($item) {
+    z-index: index($global, $item);
+}

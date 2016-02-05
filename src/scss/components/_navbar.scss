@@ -1,0 +1,129 @@
+$navDarkBackgroundColour: #3E3C42;
+
+.navbar {
+    @include clearfix();
+
+    background-color: white;
+    border: 1px solid $superLightGrey;
+    position: relative;
+
+    .navbar & body {
+        border-width: 0 0 1px;
+    }
+}
+
+    .navbar > .container-fluid {
+        padding: 0;
+    }
+
+    .navbar__brand {
+        display: block;
+        overflow: hidden;
+        padding: ($line-height / 2) $line-height;
+
+        @media screen and (min-width: $screen-sm-min) {
+            float: left;
+        }
+
+        > span {
+            @include sprite(pod-point-logo, .5);
+        }
+    }
+
+    .navbar__toggle {
+        background-color: transparent;
+        box-shadow: none;
+        border: 1px solid $green;
+        color: $green;
+        padding: 0 1rem;
+        position: absolute;
+        text-shadow: none;
+        top: 0.5rem;
+        right: 1.5rem;
+
+        &.collapsed {
+            border-color: $grey;
+            color: $grey;
+        }
+    }
+
+    .navbar__collapse {
+        @include clearfix();
+    }
+
+    .navbar__nav {
+        @media screen and (min-width: $screen-sm-min) {
+            float: right;
+        }
+
+        > li > a,
+        > li > .nav > li > a {
+            color: $grey;
+            padding: ($line-height / 2) $line-height;
+
+            &:hover {
+                background-color: $navDarkBackgroundColour;
+                color: $darkGreen;
+            }
+        }
+
+        > li {
+            &.dropdown > a {
+                padding-right: 2rem;
+            }
+
+            @media screen and (min-width: $screen-sm-min) {
+                > a {
+                    line-height: 40px;
+                }
+            }
+        }
+    }
+
+.navbar--dark {
+    background-color: #4F4D54;
+    border-bottom: 0;
+
+    .navbar__brand {
+        background-color: $navDarkBackgroundColour;
+    }
+
+    .navbar__toggle {
+        border-color: white;
+        color: white;
+    }
+}
+
+.navbar--vertical {
+    .navbar__brand,
+    .navbar__nav {
+        float: none;
+    }
+
+    .navbar__nav {
+        margin: ($line-height * 2) 0;
+
+        > li,
+        > li > .nav > li {
+            display: block;
+        }
+
+        > li {
+            margin: ($line-height / 2) 0;
+
+            &.dropdown > .nav {
+                background-color: transparent;
+                padding: 0;
+                position: relative;
+            }
+
+            > a {
+                line-height: normal;
+            }
+
+            > .nav > li > a {
+                color: white;
+            }
+        }
+    }
+}

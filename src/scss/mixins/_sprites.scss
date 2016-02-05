@@ -1,0 +1,92 @@
+/*
+    Sprite and icon generator
+
+    Usage:
+
+        @include sprite(sprite-name);
+            Grabs sprite-name from $sprites and sends its properties to sprite()
+
+        @include sprite-position(sprite-name)
+            Repositions the spritesheet, assuming you've set sprite(same-spritesheet)
+            on a more generic selector. This avoids repeating unnessary CSS if you've
+            already used sprite() on a more generic selector.
+*/
+
+$basePath: '../img/spritesheets/';
+
+$spritesheets: (
+    global: (
+        filename: global,
+        width: 600px,
+        height: 600px
+    )
+);
+
+$sprites: (
+    pod-point-logo: (
+        sheet: global,
+        width: 292px,
+        height: 81px,
+        x: 0px,
+        y: 0px
+    ),
+    rtm-icon-home: (
+        sheet: global,
+        width: 200px,
+        height: 200px,
+        x: 0px,
+        y: 100px
+    ),
+    rtm-icon-work: (
+        sheet: global,
+        width: 200px,
+        height: 200px,
+        x: 200px,
+        y: 100px
+    ),
+    rtm-icon-destination: (
+        sheet: global,
+        width: 200px,
+        height: 200px,
+        x: 400px,
+        y: 100px
+    )
+);
+
+@mixin generate-sprite($id, $width, $height, $x, $y, $proportion, $position) {
+
+    $spritesheet: map-get($spritesheets, $id);
+    $path: $basePath + map-get($spritesheet, filename);
+
+    background: url($path + '.svg') no-repeat ($x * $proportion * -1) ($y * $proportion * -1) rgba(0,0,0,0);
+    background-size: (map-get($spritesheet, width) * $proportion) (map-get($spritesheet, height) * $proportion);
+    content: '';
+    display: block;
+    width: floor($width * $proportion);
+    height: floor($height * $proportion);
+    text-indent: -9999px;
+
+    @if $position == center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: ($height * $proportion / 2 * -1) 0 0 ($width * $proportion / 2 * -1)
+    }
+}
+
+@mixin sprite($name, $proportion: 1, $position: none) {
+    $sprite: map-get($sprites, $name);
+    $spritesheet: map-get($sprite, sheet);
+    $width: map-get($sprite, width);
+    $height: map-get($sprite, height);
+    $x: map-get($sprite, x);
+    $y: map-get($sprite, y);
+
+    @include generate-sprite($spritesheet, $width, $height, $x, $y, $proportion, $position);
+}
+
+@mixin sprite-position($name, $proportion: 1) {
+    $sprite: map-get($sprites, $name);
+
+    background-position: (map-get($sprite, x) * $proportion * -1) (map-get($sprite, y) * $proportion * -1);
+}
