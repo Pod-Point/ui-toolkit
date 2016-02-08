@@ -7,7 +7,7 @@ $navDarkBackgroundColour: #3E3C42;
     border: 1px solid $superLightGrey;
     position: relative;
 
-    .navbar & body {
+    body > & {
         border-width: 0 0 1px;
     }
 }
