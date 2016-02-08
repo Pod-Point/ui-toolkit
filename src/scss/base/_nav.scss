@@ -24,8 +24,9 @@
 
     > a:after {
         @include caret(down, $grey, 0.25rem);
+        height: inherit;
         position: absolute;
-        top: $line-height;
+        top: 50%;
         right: 1rem;
     }
 }
