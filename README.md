@@ -16,10 +16,10 @@ Then either link to the production ready files:
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/path/to/node_modules/pp-frontend-framework/build/css/style.css">
+    <link rel="stylesheet" href="/path/to/node_modules/pod-point/frontend-framework/build/css/style.min.css">
 </head>
 <body>
-    <script src="/path/to/node_modules/pp-frontend-framework/build/js/script.js"></script>
+    <script src="/path/to/node_modules/pod-point/frontend-framework/build/js/script.min.js"></script>
 </body>
 </html>
 ```
@@ -27,13 +27,13 @@ Then either link to the production ready files:
 Or import the entry points into your project. For Sass, this is done by:
 
 ```sass
-@import 'path/to/node_modules/pp-frontend-framework/src/scss/style.scss';
+@import 'path/to/node_modules/pod-point/frontend-framework/src/scss/style.scss';
 ```
 
 And for the JavaScripts:
 
 ```js
-require('/path/to/node_modules/pp-frontend-framework/src/js/script.js');
+require('/path/to/node_modules/pod-point/frontend-framework/src/js/script.js');
 ```
 
 ## Development
@@ -46,8 +46,8 @@ npm run watch
 
 Single 
 
-Once you've finished, you will need to run the following to package up the css, ready for building:
+Once you've finished, you will need to run the following to package up the assets, ready for production:
 
 ```bash
-npm run build-css
+npm run build
 ```

@@ -81,36 +81,3 @@ textarea.form__control {
     margin-top: 10px;
     transition: all 150ms ease-out;
 }
-
-.button {
-    background-color: $superLightGrey;
-    border-radius: $border-radius;
-    border: 0;
-    box-shadow: 0 2px 0 0 $lightGrey;
-    color: $darkGrey;
-    display: inline-block;
-    @include font-size($scale-deca);
-    height: 3rem;
-    line-height: 3rem;
-    padding: 0 2rem;
-    outline: none;
-    text-shadow: 0 1px 0 $white;
-    text-decoration: none;
-    white-space: nowrap;
-
-    &:active {
-        transform: translateY(2px);
-        box-shadow: 0 1px 0 0 rgba($lightGrey, 0.5) inset;
-    }
-
-    &.button--primary {
-        background-color: $green;
-        box-shadow: 0 2px 0 0 $darkGreen;
-        color: $white;
-        text-shadow: 0 -1px 0 $darkGreen;
-
-        &:active {
-            box-shadow: 0 1px 0 0 rgba($darkGreen, 0.5) inset;
-        }
-    }
-}
