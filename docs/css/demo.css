@@ -1,0 +1,20 @@
+.main {
+    margin: 3rem 0;
+}
+
+    .main .navbar {
+        margin-bottom: 3rem;
+    }
+
+#basic-hero {
+    background-image: url(https://unsplash.it/800/600?image=992);
+}
+
+#overlay-hero {
+    background-image: url(https://unsplash.it/800/600?image=989);
+}
+
+.footer {
+    border-top: 1px solid #eee;
+    padding: 1.5rem 0;
+}

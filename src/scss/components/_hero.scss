@@ -1,0 +1,16 @@
+.hero {
+    background: no-repeat center center;
+    background-size: cover;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-align: center;
+
+    > .container {
+        padding: 3rem;
+        width: 100%;
+    }
+}
+
+.hero--overlay > .container {
+    background-color: rgba(black, 0.4);
+}

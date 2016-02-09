@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tables</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+    <header class="navbar" role="banner">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar__brand"><span>POD Point</span></a>
+        </div>
+    </header>
+
+    <main class="main" role="main">
+        <div class="container">
+            <h1>Tables</h1>
+
+            <p>
+                Some basic table styles. These use pretty much the same styles as Bootstrap except we're using our own colours
+                and the BEM syntax.
+            </p>
+
+            <h2>Basic</h2>
+
+            <table class="table">
+                <caption>Optional table caption.</caption>
+                <thead>
+                    <tr>
+                        <th>Site</th>
+                        <th># of PODs</th>
+                        <th>Energy Used</th>
+                        <th>CO2 Saved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3743 CH</td>
+                        <td>1</td>
+                        <td>45.50kWh</td>
+                        <td>25.48kg</td>
+                    </tr>
+                    <tr>
+                        <td>6681PN</td>
+                        <td>1</td>
+                        <td>0.00kWh</td>
+                        <td>0.00kg</td>
+                    </tr>
+                    <tr>
+                        <td>6852 MC</td>
+                        <td>1</td>
+                        <td>0.00kWh</td>
+                        <td>0.00kg</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Striped</h2>
+
+            <table class="table table--striped">
+                <thead>
+                <tr>
+                    <th>Site</th>
+                    <th># of PODs</th>
+                    <th>Energy Used</th>
+                    <th>CO2 Saved</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>3743 CH</td>
+                    <td>1</td>
+                    <td>45.50kWh</td>
+                    <td>25.48kg</td>
+                </tr>
+                <tr>
+                    <td>6681PN</td>
+                    <td>1</td>
+                    <td>0.00kWh</td>
+                    <td>0.00kg</td>
+                </tr>
+                <tr>
+                    <td>6852 MC</td>
+                    <td>1</td>
+                    <td>0.00kWh</td>
+                    <td>0.00kg</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            &copy; POD Point <script>document.write(new Date().getFullYear())</script>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

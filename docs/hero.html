@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hero</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+    <header class="navbar" role="banner">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar__brand"><span>POD Point</span></a>
+        </div>
+    </header>
+
+    <main role="main">
+        <div class="main">
+            <div class="container">
+                <h1>Hero</h1>
+
+                <p>Will stretch to fill it's container, and can either be given an explicit height or will rely on the
+                    padding given to the inner container.</p>
+
+                <h2>Basic</h2>
+            </div>
+        </div>
+
+        <div class="hero" id="basic-hero">
+            <div class="container">
+                <h1 class="hero__title">Lorem ipsum dolor</h1>
+                <p>Animi delectus ducimus eum quae quibusdam similique unde.</p>
+                <p><a class="button button--primary" href="#">Ok, let's go</a></p>
+                <p><a class="button button--deci" href="#">No, wait a sec</a></p>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="container">
+                <h2>Overlay</h2>
+
+                <p>If the background image is light and the text is verging on illegible, you can add an overlay.</p>
+
+                <div class="hero hero--overlay" id="overlay-hero">
+                    <div class="container">
+                        <h1 class="hero__title">Lorem ipsum dolor</h1>
+                        <p>Animi delectus ducimus eum quae quibusdam similique unde.</p>
+                        <p><a class="button button--primary" href="#">Ok, let's go</a></p>
+                        <p><a class="button button--deci" href="#">No, wait a sec</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            &copy; POD Point
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
