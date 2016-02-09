@@ -14,8 +14,10 @@ Then either link to the production ready files:
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
     <link rel="stylesheet" href="/path/to/node_modules/pod-point/frontend-framework/build/css/style.min.css">
 </head>
 <body>
@@ -38,16 +40,19 @@ require('/path/to/node_modules/pod-point/frontend-framework/src/js/script.js');
 
 ## Development
 
-When working on the package, you'll probably want to run the watchers:
+When working on the package, you can open up `docs/index.html` in your browser and run the following:
 
 ```bash
-npm run watch
+npm run watch:dev
 ```
 
-Single 
+This will start [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) 
+and some watch tasks, which will copy the `build` directory to `docs`.
 
-Once you've finished, you will need to run the following to package up the assets, ready for production:
+## Documentation
+
+To generate the `gh-pages` branch, run this command:
 
 ```bash
-npm run build
+git subtree push --prefix="docs" origin gh-pages
 ```
