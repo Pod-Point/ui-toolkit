@@ -40,18 +40,23 @@ require('/path/to/node_modules/pod-point/frontend-framework/src/js/script.js');
 
 ## Development
 
-When working on the package, you can open up `docs/index.html` in your browser and run the following:
+First, install all of the Node modules needed:
 
 ```bash
-npm run watch:dev
+npm install
 ```
 
-This will start [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) 
-and some watch tasks, which will copy the `build` directory to `docs`.
+Then run the following command:
+
+```bash
+npm run dev
+```
+
+This will spin up a new development server at [http://localhost:8080](http://localhost:8080) with `/docs` as the document root. Also some watch tasks will be spawaned, which will copy the `build` directory to `docs` once the assets have been built. This might sound a little strange but will allow you to keep the Documentation up to date as you develop.
 
 ## Documentation
 
-To generate the `gh-pages` branch, run this command:
+The `gh-pages` branch is a snapshot of `/docs`, hence why it is important to copy the build folder across. To generate new documentation online, run the following anywhere within the project:
 
 ```bash
 git subtree push --prefix="docs" origin gh-pages
