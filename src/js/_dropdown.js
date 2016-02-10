@@ -1,3 +1,5 @@
+require('cross-class-list');
+
 var dropdowns = document.querySelectorAll('[data-toggle="dropdown"]');
 
 for (var i = 0; i < dropdowns.length; i ++) {
@@ -24,5 +26,6 @@ function closeDropDown(event) {
     if (event.relatedTarget && event.relatedTarget.getAttribute('data-toggle') !== 'dropdown') {
         event.relatedTarget.click();
     }
+
     return false;
 }

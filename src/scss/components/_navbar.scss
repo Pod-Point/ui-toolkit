@@ -6,6 +6,7 @@ $navDarkBackgroundColour: #3E3C42;
     background-color: white;
     border: 1px solid $superLightGrey;
     position: relative;
+    z-index: 1000;
 
     body > & {
         border-width: 0 0 1px;

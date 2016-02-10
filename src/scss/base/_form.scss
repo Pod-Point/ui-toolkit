@@ -32,6 +32,11 @@ textarea.form__control {
 
     select {
         appearance: none;
+        padding-right: 2rem;
+
+        &::-ms-expand {
+            display: none;
+        }
 
         > option {
             background-color: white;
