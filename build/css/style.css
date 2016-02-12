@@ -1,11 +1,14 @@
 /**
  * Make a caret arrow.
  */
-/*
+/**
  * Media query to respond to a minimum size (mobile first)
  */
-/*
+/**
  * Media query to respond to a maximum size
+ */
+/**
+ * Clearfix
  */
 /*
     Sprite and icon generator
@@ -934,8 +937,7 @@ a {
   text-decoration: none; }
   a:focus {
     text-decoration: none;
-    -webkit-text-decoration-style: dashed;
-            text-decoration-style: dashed;
+    text-decoration-style: dashed;
     outline: none; }
 
 h1 {
@@ -1002,9 +1004,7 @@ textarea.form__control {
     right: 0.5rem;
     top: 50%; }
   .select-wrapper select {
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    appearance: none;
     padding-right: 2rem; }
     .select-wrapper select::-ms-expand {
       display: none; }
@@ -1043,7 +1043,6 @@ textarea.form__control {
   color: #E9583A;
   opacity: 0;
   margin-top: 10px;
-  -webkit-transition: all 150ms ease-out;
   transition: all 150ms ease-out; }
 
 .nav,
@@ -1240,8 +1239,7 @@ table th[class*="col-"] {
   text-decoration: none;
   white-space: nowrap; }
   .button:active {
-    -webkit-transform: translateY(2px);
-            transform: translateY(2px);
+    transform: translateY(2px);
     box-shadow: 0 1px 0 0 rgba(202, 202, 202, 0.5) inset; }
   .button.button--primary {
     background-color: #8CC63F;
@@ -1360,6 +1358,48 @@ table th[class*="col-"] {
       line-height: normal; }
     .navbar--vertical .navbar__nav > li > .nav > li > a {
       color: white; }
+
+.timeline:before, .timeline:after {
+  content: " ";
+  display: table; }
+
+.timeline:after {
+  clear: both; }
+
+.timeline > li {
+  float: left;
+  padding-top: 2.625rem;
+  position: relative;
+  text-align: center;
+  width: 20%; }
+  .timeline > li:before {
+    background-color: #8CC63F;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0; }
+  .timeline > li:first-child:before {
+    left: 50%; }
+  .timeline > li:last-child:before {
+    right: 50%; }
+  .timeline > li:after {
+    background-color: white;
+    border: 1px solid #8CC63F;
+    border-radius: 100%;
+    content: '';
+    height: 2.25rem;
+    left: 50%;
+    margin-top: -1.125rem;
+    margin-left: -1.125rem;
+    position: absolute;
+    top: 0;
+    width: 2.25rem; }
+  .timeline > li.done:after {
+    background-color: #8CC63F; }
+  .timeline > li.active:after {
+    background-color: #c6e39f; }
 
 .hero {
   background: no-repeat center center;

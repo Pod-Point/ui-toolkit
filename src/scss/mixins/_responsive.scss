@@ -1,4 +1,4 @@
-/*
+/**
  * Media query to respond to a minimum size (mobile first)
  */
 
@@ -9,12 +9,27 @@
 }
 
 
-/*
+/**
  * Media query to respond to a maximum size
  */
 
 @mixin resp-max($size) {
     @media screen and (max-width: $size) {
         @content;
+    }
+}
+
+/**
+ * Clearfix
+ */
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
     }
 }
