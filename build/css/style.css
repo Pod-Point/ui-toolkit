@@ -937,8 +937,7 @@ a {
   text-decoration: none; }
   a:focus {
     text-decoration: none;
-    -webkit-text-decoration-style: dashed;
-            text-decoration-style: dashed;
+    text-decoration-style: dashed;
     outline: none; }
 
 h1 {
@@ -1005,9 +1004,7 @@ textarea.form__control {
     right: 0.5rem;
     top: 50%; }
   .select-wrapper select {
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    appearance: none;
     padding-right: 2rem; }
     .select-wrapper select::-ms-expand {
       display: none; }
@@ -1046,7 +1043,6 @@ textarea.form__control {
   color: #E9583A;
   opacity: 0;
   margin-top: 10px;
-  -webkit-transition: all 150ms ease-out;
   transition: all 150ms ease-out; }
 
 .nav,
@@ -1243,8 +1239,7 @@ table th[class*="col-"] {
   text-decoration: none;
   white-space: nowrap; }
   .button:active {
-    -webkit-transform: translateY(2px);
-            transform: translateY(2px);
+    transform: translateY(2px);
     box-shadow: 0 1px 0 0 rgba(202, 202, 202, 0.5) inset; }
   .button.button--primary {
     background-color: #8CC63F;

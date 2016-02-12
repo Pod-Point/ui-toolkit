@@ -1,14 +1,15 @@
-$size: $line-height * 1.5;
+$timeline-size: $line-height * 1.5;
+$timeline-steps: 5;
 
 .timeline {
     @include clearfix();
 
     > li {
         float: left;
-        padding-top: ($size / 2) + $line-height;
+        padding-top: ($timeline-size / 2) + $line-height;
         position: relative;
         text-align: center;
-        width: 20%;
+        width: (100% / $timeline-steps);
 
         &:before {
             background-color: $green;
@@ -33,13 +34,13 @@ $size: $line-height * 1.5;
             border: 1px solid $green;
             border-radius: 100%;
             content: '';
-            height: $size;
+            height: $timeline-size;
             left: 50%;
-            margin-top: -($size / 2);
-            margin-left: -($size / 2);
+            margin-top: -($timeline-size / 2);
+            margin-left: -($timeline-size / 2);
             position: absolute;
             top: 0;
-            width: $size;
+            width: $timeline-size;
         }
 
         &.done:after {
