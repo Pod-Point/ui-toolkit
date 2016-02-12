@@ -1,0 +1,53 @@
+$size: $line-height * 1.5;
+
+.timeline {
+    @include clearfix();
+
+    > li {
+        float: left;
+        padding-top: ($size / 2) + $line-height;
+        position: relative;
+        text-align: center;
+        width: 20%;
+
+        &:before {
+            background-color: $green;
+            content: '';
+            height: 1px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        &:first-child:before {
+            left: 50%;
+        }
+
+        &:last-child:before {
+            right: 50%;
+        }
+
+        &:after {
+            background-color: white;
+            border: 1px solid $green;
+            border-radius: 100%;
+            content: '';
+            height: $size;
+            left: 50%;
+            margin-top: -($size / 2);
+            margin-left: -($size / 2);
+            position: absolute;
+            top: 0;
+            width: $size;
+        }
+
+        &.done:after {
+            background-color: $green;
+        }
+
+        &.active:after {
+            background-color: mix($green, white, 50%);
+        }
+    }
+}

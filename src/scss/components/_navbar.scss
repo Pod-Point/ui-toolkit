@@ -22,7 +22,7 @@ $navDarkBackgroundColour: #3E3C42;
         overflow: hidden;
         padding: ($line-height / 2) $line-height;
 
-        @media screen and (min-width: $screen-sm-min) {
+        @include resp-min($screen-sm-min) {
             float: left;
         }
 
@@ -47,7 +47,7 @@ $navDarkBackgroundColour: #3E3C42;
             color: $grey;
         }
 
-        @media screen and (min-width: $screen-sm-min) {
+        @include resp-min($screen-sm-min) {
             display: none;
         }
     }
@@ -57,7 +57,7 @@ $navDarkBackgroundColour: #3E3C42;
     }
 
     .navbar__nav {
-        @media screen and (min-width: $screen-sm-min) {
+        @include resp-min($screen-sm-min) {
             float: right;
         }
 
@@ -77,7 +77,7 @@ $navDarkBackgroundColour: #3E3C42;
                 padding-right: 2rem;
             }
 
-            @media screen and (min-width: $screen-sm-min) {
+            @include resp-min($screen-sm-min) {
                 > a {
                     line-height: 40px;
                 }
