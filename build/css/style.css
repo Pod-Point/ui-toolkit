@@ -937,7 +937,8 @@ a {
   text-decoration: none; }
   a:focus {
     text-decoration: none;
-    text-decoration-style: dashed;
+    -webkit-text-decoration-style: dashed;
+            text-decoration-style: dashed;
     outline: none; }
 
 h1 {
@@ -1004,7 +1005,9 @@ textarea.form__control {
     right: 0.5rem;
     top: 50%; }
   .select-wrapper select {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     padding-right: 2rem; }
     .select-wrapper select::-ms-expand {
       display: none; }
@@ -1043,6 +1046,7 @@ textarea.form__control {
   color: #E9583A;
   opacity: 0;
   margin-top: 10px;
+  -webkit-transition: all 150ms ease-out;
   transition: all 150ms ease-out; }
 
 .nav,
@@ -1223,6 +1227,67 @@ table th[class*="col-"] {
         .table-responsive > .table-bordered > tfoot > tr:last-child > td {
           border-bottom: 0; } }
 
+.alert {
+  padding: 15px;
+  margin-bottom: 1.5rem;
+  border: 1px solid transparent; }
+  .alert h4 {
+    margin-top: 0;
+    color: inherit; }
+  .alert .alert-link {
+    font-weight: bold; }
+  .alert > p,
+  .alert > ul {
+    margin-bottom: 0; }
+  .alert > p + p {
+    margin-top: 5px; }
+
+.alert.dismissable,
+.alert.dismissible {
+  padding-right: 35px; }
+  .alert.dismissable .close,
+  .alert.dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit; }
+
+.alert.success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d; }
+  .alert.success hr {
+    border-top-color: #c9e2b3; }
+  .alert.success .alert-link {
+    color: #2b542c; }
+
+.alert.info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f; }
+  .alert.info hr {
+    border-top-color: #a6e1ec; }
+  .alert.info .alert-link {
+    color: #245269; }
+
+.alert.warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b; }
+  .alert.warning hr {
+    border-top-color: #f7e1b5; }
+  .alert.warning .alert-link {
+    color: #66512c; }
+
+.alert.danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442; }
+  .alert.danger hr {
+    border-top-color: #e4b9c0; }
+  .alert.danger .alert-link {
+    color: #843534; }
+
 .button {
   background-color: #dedede;
   border-radius: 0.25rem;
@@ -1239,7 +1304,8 @@ table th[class*="col-"] {
   text-decoration: none;
   white-space: nowrap; }
   .button:active {
-    transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
     box-shadow: 0 1px 0 0 rgba(202, 202, 202, 0.5) inset; }
   .button.button--primary {
     background-color: #8CC63F;
