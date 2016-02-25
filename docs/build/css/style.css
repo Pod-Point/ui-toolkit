@@ -985,6 +985,8 @@ hr {
   width: 100%; }
   .form__control:focus {
     outline: none; }
+  .form__control[disabled] {
+    background: #dedede; }
 
 textarea.form__control {
   min-height: 7.5rem;
@@ -1303,6 +1305,12 @@ table th[class*="col-"] {
   text-shadow: 0 1px 0 #fff;
   text-decoration: none;
   white-space: nowrap; }
+  .button[disabled], .button.disabled {
+    color: #CACACA;
+    text-shadow: none;
+    background-color: rgba(222, 222, 222, 0.5);
+    box-shadow: 0 2px 0 0 rgba(202, 202, 202, 0.5);
+    text-shadow: 0 -1px 0 rgba(202, 202, 202, 0.5); }
   .button:active {
     -webkit-transform: translateY(2px);
             transform: translateY(2px);
@@ -1314,6 +1322,10 @@ table th[class*="col-"] {
     text-shadow: 0 -1px 0 #5D9712; }
     .button.button--primary:active {
       box-shadow: 0 1px 0 0 rgba(93, 151, 18, 0.5) inset; }
+    .button.button--primary[disabled], .button.button--primary.disabled {
+      background-color: rgba(140, 198, 63, 0.5);
+      box-shadow: 0 2px 0 0 rgba(93, 151, 18, 0.5);
+      text-shadow: 0 -1px 0 rgba(93, 151, 18, 0.5); }
   .button.button--deci {
     font-size: 0.88889rem;
     height: 2rem;
