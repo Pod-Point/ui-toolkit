@@ -29,6 +29,12 @@
                     <input type="text" id="first_name" name="first_name" class="form__control">
                 </fieldset>
 
+                <fieldset class="form__group form__group--text">
+                    <label for="disabled__input" class="form__label">Disabled Input</label>
+
+                    <input disabled type="text" value="You can't touch this" id="disabled__input" name="disabled__input" class="form__control">
+                </fieldset>
+
                 <fieldset class="form__group">
                     <label for="status" class="form__label">Status</label>
 
@@ -87,7 +93,9 @@
 
                 <div class="form__group">
                     <button class="button button--primary" type="submit">Submit</button>
+                    <button disabled class="button button--primary" type="button">Disabled</button>
                     <a href="#" class="button">Cancel</a>
+                    <a href="#" class="button disabled">Disabled</a>
                 </div>
             </form>
 
