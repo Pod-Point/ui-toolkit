@@ -12,6 +12,10 @@
     &:focus {
         outline: none;
     }
+
+    &[disabled] {
+        background: $superLightGrey;
+    }
 }
 
 textarea.form__control {
