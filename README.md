@@ -7,7 +7,9 @@ The POD Point frontend framework is a library of base styles and components desi
 ## Installation
 
 ```bash
-npm install --save-dev pp-frontend-framework
+git clone git@github.com:Pod-Point/frontend-framework.git
+cd frontend-framework
+npm install
 ```
 
 Then either link to the production ready files:
@@ -49,7 +51,7 @@ npm install
 Then run the following command:
 
 ```bash
-npm run dev
+npm run watch
 ```
 
 This will spin up a new development server at [http://localhost:8080](http://localhost:8080) with `/docs` as the document root. Also some watch tasks will be spawaned, which will copy the `build` directory to `docs` once the assets have been built. This might sound a little strange but will allow you to keep the Documentation up to date as you develop.
