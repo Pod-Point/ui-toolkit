@@ -6,15 +6,18 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:docs": "rsync -r build docs && browser-sync reload",
-    "css:sass": "node-sass src/scss -o build/css",
+    "css:sass": "node-sass --source-map=true src/scss -o build/css",
     "css:autoprefix": "postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o build/css/style.css build/css/style.css",
-    "css:minify": "cssnano --sourcemap build/css/style.css build/css/style.min.css",
+    "css:minify": "cssnano --sourcemap build/css/style.css build/css/style.css",
     "build:css": "npm run css:sass && npm run css:autoprefix && npm run css:minify",
-    "js:bundle": "webpack --devtool=inline-source-map ./src/js/script.js build/js/script.js",
-    "js:uglify": "uglifyjs build/js/script.js -o build/js/script.min.js",
+    "js:bundle": "webpack --devtool=source-map ./src/js/script.js build/js/script.js",
+    "js:uglify": "uglifyjs build/js/script.js -o build/js/script.js",
     "build:js": "npm run js:bundle && npm run js:uglify",
+    "img:copy": "rsync -r src/img build",
+    "build:img": "npm run img:copy",
     "browser-sync": "browser-sync start --server docs",
-    "build": "npm run build:js && npm run build:css && npm run build:docs",
+    "clean": "rm -rf build docs/build",
+    "build": "npm run clean && npm run build:js && npm run build:css && npm run build:img && npm run build:docs",
     "watch": "watch 'npm run build' src/* & npm run browser-sync"
   },
   "dependencies": {
