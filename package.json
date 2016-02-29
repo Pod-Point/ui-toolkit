@@ -5,18 +5,20 @@
   "author": "Mike Francis <mike.francis@pod-point.com>",
   "license": "Apache-2.0",
   "scripts": {
-    "build:docs": "rsync -r build docs",
-    "css:sass": "node-sass src/scss -o build/css",
+    "build:docs": "rsync -r build docs && browser-sync reload",
+    "css:sass": "node-sass --source-map=true src/scss -o build/css",
     "css:autoprefix": "postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o build/css/style.css build/css/style.css",
-    "css:minify": "cssnano --sourcemap build/css/style.css build/css/style.min.css",
-    "build:css": "npm run css:sass && npm run css:autoprefix && npm run css:minify && npm run build:docs",
-    "watch:css": "fsmonitor -s -p -d src/scss npm run build:css",
-    "js:bundle": "webpack --devtool=inline-source-map ./src/js/script.js build/js/script.js",
-    "js:uglify": "uglifyjs build/js/script.js -o build/js/script.min.js",
-    "build:js": "npm run js:bundle && npm run js:uglify && npm run build:docs",
-    "watch:js": "fsmonitor -s -p -d src/js npm run build:js",
-    "watch": "livereload ./build & npm run watch:css -s & npm run watch:js -s",
-    "dev": "http-server ./docs & npm run watch"
+    "css:minify": "cssnano --sourcemap build/css/style.css build/css/style.css",
+    "build:css": "npm run css:sass && npm run css:autoprefix && npm run css:minify",
+    "js:bundle": "webpack --devtool=source-map ./src/js/script.js build/js/script.js",
+    "js:uglify": "uglifyjs build/js/script.js -o build/js/script.js",
+    "build:js": "npm run js:bundle && npm run js:uglify",
+    "img:copy": "rsync -r src/img build",
+    "build:img": "npm run img:copy",
+    "browser-sync": "browser-sync start --server docs",
+    "clean": "rm -rf build docs/build",
+    "build": "npm run clean && npm run build:js && npm run build:css && npm run build:img && npm run build:docs",
+    "watch": "watch 'npm run build' src/* & npm run browser-sync"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
@@ -25,13 +27,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
+    "browser-sync": "^2.11.1",
     "cssnano-cli": "^1.0.3",
-    "fsmonitor": "^0.2.4",
-    "http-server": "^0.8.5",
-    "livereload": "^0.4.1",
     "node-sass": "^3.4.2",
     "postcss-cli": "^2.4.1",
     "uglify-js": "^2.6.1",
+    "watch": "^0.17.1",
     "webpack": "^1.12.12"
   }
 }
