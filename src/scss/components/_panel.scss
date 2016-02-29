@@ -1,28 +1,28 @@
 .panel {
   border: 1px solid $superLightGrey;
   padding: 0.75rem;
+}
 
-  .title, .subtitle, .footer {
-    text-align: center;
-    padding: 1.25rem 0;
-  }
+.panel__title, .panel__subtitle, .panel__footer {
+  text-align: center;
+  padding: 1.25rem 0;
+}
 
-  .title {
-    margin: 0 -0.75rem 0.75rem -0.75rem;
-    font-size: 1.25rem;
-    border-bottom: 1px solid $superLightGrey;
-  }
+.panel__title {
+  margin: 0 -0.75rem 0.75rem -0.75rem;
+  font-size: 1.25rem;
+  border-bottom: 1px solid $superLightGrey;
+}
 
-  .subtitle {
-    margin: 0.25rem 0;
-    font-size: 1rem;
-  }
+.panel__subtitle {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+}
 
-  .footer {
-    margin: 0 -0.75rem -0.75rem -0.75rem;
+.panel__footer {
+  margin: 0 -0.75rem -0.75rem -0.75rem;
 
-    .button {
-      margin: 0;
-    }
+  .button {
+    margin: 0;
   }
 }
