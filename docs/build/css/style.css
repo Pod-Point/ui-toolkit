@@ -954,6 +954,10 @@ h3 {
 img[data-lazy] {
   opacity: 0; }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
 hr {
   background-color: #CACACA;
   border: 0;
