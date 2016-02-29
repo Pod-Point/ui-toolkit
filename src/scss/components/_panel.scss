@@ -1,0 +1,32 @@
+$panel-spacing: 0.75rem;
+
+.panel {
+  border: 1px solid $superLightGrey;
+  padding: $panel-spacing;
+}
+
+.panel__title, .panel__subtitle, .panel__footer {
+  text-align: center;
+  margin: 0 ($panel-spacing * -1);
+}
+
+.panel__title {
+  border-bottom: 1px solid $superLightGrey;
+  margin-bottom: $panel-spacing;
+  line-height: $line-height * 2;
+  font-size: 1.25rem;
+}
+
+.panel__subtitle {
+  font-size: 1rem;
+  line-height: $line-height * 1.75;
+}
+
+.panel__footer {
+  padding-top: $panel-spacing;
+  border-top: 1px solid $superLightGrey;
+
+  .button {
+    margin: 0;
+  }
+}
