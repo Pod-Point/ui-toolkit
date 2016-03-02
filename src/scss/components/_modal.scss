@@ -1,0 +1,39 @@
+.modal-overlay,
+.modal {
+  display: none;
+}
+
+.modal-overlay,
+.modal {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.modal-overlay {
+  background-color: rgba(black, 0.5);
+  position: fixed;
+  z-index: 2000;
+}
+
+.modal {
+  height: 100%;
+  position: fixed;
+  z-index: 2001;
+  margin-top: 25px;
+}
+
+.modal__loading {
+  animation: rotate 2s linear infinite;
+  height: 4rem;
+  transform-origin: center center;
+  width: 4rem;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+}
+
+.modal__panel {
+  background: $white;
+}
