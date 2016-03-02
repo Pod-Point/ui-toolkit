@@ -24,11 +24,15 @@ textarea.form__control {
     resize: vertical;
 }
 
+select[multiple].form__control {
+    height: auto;
+}
+
 .select-wrapper {
     position: relative;
 
     &:after {
-        @include caret(down, $grey, 0.5rem);
+        @include caret(down, $grey, 0.4rem);
         position: absolute;
         right: 0.5rem;
         top: 50%;
