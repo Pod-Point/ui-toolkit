@@ -3,7 +3,6 @@
     border: 1px solid $lightGrey;
     border-radius: $border-radius;
     color: $grey;
-    @include font-size($scale-hecto);
     height: 2.5rem;
     line-height: 1.5rem;
     padding: 0.25rem 0.5rem;
@@ -29,7 +28,7 @@ textarea.form__control {
     position: relative;
 
     &:after {
-        @include caret(down, $grey, 0.5rem);
+        @include caret(down, $grey, 0.4rem);
         position: absolute;
         right: 0.5rem;
         top: 50%;
@@ -63,8 +62,7 @@ textarea.form__control {
 .form__label {
     color: $grey;
     display: block;
-    @include font-size($scale-hecto);
-    margin-bottom: 0.5rem;
+    margin-bottom: ($line-height / 2);
 }
 
 .radio,
