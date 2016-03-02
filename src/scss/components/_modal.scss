@@ -13,7 +13,7 @@
 
 .modal-overlay {
   background-color: rgba(black, 0.5);
-  position: absolute;
+  position: fixed;
   z-index: 2000;
 }
 
@@ -21,7 +21,8 @@
   height: 100%;
   position: fixed;
   z-index: 2001;
-  margin: 25px 0;
+  padding: 25px 0;
+  overflow: scroll;
 }
 
 .modal__loading {
