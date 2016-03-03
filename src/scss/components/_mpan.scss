@@ -35,50 +35,50 @@
     outline: none;
   }
 
-  input[name=profile_class],
-  input[name=switch_code],
-  input[name=line_loss_factor] {
+  input.profile_class,
+  input.switch_code,
+  input.line_loss_factor {
     top: 0;
     border-bottom: 1px solid black;
   }
 
-  input[name=distributor_id],
-  input[name=meter_point_id],
-  input[name=check_digit] {
+  input.distributor_id,
+  input.meter_point_id,
+  input.check_digit {
     bottom: 0;
   }
 
-  input[name=profile_class] {
+  input.profile_class {
     left: 60px;
     width: 75px;
     text-align: left;
     padding-left: 10px;
   }
 
-  input[name=switch_code] {
+  input.switch_code {
     left: 135px;
     width: 100px;
   }
 
-  input[name=line_loss_factor] {
+  input.line_loss_factor {
     left: 235px;
     width: 100px;
     border-right: 0;
   }
 
-  input[name=distributor_id] {
+  input.distributor_id {
     left: 60px;
     width: 50px;
     text-align: left;
     padding-left: 10px;
   }
 
-  input[name=meter_point_id] {
+  input.meter_point_id {
     left: 110px;
     width: 165px;
   }
 
-  input[name=check_digit] {
+  input.check_digit {
     left: 275px;
     width: 60px;
     border-right: 0;
