@@ -35,14 +35,14 @@
         }
     }
 
-    &.button--deci {
+    &.button--deca,
+    &.button--lg {
         @include font-size($scale-deci);
-        height: 2rem;
-        line-height: 2rem;
-        padding: 0 1rem;
+        height: 3rem;
+        line-height: 3rem;
+        padding: 0 2rem;
     }
 }
-
 .button--block {
     width: 100%;
 }
