@@ -1,4 +1,5 @@
 $panel-spacing: $line-height;
+$panel-border: 1px solid $superLightGrey;
 
 .panel {
     background-color: white;
@@ -8,36 +9,37 @@ $panel-spacing: $line-height;
     padding-bottom: 0;
 }
 
-    .panel__header {
-        border-bottom: 1px solid $superLightGrey;
-        margin-bottom: $panel-spacing;
-    }
-
-    .panel__header, .panel__subtitle, .panel__footer {
-        text-align: center;
+    .panel__header,
+    .panel__body,
+    .panel__footer {
         margin: 0 ($panel-spacing * -1);
+        padding: $panel-spacing;
+        text-align: center;
     }
 
     .panel__header {
+        border-bottom: $panel-border;
         margin-top: ($panel-spacing * -1);
-        margin-bottom: $panel-spacing;
     }
 
     .panel__title {
-        margin-bottom: $panel-spacing;
+        margin-bottom: 0;
         font-size: 1.25rem;
+    }
+
+    .panel__body {
+        padding-bottom: 0;
+
+        > ul,
+        > ol {
+            text-align: left;
+        }
     }
 
     .panel__subtitle {
         font-size: 1rem;
-        line-height: $line-height * 1.75;
     }
 
     .panel__footer {
-        padding-top: $panel-spacing;
-        border-top: 1px solid $superLightGrey;
-
-        .button {
-            margin-bottom: $panel-spacing;
-        }
+        border-top: $panel-border;
     }
