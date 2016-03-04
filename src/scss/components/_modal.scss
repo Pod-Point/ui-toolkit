@@ -21,7 +21,8 @@
   height: 100%;
   position: fixed;
   z-index: 2001;
-  margin-top: 25px;
+  padding: ($line-height * 2) 0;
+  overflow: scroll;
 }
 
 .modal__loading {

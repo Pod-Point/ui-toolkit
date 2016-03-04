@@ -4,6 +4,10 @@
     'variables/easing';
 
 @import
+    'utils/a11y',
+    'utils/animations';
+
+@import
     'mixins/typography',
     'mixins/caret',
     'mixins/images',
@@ -28,4 +32,6 @@
     'components/hero',
     'components/panel',
     'components/switch',
-    'components/modal';
+    'components/modal',
+    'components/mpan',
+    'components/rating';
