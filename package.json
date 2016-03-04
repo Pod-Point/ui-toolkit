@@ -11,7 +11,7 @@
     "css:minify": "cssnano --sourcemap build/css/style.css build/css/style.css",
     "build:css": "npm run css:sass && npm run css:autoprefix && npm run css:minify",
     "js:bundle": "webpack --devtool=source-map ./src/js/script.js build/js/script.js",
-    "js:uglify": "uglifyjs build/js/script.js -o build/js/script.js --in-source-map build/js/script.js.map --source-map build/js/script.js.map",
+    "js:uglify": "uglifyjs build/js/script.js -o build/js/script.min.js --in-source-map build/js/script.js.map --source-map build/js/script.min.js.map",
     "build:js": "npm run js:bundle && npm run js:uglify",
     "img:copy": "rsync -r src/img build",
     "build:img": "npm run img:copy",
