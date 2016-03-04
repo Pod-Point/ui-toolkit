@@ -23,7 +23,7 @@ Then either link to the production ready files:
     <link rel="stylesheet" href="/path/to/node_modules/pod-point/frontend-framework/build/css/style.min.css">
 </head>
 <body>
-    <script src="/path/to/node_modules/pod-point/frontend-framework/build/js/script.min.js"></script>
+    <script src="/path/to/node_modules/pod-point/frontend-framework/build/js/script.js"></script>
 </body>
 </html>
 ```
@@ -37,7 +37,7 @@ Or import the entry points into your project. For Sass, this is done by:
 And for the JavaScripts:
 
 ```js
-require('/path/to/node_modules/pod-point/frontend-framework/src/js/script.js');
+import modal from '/path/to/node_modules/pod-point/frontend-framework/src/js/modules/modal';
 ```
 
 ## Development

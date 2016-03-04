@@ -1,5 +1,5 @@
 import { Delegate } from 'dom-delegate';
-import { selectFirst } from '@pod-point/dom-ops';
+import { selectFirst, hasClass } from '@pod-point/dom-ops';
 import { hide, show } from './utilities';
 
 let instances = [];
@@ -7,7 +7,7 @@ let instances = [];
 class Collapse {
 
     /**
-     * Creates a new modeal.
+     * Creates a new collapsable element.
      *
      * @param element
      */
@@ -33,21 +33,20 @@ class Collapse {
      */
     unbindEvents() {
         this.listener.destroy();
-        this.closeListener.destroy();
     }
 
     /**
      * Collapses the element
-     * @param  {[type]} event
-     * @param  {[type]} trigger
+     * @param {Event} event
+     * @param {Element} trigger
      */
     doCollapse(event, trigger) {
         event.preventDefault();
 
-        let target = trigger.getAttribute('data-target');
+        let target = trigger.dataset.target;
         let element = selectFirst(target, trigger.parentNode);
 
-        if (element.classList.contains('in')) {
+        if (hasClass(element, 'in')) {
             hide(element, trigger);
         } else {
             show(element, trigger);

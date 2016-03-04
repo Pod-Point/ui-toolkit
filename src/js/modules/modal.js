@@ -6,7 +6,7 @@ let instances = [];
 class Modal {
 
     /**
-     * Creates a new modeal.
+     * Creates a new modal.
      *
      * @param element
      */
@@ -52,8 +52,7 @@ class Modal {
 
     /**
      * Opens the modal
-     * @param  {[type]} event
-     * @param  {[type]} input
+     * @param {Event} event
      */
     doModal(event) {
         event.preventDefault();
@@ -74,7 +73,7 @@ class Modal {
 
     /**
      * Closes the modal
-     * @param  {[type]} event
+     * @param {Event} event
      */
     closeModal(event) {
         event.preventDefault();
