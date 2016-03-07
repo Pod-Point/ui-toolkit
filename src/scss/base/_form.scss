@@ -24,6 +24,10 @@ textarea.form__control {
     resize: vertical;
 }
 
+select[multiple].form__control {
+    height: auto;
+}
+
 .select-wrapper {
     position: relative;
 
