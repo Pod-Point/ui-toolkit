@@ -1,32 +1,45 @@
-$panel-spacing: 0.75rem;
+$panel-spacing: $line-height;
+$panel-border: 1px solid $superLightGrey;
 
 .panel {
-  border: 1px solid $superLightGrey;
-  padding: $panel-spacing;
+    background-color: white;
+    border: 1px solid $superLightGrey;
+    border-radius: $border-radius;
+    padding: $panel-spacing;
+    padding-bottom: 0;
 }
 
-.panel__title, .panel__subtitle, .panel__footer {
-  text-align: center;
-  margin: 0 ($panel-spacing * -1);
-}
+    .panel__header,
+    .panel__body,
+    .panel__footer {
+        margin: 0 ($panel-spacing * -1);
+        padding: $panel-spacing;
+        text-align: center;
+    }
 
-.panel__title {
-  border-bottom: 1px solid $superLightGrey;
-  margin-bottom: $panel-spacing;
-  line-height: $line-height * 2;
-  font-size: 1.25rem;
-}
+    .panel__header {
+        border-bottom: $panel-border;
+        margin-top: ($panel-spacing * -1);
+    }
 
-.panel__subtitle {
-  font-size: 1rem;
-  line-height: $line-height * 1.75;
-}
+    .panel__title {
+        margin-bottom: 0;
+        font-size: 1.25rem;
+    }
 
-.panel__footer {
-  padding-top: $panel-spacing;
-  border-top: 1px solid $superLightGrey;
+    .panel__body {
+        padding-bottom: 0;
 
-  .button {
-    margin: 0;
-  }
-}
+        > ul,
+        > ol {
+            text-align: left;
+        }
+    }
+
+    .panel__subtitle {
+        font-size: 1rem;
+    }
+
+    .panel__footer {
+        border-top: $panel-border;
+    }

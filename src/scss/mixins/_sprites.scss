@@ -12,8 +12,6 @@
             already used sprite() on a more generic selector.
 */
 
-$basePath: '../img/spritesheets/';
-
 $spritesheets: (
     global: (
         filename: global,
@@ -56,7 +54,7 @@ $sprites: (
 @mixin generate-sprite($id, $width, $height, $x, $y, $proportion, $position) {
 
     $spritesheet: map-get($spritesheets, $id);
-    $path: $basePath + map-get($spritesheet, filename);
+    $path: $sprites-path + map-get($spritesheet, filename);
 
     background: url($path + '.svg') no-repeat ($x * $proportion * -1) ($y * $proportion * -1) rgba(0,0,0,0);
     background-size: (map-get($spritesheet, width) * $proportion) (map-get($spritesheet, height) * $proportion);

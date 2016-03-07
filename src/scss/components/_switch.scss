@@ -19,7 +19,8 @@ $switch-active-text-colour: white;
     > label {
         border: $switch-border;
         border-radius: $switch-height 0 0 $switch-height;
-        //color: transparent;
+        color: transparent;
+        cursor: pointer;
         display: inline-block;
         @include font-size($scale-deci);
         float: left;
