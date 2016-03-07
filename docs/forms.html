@@ -10,7 +10,7 @@
 <body>
     <header class="navbar" role="banner">
         <div class="container-fluid">
-            <a href="index.html" class="navbar__brand"><span>POD Point</span></a>
+            <a href="index.html" class="brand"><span>POD Point</span></a>
         </div>
     </header>
 
@@ -97,6 +97,18 @@
                     </fieldset>
                 </div>
 
+                <div class="form__group">
+                    <p>You can also make switchable radio buttons like the one below:</p>
+
+                    <div class="switch">
+                        <input checked type="radio" id="switch_on" name="switch" value="on">
+                        <label for="switch_on">On</label>
+
+                        <input type="radio" id="switch_off" name="switch" value="off">
+                        <label for="switch_off">Off</label>
+                    </div>
+                </div>
+
                 <fieldset class="form__group">
                     <label for="message" class="form__label">Message</label>
 
@@ -109,6 +121,7 @@
                     <a href="#" class="button">Cancel</a>
                     <a href="#" class="button disabled">Disabled</a>
                 </div>
+
             </form>
 
             <h2>Form Errors</h2>

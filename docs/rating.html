@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Alerts</title>
+    <title>Ratings</title>
     <link rel="stylesheet" href="build/css/style.css">
     <link rel="stylesheet" href="demo.css">
 </head>
@@ -16,24 +16,21 @@
 
 <main class="main" role="main">
     <div class="container">
-        <div class="alert success">
-            <strong>Well done!</strong> You successfully read this important alert message.
-        </div>
-        <div class="alert info">
-            <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-        </div>
-        <div class="alert warning">
-            <strong>Warning!</strong> Better check yourself, you're not looking too good.
-        </div>
-        <div class="alert danger">
-            <strong>Oh snap!</strong> Change a few things up and try submitting again.
-        </div>
+        <h1>Five Star Ratings</h1>
+
+        <span class="rating">
+          <input type="radio" name="rating" value="1"><i></i>
+          <input type="radio" name="rating" value="2"><i></i>
+          <input type="radio" name="rating" value="3"><i></i>
+          <input type="radio" name="rating" value="4"><i></i>
+          <input type="radio" name="rating" value="5"><i></i>
+        </span>
     </div>
 </main>
 
 <footer class="footer" role="contentinfo">
     <div class="container">
-        &copy; POD Point
+        &copy; POD Point <script>document.write(new Date().getFullYear())</script>
     </div>
 </footer>
 

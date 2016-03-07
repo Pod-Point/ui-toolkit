@@ -11,24 +11,16 @@ $navDarkBackgroundColour: #3E3C42;
     body > & {
         border-width: 0 0 1px;
     }
+
+    .brand {
+        @include resp-min($screen-sm-min) {
+            float: left;
+        }
+    }
 }
 
     .navbar > .container-fluid {
         padding: 0;
-    }
-
-    .navbar__brand {
-        display: block;
-        overflow: hidden;
-        padding: ($line-height / 2) $line-height;
-
-        @include resp-min($screen-sm-min) {
-            float: left;
-        }
-
-        > span {
-            @include sprite(pod-point-logo, .5);
-        }
     }
 
     .navbar__toggle {
@@ -89,7 +81,7 @@ $navDarkBackgroundColour: #3E3C42;
     background-color: #4F4D54;
     border-bottom: 0;
 
-    .navbar__brand {
+    .brand {
         background-color: $navDarkBackgroundColour;
     }
 
@@ -100,7 +92,7 @@ $navDarkBackgroundColour: #3E3C42;
 }
 
 .navbar--vertical {
-    .navbar__brand,
+    .brand,
     .navbar__nav {
         float: none;
     }
@@ -130,5 +122,15 @@ $navDarkBackgroundColour: #3E3C42;
                 color: white;
             }
         }
+    }
+}
+
+.brand {
+    display: block;
+    overflow: hidden;
+    padding: ($line-height / 2) $line-height;
+
+    > span {
+        @include sprite(pod-point-logo, .5);
     }
 }

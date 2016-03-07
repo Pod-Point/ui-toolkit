@@ -3,7 +3,6 @@
     border: 1px solid $lightGrey;
     border-radius: $border-radius;
     color: $grey;
-    @include font-size($scale-hecto);
     height: 2.5rem;
     line-height: 1.5rem;
     padding: 0.25rem 0.5rem;
@@ -14,7 +13,8 @@
     }
 
     &[disabled] {
-        background: $superLightGrey;
+        background: #f2f2f2;
+        cursor: not-allowed;
     }
 }
 
@@ -66,8 +66,7 @@ select[multiple].form__control {
 .form__label {
     color: $grey;
     display: block;
-    @include font-size($scale-hecto);
-    margin-bottom: 0.5rem;
+    margin-bottom: ($line-height / 2);
 }
 
 .radio,
@@ -90,6 +89,8 @@ select[multiple].form__control {
 
 .form__error {
     color: $red;
+    font-weight: bold;
+    font-size: 0.875rem;
     opacity: 0;
     margin-top: 10px;
     transition: all 150ms ease-out;

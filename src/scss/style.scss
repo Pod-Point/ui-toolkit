@@ -1,7 +1,12 @@
 @import
     'variables/layout',
     'variables/colours',
-    'variables/easing';
+    'variables/easing',
+    'variables/sprites';
+
+@import
+    'utils/a11y',
+    'utils/animations';
 
 @import
     'mixins/typography',
@@ -27,4 +32,6 @@
     'components/timeline',
     'components/hero',
     'components/panel',
-    'components/modal';
+    'components/switch',
+    'components/modal',
+    'components/rating';

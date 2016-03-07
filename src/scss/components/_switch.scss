@@ -1,0 +1,38 @@
+$switch-border: 1px solid $grey;
+$switch-height: ($line-height * 1.5);
+$switch-width: ($line-height * 2);
+$switch-active-background-colour: $green;
+$switch-active-text-colour: white;
+
+.switch {
+    @include clearfix;
+
+    > input {
+        display: none;
+
+        &:checked + label {
+            background-color: $switch-active-background-colour;
+            color: $switch-active-text-colour;
+        }
+    }
+
+    > label {
+        border: $switch-border;
+        border-radius: $switch-height 0 0 $switch-height;
+        color: transparent;
+        cursor: pointer;
+        display: inline-block;
+        @include font-size($scale-deci);
+        float: left;
+        height: $switch-height;
+        line-height: $switch-height;
+        text-align: center;
+        text-transform: uppercase;
+        width: $switch-width;
+
+        &:last-child {
+            border-radius: 0 $switch-height $switch-height 0;
+            border-left: 0;
+        }
+    }
+}

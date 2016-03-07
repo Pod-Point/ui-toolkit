@@ -5,21 +5,19 @@
     box-shadow: 0 2px 0 0 $lightGrey;
     color: $darkGrey;
     display: inline-block;
-    @include font-size($scale-deca);
-    height: 3rem;
-    line-height: 3rem;
-    padding: 0 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1rem;
     outline: none;
+    text-align: center;
     text-shadow: 0 1px 0 $white;
     text-decoration: none;
     white-space: nowrap;
 
-    &[disabled], &.disabled {
-        color: $lightGrey;
-        text-shadow: none;
-        background-color: rgba($superLightGrey, 0.5);
-        box-shadow: 0 2px 0 0 rgba($lightGrey, 0.5);
-        text-shadow: 0 -1px 0 rgba($lightGrey, 0.5);
+    &[disabled],
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
     }
 
     &:active {
@@ -36,18 +34,22 @@
         &:active {
             box-shadow: 0 1px 0 0 rgba($darkGreen, 0.5) inset;
         }
-
-        &[disabled], &.disabled {
-            background-color: rgba($green, 0.5);
-            box-shadow: 0 2px 0 0 rgba($darkGreen, 0.5);
-            text-shadow: 0 -1px 0 rgba($darkGreen, 0.5);
-        }
     }
 
-    &.button--deci {
-        @include font-size($scale-deci);
-        height: 2rem;
-        line-height: 2rem;
-        padding: 0 1rem;
+    &.button--deca,
+    &.button--lg {
+        height: 3rem;
+        line-height: 3rem;
+        padding: 0 2rem;
     }
+}
+.button--block {
+    width: 100%;
+}
+
+.button--link {
+    background-color: transparent;
+    box-shadow: none;
+    color: $green;
+    text-shadow: none;
 }
