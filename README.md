@@ -37,7 +37,7 @@ Or import the entry points into your project. For Sass, this is done by:
 And for the JavaScripts:
 
 ```js
-import modal from '/path/to/node_modules/pod-point/frontend-framework/src/js/modules/modal';
+import modal from '/path/to/node_modules/pod-point/frontend-framework/build/js/modal';
 ```
 
 ## Development
