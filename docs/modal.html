@@ -16,14 +16,14 @@
 
 <main class="main" role="main">
     <div class="container">
-        <button type="button" class="button button--primary" data-toggle="modal">
+        <button type="button" class="button button--primary" data-js-module="modal" data-modal="testModal">
             Show Me A Modal!
         </button>
     </div>
 </main>
 
 <div class="modal-overlay"></div>
-<div class="modal">
+<div class="modal" id="testModal">
     <div class="col-xs-6 col-xs-offset-3">
         <div class="panel modal__panel">
             <h4 class="panel__title">A Title For This Panel</h4>
