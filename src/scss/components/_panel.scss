@@ -3,11 +3,18 @@ $panel-border: 1px solid $superLightGrey;
 $panel-dl-width: 200px;
 
 .panel {
+    @include clearfix();
     background-color: white;
     border: 1px solid $superLightGrey;
     border-radius: $border-radius;
+    list-style: none;
+    margin-bottom: $line-height;
     padding: $panel-spacing;
     padding-bottom: 0;
+}
+
+.panel {
+
 }
 
     .panel__header,
