@@ -1,9 +1,11 @@
+$input-background-colour: white;
+
 .form__control {
-    background-color: white;
+    background-color: $input-background-colour;
     border: 1px solid $lightGrey;
     border-radius: $border-radius;
     color: $grey;
-    height: 2.5rem;
+    height: auto;
     line-height: 1.5rem;
     padding: 0.25rem 0.5rem;
     width: 100%;
@@ -18,27 +20,36 @@
     }
 }
 
-textarea.form__control {
-    min-height: 7.5rem;
+textarea.form__control,
+select[multiple].form__control {
+    min-height: 6.5rem;
     overflow-y: hidden;
+}
+
+textarea.form__control {
     resize: vertical;
 }
 
-select[multiple].form__control {
-    height: auto;
+select.form__control > option {
+    font: inherit;
+    height: $line-height;
 }
 
 .select-wrapper {
+    background-color: $input-background-colour;
     position: relative;
+    z-index: 1;
 
     &:after {
         @include caret(down, $grey, 0.4rem);
         position: absolute;
         right: 0.5rem;
         top: 50%;
+        z-index: -1;
     }
 
     select {
+        background-color: transparent;
         appearance: none;
         padding-right: 2rem;
 
@@ -47,7 +58,7 @@ select[multiple].form__control {
         }
 
         > option {
-            background-color: white;
+            background-color: transparent;
         }
     }
 }
@@ -94,4 +105,14 @@ select[multiple].form__control {
     opacity: 0;
     margin-top: 10px;
     transition: all 150ms ease-out;
+}
+
+.form__control {
+
+}
+
+.form--inline {
+    .form__control {
+        width: auto;
+    }
 }

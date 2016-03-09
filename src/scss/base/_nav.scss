@@ -64,10 +64,6 @@
 .collapse {
     display: none;
 
-    @include resp-min($screen-sm-min) {
-        display: block;
-    }
-
     &.in {
         display: block;
     }
