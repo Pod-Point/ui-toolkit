@@ -1,5 +1,6 @@
 $panel-spacing: $line-height;
 $panel-border: 1px solid $superLightGrey;
+$panel-dl-width: 200px;
 
 .panel {
     background-color: white;
@@ -42,4 +43,32 @@ $panel-border: 1px solid $superLightGrey;
 
     .panel__footer {
         border-top: $panel-border;
+    }
+
+    .panel__dl {
+        margin: ($line-height * -1) ($line-height * -1) 0;
+
+        dt,
+        dd {
+            border-bottom: $panel-border;
+            padding: ($line-height / 2) $line-height;
+
+            &:last-of-type {
+                border-bottom: 0;
+            }
+        }
+
+        dt {
+            float: left;
+            font-weight: bold;
+            width: $panel-dl-width;
+            overflow: hidden;
+            clear: left;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        dd {
+            margin-left: $panel-dl-width;
+        }
     }
