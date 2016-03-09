@@ -1,6 +1,6 @@
 body {
     background-color: white;
-    color: $darkGrey;
+    color: $dark-grey;
     font-family: 'Myriad Pro', Helvetica, sans-serif;
     font-size: 1rem;
     line-height: $line-height;
@@ -34,7 +34,7 @@ address {
 }
 
 a {
-    color: $darkGreen;
+    color: $brand-primary;
     text-decoration: none;
 
     &:focus {
@@ -45,16 +45,16 @@ a {
 }
 
 h1 {
-    @include font-size($scale-kilo);
+    font-size: $font-size-giga;
     line-height: ($line-height * 2);
 }
 
 h2 {
-    @include font-size($scale-hecto);
+    font-size: $font-size-mega;
 }
 
 h3 {
-    @include font-size($scale-deca);
+    font-size: $font-size-kilo;
 }
 
 img[data-lazy] {
@@ -67,8 +67,8 @@ img {
 }
 
 hr {
-    background-color: $lightGrey;
+    background-color: $light-grey;
     border: 0;
-    color: $lightGrey;
+    color: $light-grey;
     height: 1px;
 }

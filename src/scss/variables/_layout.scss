@@ -2,9 +2,9 @@ $border-radius: 0.25rem;
 
 $line-height: 1.5rem;
 
-$base-scale: 18;
+$base-font-size: 18;
 
-$scale-deci: (16 / $base-scale);
-$scale-deca: (20 / $base-scale);
-$scale-hecto: (24 / $base-scale);
-$scale-kilo: (36 / $base-scale);
+$font-size-milli: (16 / $base-font-size) * 1rem;
+$font-size-kilo: (20 / $base-font-size) * 1rem;
+$font-size-mega: (24 / $base-font-size) * 1rem;
+$font-size-giga: (36 / $base-font-size) * 1rem;

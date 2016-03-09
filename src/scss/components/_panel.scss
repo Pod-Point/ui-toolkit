@@ -1,11 +1,11 @@
 $panel-spacing: $line-height;
-$panel-border: 1px solid $superLightGrey;
+$panel-border: 1px solid $super-light-grey;
 $panel-dl-width: 200px;
 
 .panel {
     @include clearfix();
     background-color: white;
-    border: 1px solid $superLightGrey;
+    border: 1px solid $super-light-grey;
     border-radius: $border-radius;
     list-style: none;
     margin-bottom: $line-height;
