@@ -11,8 +11,7 @@ $navbar-border: 1px solid $superLightGrey;
     z-index: 1000;
 
     body > & {
-        border: 0;
-        border-bottom-width: 1px;
+        border-width: 0 0 1px;
     }
 
     .brand {
