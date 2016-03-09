@@ -32,7 +32,7 @@
 }
 
 .dropdown-menu {
-    background-color: $superLightGrey;
+    background-color: $super-light-grey;
     display: none;
     padding: ($line-height / 2) 0;
     min-width: 100%;
@@ -46,7 +46,7 @@
         display: block;
 
         &.separator {
-            background-color: $lightGrey;
+            background-color: $light-grey;
             height: 1px;
             margin: ($line-height / 2) 0;
         }

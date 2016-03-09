@@ -1,7 +1,7 @@
 $navbar-dark-background-colour: #4F4D54;
 $navbar-dark-brand-background-colour: #3E3C42;
 $navbar-background-colour: white;
-$navbar-border: 1px solid $superLightGrey;
+$navbar-border: 1px solid $super-light-grey;
 
 .navbar {
     @include clearfix();
@@ -28,8 +28,8 @@ $navbar-border: 1px solid $superLightGrey;
     .navbar__toggle {
         background-color: transparent;
         box-shadow: none;
-        border: 1px solid $green;
-        color: $green;
+        border: 1px solid $brand-primary;
+        color: $brand-primary;
         line-height: ($line-height * 2);
         height: ($line-height * 2);
         padding: 0 1rem;
@@ -68,7 +68,7 @@ $navbar-border: 1px solid $superLightGrey;
 
             &:hover {
                 background-color: $navbar-dark-brand-background-colour;
-                color: $darkGreen;
+                color: $brand-primary;
             }
         }
 

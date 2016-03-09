@@ -2,15 +2,15 @@
 // Tables
 // --------------------------------------------------
 
-$table-bg: white;
+$table-bg: $white;
 $table-cell-padding: ($line-height / 4);
 $text-muted: $grey;
 $line-height-computed: $line-height;
 $line-height-base: $line-height;
-$table-border-color: $lightGrey;
-$body-bg: $lightGrey;
+$table-border-color: $light-grey;
+$body-bg: $light-grey;
 $table-condensed-cell-padding: $line-height;
-$table-bg-accent: #f9f9f9;
+$table-bg-accent: $off-white;
 
 table {
     background-color: $table-bg;
@@ -76,7 +76,7 @@ th {
 
 // Condensed table w/ half padding
 
-.table-condensed {
+.table--condensed {
     > thead,
     > tbody,
     > tfoot {
@@ -94,7 +94,7 @@ th {
 //
 // Add borders all around the table and between all the columns.
 
-.table-bordered {
+.table--bordered {
     border: 1px solid $table-border-color;
     > thead,
     > tbody,
@@ -130,7 +130,7 @@ th {
 //
 // Placed here since it has to come after the potential zebra striping
 
-.table-hover {
+.table--hover {
     > tbody > tr:hover {
         background-color: $table-bg-hover;
     }
@@ -159,11 +159,11 @@ table {
 
 // Responsive tables
 //
-// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// Wrap your tables in `.table--responsive` and we'll make them mobile friendly
 // by enabling horizontal scrolling. Only applies <768px. Everything above that
 // will display normally.
 
-.table-responsive {
+.table--responsive {
     overflow-x: auto;
     min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
 
@@ -192,7 +192,7 @@ table {
         }
 
         // Special overrides for the bordered tables
-        > .table-bordered {
+        > .table--bordered {
             border: 0;
 
             // Nuke the appropriate borders so that the parent can handle them

@@ -1,7 +1,7 @@
-$switch-border: 1px solid $grey;
+$switch-border: 1px solid $light-grey;
 $switch-height: ($line-height * 1.5);
 $switch-width: ($line-height * 2);
-$switch-active-background-colour: $green;
+$switch-active-background-colour: $brand-primary;
 $switch-active-text-colour: white;
 
 .switch {
@@ -22,7 +22,7 @@ $switch-active-text-colour: white;
         color: transparent;
         cursor: pointer;
         display: inline-block;
-        @include font-size($scale-deci);
+        font-size: $font-size-milli;
         float: left;
         height: $switch-height;
         line-height: $switch-height;

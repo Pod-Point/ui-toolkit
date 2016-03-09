@@ -1,9 +1,12 @@
+$button-background-colour: $super-light-grey;
+$button-box-shadow-colour: mix(black, $button-background-colour, 15%);
+
 .button {
-    background-color: $superLightGrey;
+    background-color: $super-light-grey;
     border-radius: $border-radius;
     border: 0;
-    box-shadow: 0 2px 0 0 $lightGrey;
-    color: $darkGrey;
+    box-shadow: 0 2px 0 0 $button-box-shadow-colour;
+    color: $dark-grey;
     display: inline-block;
     height: 2rem;
     line-height: 2rem;
@@ -23,25 +26,34 @@
 
     &:active {
         transform: translateY(2px);
-        box-shadow: 0 1px 0 0 rgba($lightGrey, 0.5) inset;
+        box-shadow: 0 1px 0 0 $button-box-shadow-colour inset;
     }
 
     &.button--primary {
-        background-color: $green;
-        box-shadow: 0 2px 0 0 $darkGreen;
+        background-color: $brand-primary;
+        box-shadow: 0 2px 0 0 $brand-primary-dark;
         color: $white;
-        text-shadow: 0 -1px 0 $darkGreen;
+        text-shadow: 0 1px 0 $brand-primary-dark;
 
         &:active {
-            box-shadow: 0 1px 0 0 rgba($darkGreen, 0.5) inset;
+            box-shadow: 0 1px 0 0 $brand-primary-dark inset;
         }
     }
 
-    &.button--deca,
-    &.button--lg {
+    &.button--kilo {
+        font-size: $font-size-kilo;
         height: 3rem;
         line-height: 3rem;
         padding: 0 2rem;
+    }
+
+    &.button--milli {
+        box-shadow: none;
+        font-size: $font-size-milli;
+        line-height: 1.5rem;
+        height: 1.5rem;
+        padding: 0 0.75rem;
+        text-shadow: none;
     }
 }
 .button--block {
@@ -51,6 +63,6 @@
 .button--link {
     background-color: transparent;
     box-shadow: none;
-    color: $green;
+    color: $brand-primary;
     text-shadow: none;
 }
