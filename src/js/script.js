@@ -7,6 +7,7 @@ import * as dom from '@pod-point/dom-ops';
 import modal from './modules/modal';
 import collapse from './modules/collapse';
 import dropdown from './modules/dropdown';
+import toggle from './modules/toggle';
 
 dom.whenReady(() => {
     loadModules({
@@ -14,6 +15,7 @@ dom.whenReady(() => {
             modal,
             collapse,
             dropdown,
+            toggle,
         })
     });
 });

@@ -16,6 +16,7 @@ module.exports = {
             }
         ]
     },
+    devtool: "source-map",
     plugins: isProd ? [
         new webpack.optimize.UglifyJsPlugin({
             compress: {
