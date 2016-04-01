@@ -13,6 +13,7 @@ class Collapse {
      */
     constructor(element) {
         this.element = element;
+        this.action = element.dataset.hasOwnProperty('action') ? element.dataset.action : 'click';
 
         this.bindEvents();
     }
@@ -23,7 +24,7 @@ class Collapse {
     bindEvents() {
         this.listener = new Delegate(this.element);
 
-        this.listener.on('click', (event, input) => {
+        this.listener.on(this.action, (event, input) => {
             this.doCollapse(event, input);
         });
     }
