@@ -1,5 +1,5 @@
 $timeline-size: $line-height * 1.5;
-$timeline-steps: 5;
+$timeline-steps: 5 !default;
 
 .timeline {
     @include clearfix();
