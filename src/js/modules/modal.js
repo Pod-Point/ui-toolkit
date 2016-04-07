@@ -14,7 +14,7 @@ class Modal {
         this.openButton = element;
         this.closeButton = selectFirst('.modal-close', this.modal);
         this.modal = selectFirst('#' + this.openButton.dataset.modal);
-        this.overlay = selectFirst('.modal-overlay');
+        this.overlay = selectFirst('.modal__overlay');
 
         this.bindOpenEvent();
         this.bindCloseEvent();
@@ -24,9 +24,9 @@ class Modal {
      * Binds open modal event.
      */
     bindOpenEvent() {
-        this.listener = new Delegate(this.openButton);
+        this.openListener = new Delegate(this.openButton);
 
-        this.listener.on('click', (event) => {
+        this.openListener.on('click', (event) => {
             this.doModal(event);
         });
     }
@@ -40,14 +40,21 @@ class Modal {
         this.closeListener.on('click', (event) => {
             this.closeModal(event);
         });
+
+        this.overlayListener = new Delegate(this.overlay);
+
+        this.overlayListener.on('click', (event) => {
+            this.closeModal(event);
+    });
     }
 
     /**
      * Unbinds the event listeners from the elements.
      */
     unbindEvents() {
-        this.listener.destroy();
+        this.openListener.destroy();
         this.closeListener.destroy();
+        this.overlayListener.destroy();
     }
 
     /**

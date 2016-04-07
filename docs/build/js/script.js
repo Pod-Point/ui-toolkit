@@ -507,7 +507,7 @@
 	        this.openButton = element;
 	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
 	        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.dataset.modal);
-	        this.overlay = (0, _domOps.selectFirst)('.modal-overlay');
+	        this.overlay = (0, _domOps.selectFirst)('.modal__overlay');
 	
 	        this.bindOpenEvent();
 	        this.bindCloseEvent();
@@ -523,9 +523,9 @@
 	        value: function bindOpenEvent() {
 	            var _this = this;
 	
-	            this.listener = new _domDelegate.Delegate(this.openButton);
+	            this.openListener = new _domDelegate.Delegate(this.openButton);
 	
-	            this.listener.on('click', function (event) {
+	            this.openListener.on('click', function (event) {
 	                _this.doModal(event);
 	            });
 	        }
@@ -544,6 +544,12 @@
 	            this.closeListener.on('click', function (event) {
 	                _this2.closeModal(event);
 	            });
+	
+	            this.overlayListener = new _domDelegate.Delegate(this.overlay);
+	
+	            this.overlayListener.on('click', function (event) {
+	                _this2.closeModal(event);
+	            });
 	        }
 	
 	        /**
@@ -553,8 +559,9 @@
 	    }, {
 	        key: 'unbindEvents',
 	        value: function unbindEvents() {
-	            this.listener.destroy();
+	            this.openListener.destroy();
 	            this.closeListener.destroy();
+	            this.overlayListener.destroy();
 	        }
 	
 	        /**
