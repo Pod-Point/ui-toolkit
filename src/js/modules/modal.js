@@ -14,19 +14,34 @@ class Modal {
         this.openButton = element;
         this.closeButton = selectFirst('.modal-close', this.modal);
         this.modal = selectFirst('#' + this.openButton.dataset.modal);
-        this.overlay = selectFirst('.modal-overlay');
+        this.overlay = this.getModalOverlay();
 
         this.bindOpenEvent();
         this.bindCloseEvent();
     }
 
     /**
+     * Get the modal's overlay.
+     *
+     * @returns {*}
+     */
+    getModalOverlay() {
+        for (var i = 0; i < this.modal.childNodes.length; i++) {
+            if (this.modal.childNodes[i].className == 'modal__overlay') {
+                return this.modal.childNodes[i];
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Binds open modal event.
      */
     bindOpenEvent() {
-        this.listener = new Delegate(this.openButton);
+        this.openListener = new Delegate(this.openButton);
 
-        this.listener.on('click', (event) => {
+        this.openListener.on('click', (event) => {
             this.doModal(event);
         });
     }
@@ -40,14 +55,21 @@ class Modal {
         this.closeListener.on('click', (event) => {
             this.closeModal(event);
         });
+
+        this.overlayListener = new Delegate(this.overlay);
+
+        this.overlayListener.on('click', (event) => {
+            this.closeModal(event);
+    });
     }
 
     /**
      * Unbinds the event listeners from the elements.
      */
     unbindEvents() {
-        this.listener.destroy();
+        this.openListener.destroy();
         this.closeListener.destroy();
+        this.overlayListener.destroy();
     }
 
     /**

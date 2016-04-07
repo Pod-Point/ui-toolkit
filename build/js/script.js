@@ -507,25 +507,43 @@
 	        this.openButton = element;
 	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
 	        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.dataset.modal);
-	        this.overlay = (0, _domOps.selectFirst)('.modal-overlay');
+	        this.overlay = this.getModalOverlay();
 	
 	        this.bindOpenEvent();
 	        this.bindCloseEvent();
 	    }
 	
 	    /**
-	     * Binds open modal event.
+	     * Get the modal's overlay.
+	     *
+	     * @returns {*}
 	     */
 	
 	
 	    _createClass(Modal, [{
+	        key: 'getModalOverlay',
+	        value: function getModalOverlay() {
+	            for (var i = 0; i < this.modal.childNodes.length; i++) {
+	                if (this.modal.childNodes[i].className == 'modal__overlay') {
+	                    return this.modal.childNodes[i];
+	                }
+	            }
+	
+	            return null;
+	        }
+	
+	        /**
+	         * Binds open modal event.
+	         */
+	
+	    }, {
 	        key: 'bindOpenEvent',
 	        value: function bindOpenEvent() {
 	            var _this = this;
 	
-	            this.listener = new _domDelegate.Delegate(this.openButton);
+	            this.openListener = new _domDelegate.Delegate(this.openButton);
 	
-	            this.listener.on('click', function (event) {
+	            this.openListener.on('click', function (event) {
 	                _this.doModal(event);
 	            });
 	        }
@@ -544,6 +562,12 @@
 	            this.closeListener.on('click', function (event) {
 	                _this2.closeModal(event);
 	            });
+	
+	            this.overlayListener = new _domDelegate.Delegate(this.overlay);
+	
+	            this.overlayListener.on('click', function (event) {
+	                _this2.closeModal(event);
+	            });
 	        }
 	
 	        /**
@@ -553,8 +577,9 @@
 	    }, {
 	        key: 'unbindEvents',
 	        value: function unbindEvents() {
-	            this.listener.destroy();
+	            this.openListener.destroy();
 	            this.closeListener.destroy();
+	            this.overlayListener.destroy();
 	        }
 	
 	        /**
