@@ -14,10 +14,25 @@ class Modal {
         this.openButton = element;
         this.closeButton = selectFirst('.modal-close', this.modal);
         this.modal = selectFirst('#' + this.openButton.dataset.modal);
-        this.overlay = selectFirst('.modal__overlay');
+        this.overlay = this.getModalOverlay();
 
         this.bindOpenEvent();
         this.bindCloseEvent();
+    }
+
+    /**
+     * Get the modal's overlay.
+     *
+     * @returns {*}
+     */
+    getModalOverlay() {
+        for (var i = 0; i < this.modal.childNodes.length; i++) {
+            if (this.modal.childNodes[i].className == 'modal__overlay') {
+                return this.modal.childNodes[i];
+            }
+        }
+
+        return null;
     }
 
     /**

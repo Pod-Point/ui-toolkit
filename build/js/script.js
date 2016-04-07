@@ -507,18 +507,36 @@
 	        this.openButton = element;
 	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
 	        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.dataset.modal);
-	        this.overlay = (0, _domOps.selectFirst)('.modal__overlay');
+	        this.overlay = this.getModalOverlay();
 	
 	        this.bindOpenEvent();
 	        this.bindCloseEvent();
 	    }
 	
 	    /**
-	     * Binds open modal event.
+	     * Get the modal's overlay.
+	     *
+	     * @returns {*}
 	     */
 	
 	
 	    _createClass(Modal, [{
+	        key: 'getModalOverlay',
+	        value: function getModalOverlay() {
+	            for (var i = 0; i < this.modal.childNodes.length; i++) {
+	                if (this.modal.childNodes[i].className == 'modal__overlay') {
+	                    return this.modal.childNodes[i];
+	                }
+	            }
+	
+	            return null;
+	        }
+	
+	        /**
+	         * Binds open modal event.
+	         */
+	
+	    }, {
 	        key: 'bindOpenEvent',
 	        value: function bindOpenEvent() {
 	            var _this = this;
