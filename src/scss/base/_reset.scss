@@ -1,13 +1,11 @@
-@import '../../../node_modules/normalize.css/normalize';
-
 *,
 *:before,
 *:after {
-    box-sizing: border-box;
-}
-
-fieldset {
+    background-color: transparent;
     border: 0;
+    box-sizing: border-box;
+    color: inherit;
+    font: inherit;
     margin: 0;
     padding: 0;
 }

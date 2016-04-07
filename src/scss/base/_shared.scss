@@ -8,25 +8,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol, hr, address {
-    margin-top: 0;
     margin-bottom: 1.5rem;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-    font-weight: inherit;
 }
 
 ul, ol {
     margin-left: 2rem;
-    padding: 0;
-}
-
-ul li {
-    list-style-type: disc;
-}
-
-ol li {
-    list-style-type: decimal;
 }
 
 address {
@@ -68,7 +54,6 @@ img {
 
 hr {
     background-color: $light-grey;
-    border: 0;
     color: $light-grey;
     height: 1px;
 }
