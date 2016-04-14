@@ -8,6 +8,7 @@ import modal from './modules/modal';
 import collapse from './modules/collapse';
 import dropdown from './modules/dropdown';
 import toggle from './modules/toggle';
+import progressButton from './modules/progress-button';
 
 dom.whenReady(() => {
     loadModules({
@@ -16,6 +17,7 @@ dom.whenReady(() => {
             collapse,
             dropdown,
             toggle,
+            progressButton,
         })
     });
 });

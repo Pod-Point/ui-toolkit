@@ -24,6 +24,12 @@ $button-box-shadow-colour: mix(black, $button-background-colour, 15%);
         opacity: 0.5;
     }
 
+    &.in-progress {
+        transform: translateY(2px);
+        text-decoration: none;
+        box-shadow: none;
+    }
+
     &:active {
         transform: translateY(2px);
         box-shadow: 0 1px 0 0 $button-box-shadow-colour inset;
@@ -54,6 +60,13 @@ $button-box-shadow-colour: mix(black, $button-background-colour, 15%);
         height: 1.5rem;
         padding: 0 0.75rem;
         text-shadow: none;
+    }
+
+    svg {
+        position: absolute;
+        top: 5px;
+        height: 75%;
+        right: 16px;
     }
 }
 .button--block {
