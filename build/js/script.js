@@ -3126,7 +3126,7 @@
 	    closeSpaceForIcon = new _popmotion.Tween({
 	    duration: 400,
 	    values: {
-	        paddingRight: 30
+	        paddingRight: 16
 	    }
 	}),
 	    showIcon = new _popmotion.Tween({
@@ -3202,7 +3202,7 @@
 	        value: function showProgressComplete(success) {
 	            var _this = this;
 	
-	            if (!success) {
+	            if (success) {
 	                this.progressOutline.start(progressCompleteOutline);
 	                this.progressTick.start(progressCompleteTick);
 	            } else {

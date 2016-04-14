@@ -14,7 +14,7 @@ var instances = [],
     closeSpaceForIcon = new Tween({
         duration: 400,
         values: {
-            paddingRight: 30
+            paddingRight: 16
         }
     }),
     showIcon = new Tween({
@@ -81,7 +81,7 @@ class ProgressButton {
     }
 
     showProgressComplete(success) {
-        if (!success) {
+        if (success) {
             this.progressOutline.start(progressCompleteOutline);
             this.progressTick.start(progressCompleteTick);
         } else {
