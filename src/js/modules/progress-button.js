@@ -1,4 +1,3 @@
-import { Delegate } from 'dom-delegate';
 import { css, Actor, Tween, Simulate } from 'popmotion';
 import { addClass, removeClass } from '@pod-point/dom-ops';
 
@@ -54,12 +53,11 @@ var instances = [],
     });
 
 class ProgressButton {
-    constructor(form) {
+    constructor(button) {
         this.requestInProgress = false;
 
-        this.form = form;
         this.submitButton = new Actor({
-            element: form.querySelector('button[type="submit"]'),
+            element: button,
             values: {
                 paddingRight: ({ element }) => css.get(element, 'paddingRight')
             }
@@ -71,8 +69,6 @@ class ProgressButton {
         this.progressTick = new Actor({
             element: this.progressIcon.getElementById('tick-path')
         });
-
-        this.bindEvents();
     }
 
     showProgressSpinner() {
@@ -96,29 +92,10 @@ class ProgressButton {
                 });
         }
     }
-
-    bindEvents() {
-        this.listener = new Delegate(this.form);
-
-        this.listener.on('submit', () => {
-            if (!this.requestInProgress) {
-                this.showProgressSpinner();
-            }
-        });
-    }
-
-    unbindEvents() {
-        this.listener.destroy();
-    }
 }
 
 export default {
-    init: function(form) {
-        instances.push(new ProgressButton(form));
-    },
-
-    destroy: function() {
-        instances.forEach((instance) => instance.unbindEvents());
-        instances = [];
+    create: function(button) {
+        return new ProgressButton(button);
     }
 }
