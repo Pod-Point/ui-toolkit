@@ -1,0 +1,27 @@
+@mixin toolbar-variant($color) {
+  background-color: $color;
+  color: lighten($color, 50%);;
+}
+
+.toolbar {
+  padding: ($line-height / 2) $line-height;
+}
+
+.toolbar--notice {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.container {
+  .toolbar {
+    border-radius: $border-radius;
+  }
+}
+
+.toolbar--default {
+  @include toolbar-variant($grey);
+}
+
+.toolbar--primary {
+  @include toolbar-variant($brand-primary);
+}
