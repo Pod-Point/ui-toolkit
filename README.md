@@ -1,14 +1,14 @@
-# frontend-framework
+# ui-toolkit
 
 The POD Point frontend framework is a library of base styles and components designed for rapid prototyping.
 
-[View demo](https://pod-point.github.io/frontend-framework)
+[View demo](https://pod-point.github.io/ui-toolkit)
 
 ## Installation
 
 ```bash
-git clone git@github.com:Pod-Point/frontend-framework.git
-cd frontend-framework
+git clone git@github.com:Pod-Point/ui-toolkit.git
+cd ui-toolkit
 npm install
 ```
 
@@ -20,10 +20,10 @@ Then either link to the production ready files:
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="/path/to/node_modules/pod-point/frontend-framework/build/css/style.min.css">
+    <link rel="stylesheet" href="/path/to/node_modules/pod-point/ui-toolkit/dist/css/style.min.css">
 </head>
 <body>
-    <script src="/path/to/node_modules/pod-point/frontend-framework/build/js/script.js"></script>
+    <script src="/path/to/node_modules/pod-point/ui-toolkit/dist/js/script.js"></script>
 </body>
 </html>
 ```
@@ -31,13 +31,13 @@ Then either link to the production ready files:
 Or import the entry points into your project. For Sass, this is done by:
 
 ```sass
-@import 'path/to/node_modules/pod-point/frontend-framework/src/scss/style.scss';
+@import 'path/to/node_modules/pod-point/ui-toolkit/src/scss/style.scss';
 ```
 
 And for the JavaScripts:
 
 ```js
-import modal from '/path/to/node_modules/pod-point/frontend-framework/build/js/modal';
+import modal from '/path/to/node_modules/pod-point/ui-toolkit/dist/js/modal';
 ```
 
 ## Development
@@ -51,7 +51,7 @@ npm install
 Then run the following command:
 
 ```bash
-npm run watch
+gulp watch
 ```
 
 This will spin up a new development server at [http://localhost:8080](http://localhost:8080) with `/docs` as the document root. Also some watch tasks will be spawaned, which will copy the `build` directory to `docs` once the assets have been built. This might sound a little strange but will allow you to keep the Documentation up to date as you develop.

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <a href="https://github.com/pod-point/ui-toolkit"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 9999" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+    <header class="navbar" role="banner">
+        <div class="container-fluid">
+            <a href="index.html" class="brand"><span>POD Point</span></a>
+        </div>
+    </header>
+
+    <main class="main" role="main">
+        <div class="container">
+            <h1>Navbar</h1>
+
+            <p>Can be used either horizontally or vertically, fixed or floating.</p>
+
+            <h2>Basic</h2>
+
+            <div class="navbar">
+                <div class="container-fluid">
+                    <a href="#" class="brand"><span>POD Point</span></a>
+
+                    <button type="button" class="button navbar__toggle collapsed" data-js-module="collapse" data-target=".navbar__collapse" aria-expanded="false">collapse</button>
+
+                    <div class="navbar__collapse collapse">
+                        <ul class="nav navbar__nav">
+                            <li><a href="#">Nav Item</a></li>
+                            <li class="dropdown">
+                                <a href="#" data-js-module="dropdown">Nav Dropdown Item</a>
+
+                                <ul class="nav dropdown-menu">
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li class="separator"></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Dark</h2>
+
+            <div class="navbar navbar--dark">
+                <div class="container-fluid">
+                    <a href="#" class="brand"><span>POD Point</span></a>
+
+                    <button type="button" class="button navbar__toggle collapsed" data-js-module="collapse" data-target=".navbar__collapse" aria-expanded="false">collapse</button>
+
+                    <div class="navbar__collapse collapse">
+                        <ul class="nav navbar__nav">
+                            <li><a href="#">Nav Item</a></li>
+                            <li class="dropdown">
+                                <a href="#" data-js-module="dropdown">Nav Dropdown Item</a>
+
+                                <ul class="nav dropdown-menu">
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li class="separator"></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Vertical</h2>
+
+            <p>Will stretch to fill it's container or can be given an explicit width.</p>
+
+            <div class="navbar navbar--vertical navbar--dark">
+                <a href="#" class="brand"><span>POD Point</span></a>
+
+                <nav role="navigation">
+                    <ul class="nav navbar__nav">
+                        <li>
+                            <a href="#">Nav Section</a>
+
+                            <ul class="nav">
+                                <li><a href="#">Nav Item</a></li>
+                                <li><a href="#">Nav Item</a></li>
+                                <li><a href="#">Nav Item</a></li>
+                                <li><a href="#">Nav Item</a></li>
+                                <li><a href="#">Nav Item</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-js-module="dropdown">Nav Section</a>
+
+                            <ul class="nav dropdown-menu">
+                                <li><a href="#">Nav Item</a></li>
+                                <li><a href="#">Nav Item</a></li>
+                                <li><a href="#">Nav Item</a></li>
+                                <li><a href="#">Nav Item</a></li>
+                                <li><a href="#">Nav Item</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Nav Section</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            &copy; POD Point
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
