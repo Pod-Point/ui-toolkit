@@ -1,6 +1,5 @@
 import { Delegate } from 'dom-delegate';
 import request from 'superagent';
-// import progressButton from './progress-button';
 
 var instances = [];
 
