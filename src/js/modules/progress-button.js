@@ -1,5 +1,3 @@
-import { addClass, removeClass } from '@pod-point/dom-ops';
-
 const IS_LOADING = 'is-loading';
 const IS_COMPLETE = 'is-complete';
 
