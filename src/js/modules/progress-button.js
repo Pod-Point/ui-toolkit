@@ -6,8 +6,6 @@ const instances = [];
 class ProgressButton {
     constructor(button) {
         this.button = button;
-
-        this.progressIcon = this.button.querySelector('.loading-icon');
     }
 
     handleLoading() {
