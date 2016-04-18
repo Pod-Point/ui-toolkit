@@ -22,7 +22,7 @@
 
             <h2>Basic</h2>
 
-            <form class="form">
+            <form class="form" action="https://httpbin.org/post" method="post" data-js-module="ajaxForm">
                 <fieldset class="form__group form__group--text">
                     <label for="first_name" class="form__label">First Name</label>
 
@@ -116,7 +116,10 @@
                 </fieldset>
 
                 <div class="form__group">
-                    <button class="button button--primary" type="submit">Submit</button>
+                    <button class="button button--primary" type="submit">
+                        <i class="icon icon--loading loading-icon"></i>
+                        Submit
+                    </button>
                     <a href="#" class="button">Cancel</a>
                 </div>
 
