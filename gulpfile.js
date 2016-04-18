@@ -1,3 +1,5 @@
+const glob = require('glob');
+const path = require('path');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
@@ -10,6 +12,12 @@ const uglify = require('gulp-uglify');
 const source = require('vinyl-source-stream');
 
 const config = require('./config');
+
+const browserified = (filename) => {
+    return browserify(filename)
+        .transform(babelify, { presets: ['es2015', 'stage-2'] })
+        .bundle();
+};
 
 gulp.task('css', () => {
     return gulp.src(config.src.root + '/' + config.src.scss + '/**/*.scss')
@@ -24,10 +32,18 @@ gulp.task('css', () => {
         .pipe(browserSync.reload({ stream: true }));
 });
 
+gulp.task('js-modules', () => {
+    glob(config.src.root + '/' + config.src.js + '/modules/**/*.js', {}, (er, files) => {
+        files.map((file) => {
+            return browserified(file)
+                .pipe(source(path.basename(file)))
+                .pipe(gulp.dest(config.dist.root + '/' + config.dist.js + '/modules'));
+        });
+    });
+});
+
 gulp.task('js', () => {
-    return browserify(config.src.root + '/' + config.src.js + '/script.js')
-        .transform(babelify, { presets: ['es2015', 'stage-2'] })
-        .bundle()
+    return browserified(config.src.root + '/' + config.src.js + '/script.js')
         .pipe(source('script.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init())
