@@ -1,4 +1,4 @@
-// require('./shims/classList.js');
+require('./shims/classList.js');
 
 import loadModules from '@pod-point/module-loader';
 import combineDomModules from '@pod-point/dom-module-loader';
