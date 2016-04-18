@@ -71,3 +71,11 @@ $button-box-shadow-colour: mix(black, $button-background-colour, 15%);
     color: $brand-primary;
     text-shadow: none;
 }
+
+.loading-icon {
+    display: none;
+}
+
+.is-loading .loading-icon {
+    display: inline-block;
+}
