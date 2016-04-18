@@ -58,7 +58,7 @@ This will spin up a new development server at [http://localhost:8080](http://loc
 
 ### Icons
 
-We're using [Fontello](http://fontello.com) for the icon fonts. If you need a new icon, head to the Fontello site, hit 'Import' and upload `src/fonts/config.json` so that any existing settings aren't override. Then add your icons to the package, download and replace the font files in `src/fonts` and the `config.json` to complete your changes.
+We're using [Fontello](http://fontello.com) for the icon fonts. If you need a new icon, head to the Fontello site, hit 'Import' and upload `src/fonts/config.json` so that any existing settings aren't overriden. Then add your icon(s) to the package, download, extract and replace the font files in `src/fonts` and the `config.json` to complete your changes.
 
 ## Documentation
 
