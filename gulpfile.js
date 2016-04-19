@@ -5,19 +5,11 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
-const browserify = require('browserify');
-const babelify = require('babelify');
-const buffer = require('vinyl-buffer');
-const uglify = require('gulp-uglify');
-const source = require('vinyl-source-stream');
+const babel = require('gulp-babel');
+const webpack = require('webpack-stream');
+const webpackConfig = require('./webpack.config.js');
 
 const config = require('./config');
-
-const browserified = (filename) => {
-    return browserify(filename)
-        .transform(babelify, { presets: ['es2015', 'stage-2'] })
-        .bundle();
-};
 
 gulp.task('css', () => {
     return gulp.src(config.src.root + '/' + config.src.scss + '/**/*.scss')
@@ -33,22 +25,14 @@ gulp.task('css', () => {
 });
 
 gulp.task('js-modules', () => {
-    glob(config.src.root + '/' + config.src.js + '/modules/**/*.js', {}, (er, files) => {
-        files.map((file) => {
-            return browserified(file)
-                .pipe(source(path.basename(file)))
-                .pipe(gulp.dest(config.dist.root + '/' + config.dist.js + '/modules'));
-        });
-    });
+    return gulp.src(config.src.root + '/' + config.src.js + '/modules/**/*.js')
+        .pipe(babel({ presets: ['es2015', 'stage-2'], ignore: /node_modules/ }))
+        .pipe(gulp.dest(config.dist.root + '/' + config.dist.js + '/modules'));
 });
 
 gulp.task('js', () => {
-    return browserified(config.src.root + '/' + config.src.js + '/script.js')
-        .pipe(source('script.js'))
-        .pipe(buffer())
-        .pipe(sourcemaps.init())
-        .pipe(uglify())
-        .pipe(sourcemaps.write('./'))
+    return gulp.src(config.src.root + '/' + config.src.js + '/**/*.js')
+        .pipe(webpack(webpackConfig))
         .pipe(gulp.dest(config.dist.root + '/' + config.dist.js))
         .pipe(browserSync.reload({ stream: true }));
 });
@@ -72,7 +56,7 @@ gulp.task('watch', () => {
     });
 
     gulp.watch(config.src.root + '/' + config.src.scss + '/' + '/**/*.scss', ['css']);
-    gulp.watch(config.src.root + '/' + config.src.js + '/' + '/**/*.js', ['js']);
+    gulp.watch(config.src.root + '/' + config.src.js + '/' + '/**/*.js', ['js', 'js-modules']);
 });
 
 gulp.task('default', ['css', 'js', 'copy-fonts', 'copy-images']);
