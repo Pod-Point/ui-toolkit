@@ -1,5 +1,3 @@
-const glob = require('glob');
-const path = require('path');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
@@ -7,9 +5,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
 const babel = require('gulp-babel');
 const webpack = require('webpack-stream');
-const webpackConfig = require('./webpack.config.js');
-
 const config = require('./config');
+const webpackConfig = require('./webpack.config.js');
 
 gulp.task('css', () => {
     return gulp.src(config.src.root + '/' + config.src.scss + '/**/*.scss')
@@ -26,7 +23,7 @@ gulp.task('css', () => {
 
 gulp.task('js-modules', () => {
     return gulp.src(config.src.root + '/' + config.src.js + '/modules/**/*.js')
-        .pipe(babel({ presets: ['es2015', 'stage-2'], ignore: /node_modules/ }))
+        .pipe(babel({ ignore: /node_modules/ }))
         .pipe(gulp.dest(config.dist.root + '/' + config.dist.js + '/modules'));
 });
 
@@ -47,6 +44,10 @@ gulp.task('copy-images', () => {
         .pipe(gulp.dest(config.dist.root + '/' + config.dist.images));
 });
 
+gulp.task('browser-reload', () => {
+    return browserSync.reload();
+})
+
 gulp.task('watch', () => {
     browserSync({
         server: {
@@ -57,6 +58,7 @@ gulp.task('watch', () => {
 
     gulp.watch(config.src.root + '/' + config.src.scss + '/' + '/**/*.scss', ['css']);
     gulp.watch(config.src.root + '/' + config.src.js + '/' + '/**/*.js', ['js', 'js-modules']);
+    gulp.watch(config.dist.root + '/*.html', ['browser-reload']);
 });
 
 gulp.task('default', ['css', 'js', 'copy-fonts', 'copy-images']);

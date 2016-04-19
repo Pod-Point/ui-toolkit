@@ -12,11 +12,11 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: 'babel-loader'
             }
         ]
     },
-    devtool: "source-map",
+    devtool: 'source-map',
     plugins: isProd ? [
         new webpack.optimize.UglifyJsPlugin({
             compress: {
