@@ -1,7 +1,7 @@
 const IS_LOADING = 'is-loading';
 const IS_COMPLETE = 'is-complete';
 
-const instances = [];
+let instances = [];
 
 class ProgressButton {
     constructor(button) {

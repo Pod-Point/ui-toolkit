@@ -128,12 +128,28 @@
             <h2>Form Errors</h2>
 
             <form class="form">
-                <fieldset class="form__group form__group--text form__group--error">
+                <fieldset class="form__group form__group--error">
                     <label for="first_name" class="form__label">First Name</label>
 
                     <input type="text" id="first_name" name="first_name" class="form__control">
 
                     <span class="form__error">omg this is required</span>
+                </fieldset>
+            </form>
+
+            <h2>Alternate Form</h2>
+
+            <form action="" class="form form--alternate">
+                <fieldset class="form__group">
+                    <input type="text" id="address_1" name="address_1" class="form__control">
+
+                    <label for="address_1" class="form__label">Address</label>
+                </fieldset>
+
+                <fieldset class="form__group">
+                    <input type="text" id="postcode" name="postcode" class="form__control" required value="E1 6PJ">
+
+                    <label for="postcode" class="form__label">Postcode</label>
                 </fieldset>
             </form>
         </div>

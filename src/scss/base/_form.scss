@@ -1,13 +1,17 @@
 $input-background-colour: white;
+$input-height: $line-height;
+$input-padding-x: 0.5rem;
+$input-padding-y: (($input-height - 1rem) / 2);
+$input-border-colour: $light-grey;
 
 .form__control {
     background-color: $input-background-colour;
-    border: 1px solid $light-grey;
+    border: 1px solid $input-border-colour;
     border-radius: $border-radius;
     color: $grey;
     height: auto;
-    line-height: 1.5rem;
-    padding: 0.25rem 0.5rem;
+    line-height: $input-height;
+    padding: $input-padding-y $input-padding-x;
     width: 100%;
 
     &:focus {
@@ -116,3 +120,35 @@ select.form__control > option {
 .loading-icon {
     display: none;
 }
+
+.form--alternate {
+    .form__group {
+        padding-top: $line-height;
+    }
+
+    .form__label {
+        position: absolute;
+        top: $line-height + $input-padding-y;
+        transition: all 200ms $strongEaseOut;
+    }
+
+    .form__control {
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid $input-border-colour;
+        padding: $input-padding-y 0;
+
+        &:focus {
+            border-bottom-width: 2px;
+            border-bottom-color: $brand-primary;
+        }
+    }
+
+    .form__control:focus ~ label,
+    .has-content .form__control ~ label {
+        color: $dark-grey;
+        font-size: $font-size-milli;
+        top: 0;
+    }
+}
+
