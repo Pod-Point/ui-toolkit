@@ -1,5 +1,10 @@
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/alerts';
 
+.alert a {
+    color: inherit;
+    text-decoration: underline;
+}
+
 .alert--success {
     @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
 }
