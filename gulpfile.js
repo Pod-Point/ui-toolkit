@@ -5,12 +5,6 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
-const browserify = require('browserify');
-const babelify = require('babelify');
-const buffer = require('vinyl-buffer');
-const uglify = require('gulp-uglify');
-const source = require('vinyl-source-stream');
-
 const babel = require('gulp-babel');
 const webpack = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
