@@ -11,14 +11,6 @@ const webpackConfig = require('./webpack.config.js');
 
 const config = require('./config');
 
-const browserified = (filename) => {
-    return browserify(filename)
-        .transform(babelify.configure({
-            ignore: /node_modules/
-        }), { presets: ['es2015', 'stage-2'] })
-        .bundle();
-};
-
 gulp.task('css', () => {
     return gulp.src(config.src.root + '/' + config.src.scss + '/**/*.scss')
         .pipe(sourcemaps.init())
