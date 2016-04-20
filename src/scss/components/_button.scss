@@ -76,6 +76,11 @@ $button-box-shadow-colour: mix(black, $button-background-colour, 15%);
     display: none;
 }
 
-.is-loading .loading-icon {
-    display: inline-block;
+.is-loading {
+    .loading-icon {
+        display: inline-block;
+    }
+    .loading-icon-hide {
+        display: none;
+    }
 }
