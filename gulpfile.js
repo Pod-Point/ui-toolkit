@@ -47,6 +47,10 @@ gulp.task('copy-images', () => {
         .pipe(gulp.dest(config.dist.root + '/' + config.dist.images));
 });
 
+gulp.task('browser-reload', () => {
+    return browserSync.reload({ stream: true });
+});
+
 gulp.task('watch', () => {
     browserSync({
         server: {
@@ -57,6 +61,7 @@ gulp.task('watch', () => {
 
     gulp.watch(config.src.root + '/' + config.src.scss + '/' + '/**/*.scss', ['css']);
     gulp.watch(config.src.root + '/' + config.src.js + '/' + '/**/*.js', ['js', 'js-modules']);
+    gulp.watch(config.dist.root + '/*.html', ['browser-reload']);
 });
 
 gulp.task('default', ['css', 'js', 'copy-fonts', 'copy-images']);
