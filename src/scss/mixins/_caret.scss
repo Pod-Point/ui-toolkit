@@ -11,8 +11,6 @@
         $location: 'left';
     } @else if ($direction == 'left') {
         $location: 'right';
-    } @else {
-        $location: 'bottom';
     }
 
     border-#{$location}-color: $colour;
