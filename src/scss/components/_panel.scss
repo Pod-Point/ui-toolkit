@@ -23,6 +23,7 @@ $panel-list-width: 200px;
 
     .panel__header {
         border-bottom: $panel-border;
+        border-radius: $border-radius $border-radius 0 0;
         margin-top: ($panel-spacing * -1);
     }
 
@@ -46,6 +47,7 @@ $panel-list-width: 200px;
 
     .panel__footer {
         border-top: $panel-border;
+        border-radius: 0 0 $border-radius $border-radius;
     }
 
     .panel__list {
