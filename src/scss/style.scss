@@ -10,7 +10,6 @@
     'utils/layout';
 
 @import
-    'mixins/typography',
     'mixins/caret',
     'mixins/images',
     'mixins/responsive',
@@ -20,6 +19,7 @@
 @import
     'base/reset',
     'base/grid',
+    'base/typography',
     'base/shared',
     'base/images',
     'base/form',
