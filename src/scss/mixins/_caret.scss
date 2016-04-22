@@ -3,10 +3,9 @@
  */
 @mixin caret($direction, $colour, $size) {
     border: $size solid transparent;
+    $location: 'bottom';
 
-    @if ($direction == 'up') {
-        $location: 'bottom';
-    } @else if ($direction == 'down') {
+    @if ($direction == 'down') {
         $location: 'top';
     } @else if ($direction == 'right') {
         $location: 'left';

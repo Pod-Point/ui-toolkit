@@ -41,7 +41,7 @@ select.form__control > option {
     z-index: 1;
 
     &:after {
-        @include caret(down, $grey, 0.4rem);
+        @include caret('down', $grey, 0.4rem);
         position: absolute;
         right: 0.5rem;
         top: 50%;
