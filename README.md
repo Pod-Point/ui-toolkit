@@ -65,5 +65,5 @@ We're using [Fontello](http://fontello.com) for the icon fonts. If you need a ne
 The `gh-pages` branch is a snapshot of `/docs`, hence why it is important to copy the build folder across. To generate new documentation online, run the following anywhere within the project:
 
 ```bash
-git subtree push --prefix="docs" origin gh-pages
+git subtree push --prefix="dist" origin gh-pages
 ```
