@@ -17,6 +17,12 @@
       "css": "upload",
       "code": 59393,
       "src": "fontawesome"
+    },
+    {
+      "uid": "c1f1975c885aa9f3dad7810c53b82074",
+      "css": "lock",
+      "code": 59394,
+      "src": "fontawesome"
     }
   ]
 }
