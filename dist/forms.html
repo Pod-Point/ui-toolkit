@@ -66,7 +66,7 @@
 
                     <fieldset>
                         <label for="radio_choice_1" class="radio">
-                            <input type="radio" id="radio_choice_1" name="radios" value="1">Choice 1
+                            <input type="radio" id="radio_choice_1" name="radios" value="1">Choice
                         </label>
 
                         <label for="radio_choice_2" class="radio">
@@ -80,21 +80,126 @@
                 </div>
 
                 <div class="form__group">
-                    <span class="form__label">Please tick all that apply:</span>
+                    <span class="form__label">Please choose:</span>
 
                     <fieldset>
-                        <label for="checkbox_choice_1" class="radio">
-                            <input type="checkbox" id="checkbox_choice_1" name="checkboxes" value="1">Choice 1
-                        </label>
-
-                        <label for="checkbox_choice_2" class="checkbox">
-                            <input type="checkbox" id="checkbox_choice_2" name="checkboxes" value="2">Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.
-                        </label>
-
-                        <label for="checkbox_choice_3" class="checkbox">
-                            <input type="checkbox" id="checkbox_choice_3" name="checkboxes" value="3">Choice 3
-                        </label>
+                        <div class="">
+                            <div class="row">
+                                <label for="radio_1" class="radioJuan">
+                                    <input type="radio" id="radio_1" name='gender2'>
+                                    <!--<i class="icon icon&#45;&#45;circle-empty"></i>-->
+                                    <!--<i class="icon icon&#45;&#45;circle-checked"></i>-->
+                                    <!--<span>Choice 1</span>-->
+                                    Choice 1
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label for="radio_2" class="radioJuan">
+                                    <input type="radio" id="radio_2" name='gender2'>
+                                    <!--<i class="icon icon&#45;&#45;circle-empty"></i>-->
+                                    <!--<i class="icon icon&#45;&#45;circle-checked"></i>-->
+                                    <!--<span>-->
+                                        <!--Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.-->
+                                    <!--</span>-->
+                                    Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label for="radio_3" class="radioJuan">
+                                    <input id="radio_3" type="radio" name='gender2'>
+                                    <!--<i class="icon icon&#45;&#45;circle-empty"></i>-->
+                                    <!--<i class="icon icon&#45;&#45;circle-checked"></i>-->
+                                    <!--<span>Choice 3</span>-->
+                                    Choice 3
+                                </label>
+                            </div>
+                        </div>
                     </fieldset>
+                </div>
+
+                <div class="form__group">
+                    <span class="form__label">Please choose:</span>
+
+                    <fieldset>
+                        <div class="radio-group">
+                            <div class="row">
+                            <label>
+                                <input type="radio" name='gender2'>
+                                <i class="icon icon--circle-empty"></i>
+                                <i class="icon icon--circle-checked"></i>
+                                <span>Choice 1</span>
+                            </label>
+                            </div>
+                            <div class="row">
+                            <label>
+                                <input type="radio" name='gender2'>
+                                <i class="icon icon--circle-empty"></i>
+                                <i class="icon icon--circle-checked"></i>
+                                <span>
+                                    Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                                </span>
+                            </label>
+                            </div>
+                            <div class="row">
+                                <label>
+                                    <input type="radio" name='gender2'>
+                                    <i class="icon icon--circle-empty"></i>
+                                    <i class="icon icon--circle-checked"></i>
+                                    <span>Choice 3</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!--<div class="form__group">-->
+                    <!--<span class="form__label">Please tick all that apply:</span>-->
+
+                    <!--<fieldset>-->
+                        <!--<label for="checkbox_choice_1" class="radio">-->
+                            <!--<input type="checkbox" id="checkbox_choice_1" name="checkboxes" value="1">Choice 1-->
+                        <!--</label>-->
+
+                        <!--<label for="checkbox_choice_2" class="checkbox">-->
+                            <!--<input type="checkbox" id="checkbox_choice_2" name="checkboxes" value="2">Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.-->
+                        <!--</label>-->
+
+                        <!--<label for="checkbox_choice_3" class="checkbox">-->
+                            <!--<input type="checkbox" id="checkbox_choice_3" name="checkboxes" value="3">Choice 3-->
+                        <!--</label>-->
+                    <!--</fieldset>-->
+                <!--</div>-->
+
+                <div class="form__group">
+                    <span class="form__label">Please tick all that apply:</span>
+                        <div class="checkbox-group">
+                            <div class="row checkbox-row">
+                                <label>
+                                    <input type="checkbox" name='email1' checked>
+                                    <i class="icon icon--check-empty"></i>
+                                    <i class="icon icon--check"></i>
+                                    <span>Choice 1</span>
+                                </label>
+                            </div>
+                            <div class="row checkbox-row">
+                                <label>
+                                    <input type="checkbox" name='email2'>
+                                    <i class="icon icon--check-empty"></i>
+                                    <i class="icon icon--check"></i>
+                                    <span>
+                                        Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="row checkbox-row">
+                                <label>
+                                    <input type="checkbox" name='email3'>
+                                    <i class="icon icon--check-empty"></i>
+                                    <i class="icon icon--check"></i>
+                                    <span>Choice 3</span>
+                                </label>
+                            </div>
+                        </div>
                 </div>
 
                 <div class="form__group">
