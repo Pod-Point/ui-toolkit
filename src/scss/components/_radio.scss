@@ -1,0 +1,167 @@
+
+div.radio-group label span {
+  font-size: 1.5em;
+}
+
+div.radio-group div.row {
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+div.radio-group, div.checkbox-group label {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 2em;
+  text-align: left;
+  vertical-align: top;
+  cursor: pointer;
+  border: 0px solid $grey;
+  border-radius: 3px;
+  color: $grey;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+div.radio-group label:hover {
+  color: $grey;
+}
+
+div.radio-group input[type="radio"]:checked + i + i + span {
+  color: $grey;
+}
+
+div.radio-group input[type="radio"] {
+  display: none;
+}
+
+label input[type="radio"] ~ i.icon.icon--circle-empty{
+  color: $grey;
+  display: inline;
+}
+label input[type="radio"] ~ i.icon.icon--circle-checked{
+  display: none;
+}
+label input[type="radio"]:checked ~ i.icon.icon--circle-empty{
+  display: none;
+}
+label input[type="radio"]:checked ~ i.icon.icon--circle-checked{
+  color: $brand-primary;
+  display: inline;
+}
+label:hover input[type="radio"] ~ i.icon {
+  color: $brand-primary;
+}
+
+input[type="radio"] ~ i.icon {
+  height: 100%;
+  float: left;
+  padding-right: 10px;
+}
+
+// TODO !!! RE-DO Radio style (this time properly)
+.radioJuan {
+  font-size: 1.3em;
+  //font-size: 1em;
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  //position: relative;
+  //left: 20px;
+  margin-left: 40px;
+  //padding-left: 20px;
+  //padding: 6px 12px;
+  //margin-bottom: 0;
+  ////font-size: 14px;
+  //font-weight: normal;
+  //line-height: 2em;
+  //text-align: left;
+  //vertical-align: top;
+  //cursor: pointer;
+  //border: 0px solid $grey;
+  //border-radius: 3px;
+  color: $grey;
+  //-webkit-user-select: none;
+  //-moz-user-select: none;
+  //-ms-user-select: none;
+  //-o-user-select: none;
+  //user-select: none;
+
+  input {
+    visibility:hidden;
+    display: inline;
+    float: left;
+    height: 100%;
+    width: 0;
+
+    &:before {
+      @extend .icon;
+      @extend .icon--circle-empty;
+      visibility: visible;
+      margin-left: -40px;
+      font-size: 1em;
+      width: auto;
+    }
+
+    &:checked:before {
+      @extend .icon;
+      @extend .icon--circle-checked;
+      visibility: visible;
+      color: $brand-primary;
+      font-size: 1em;
+      width: auto;
+    }
+  }
+}
+
+
+//TODO !!! Checkbox style
+label input[type="checkbox"] ~ i.icon.icon--check-empty{
+  color: $grey;
+  display: inline;
+}
+label input[type="checkbox"] ~ i.icon.icon--check{
+  display: none;
+}
+label input[type="checkbox"]:checked ~ i.icon.icon--check-empty{
+  display: none;
+}
+label input[type="checkbox"]:checked ~ i.icon.icon--check{
+  color: $brand-primary;
+  display: inline;
+}
+label:hover input[type="checkbox"] ~ i.icon {
+  color: $brand-primary;
+}
+
+div.checkbox-group label span {
+  font-size: 1.5em ;
+}
+
+div.checkbox-group input[type="checkbox"]:checked + i + i + span {
+  color: $grey;
+}
+
+div.checkbox-group input[type="checkbox"] {
+  display: none;
+}
+
+div.checkbox-row {
+  padding-left: 10px;
+}
+
+div.checkbox-group label:hover {
+  color: $grey;
+}
+
+div.checkbox-group .icon {
+  height: 100%;
+  float: left;
+  padding-right: 10px;
+}
