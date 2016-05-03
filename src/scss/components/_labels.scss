@@ -23,3 +23,11 @@
 .label--danger {
   @include label-variant($label-danger-bg);
 }
+
+.label--short {
+  display: inline-block;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
