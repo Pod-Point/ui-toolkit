@@ -36,3 +36,23 @@
 .icon--lock:before {
     content: '\e802';
 }
+
+.icon--circle-empty:before {
+    content: '\e803';
+    font-size: 2em;
+}
+
+.icon--circle-checked:before {
+    content: '\e804';
+    font-size: 2em;
+}
+
+.icon--check:before {
+    content: '\e805';
+    font-size: 2em;
+}
+
+.icon--check-empty:before {
+    content: '\e806';
+    font-size: 2em;
+}
