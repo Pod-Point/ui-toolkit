@@ -1,19 +1,20 @@
-.radio {
-  font-size: 14px;
+.checkbox {
   display: inline-block;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: 14px;
+  text-align: left;
+  vertical-align: top;
+  cursor: pointer;
   color: $grey;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-  cursor: pointer;
-  min-width: 100px;
 
   input {
-    visibility:hidden;
+    visibility: hidden;
     display: inline;
     float: left;
     width: 0;
@@ -28,21 +29,21 @@
 
     +span:before {
       @extend .icon;
-      @extend .icon--circle-empty;
+      @extend .icon--check-empty;
       visibility: visible;
       font-size: 1.7rem;
       width: auto;
+      display: block;
       top: 0;
       bottom: 0;
       left: 0;
       position: absolute;
       vertical-align: middle;
-      display: block;
     }
 
     &:checked + span:before  {
       @extend .icon;
-      @extend .icon--circle-checked;
+      @extend .icon--check;
       visibility: visible;
       color: $brand-primary;
       font-size: 1.7rem;
@@ -52,6 +53,5 @@
     &:hover + span:before {
       color: $brand-primary;
     }
-
   }
 }
