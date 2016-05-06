@@ -58,7 +58,13 @@ $navbar-border: 1px solid $super-light-grey;
 
     .navbar__nav {
         @include resp-min($screen-sm-min) {
-            float: right;
+            float: left;
+        }
+
+        &.navbar__nav--right {
+            @include resp-min($screen-sm-min) {
+                float: right;
+            }
         }
 
         > li > a,
