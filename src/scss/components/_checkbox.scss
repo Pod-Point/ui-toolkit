@@ -32,6 +32,7 @@
       @extend .icon--check-empty;
       visibility: visible;
       font-size: 1.7rem;
+      margin-top: 2px;
       width: auto;
       display: block;
       top: 0;
@@ -47,6 +48,7 @@
       visibility: visible;
       color: $brand-primary;
       font-size: 1.7rem;
+      margin-top: 2px;
       display: block;
     }
 
