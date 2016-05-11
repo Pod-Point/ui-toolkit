@@ -3,14 +3,28 @@
     background-size: cover;
     color: white;
     margin-bottom: 1.5rem;
+    padding: 3rem 0;
+    position: relative;
     text-align: center;
+    z-index: 1;
 
     > .container {
-        padding: 3rem;
-        width: 100%;
+        position: relative;
+        z-index: 2;
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
-.hero--overlay > .container {
+.hero--overlay:after {
     background-color: rgba(black, 0.4);
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
 }
