@@ -80,24 +80,6 @@ select.form__control > option {
     margin-bottom: ($line-height / 2);
 }
 
-.radio,
-.checkbox {
-    display: block;
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    > input {
-        left: 0;
-        position: absolute;
-        top: 0.2rem
-    }
-}
-
 .form__error {
     color: $red;
     font-weight: bold;

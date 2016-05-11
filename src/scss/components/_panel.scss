@@ -55,14 +55,22 @@ $panel-list-width: 200px;
         margin: ($line-height * -1) ($line-height * -1) 0;
 
         > li,
-        > dt,
         > dd {
             border-bottom: $panel-border;
+        }
+
+        > li,
+        > dt,
+        > dd {
             padding: ($line-height / 2) $line-height;
 
             &:last-of-type {
                 border-bottom: 0;
             }
+        }
+
+        > li {
+            @include clearfix();
         }
 
         > dt {
@@ -76,6 +84,6 @@ $panel-list-width: 200px;
         }
 
         > dd {
-            margin-left: $panel-list-width;
+            padding-left: $panel-list-width;
         }
     }

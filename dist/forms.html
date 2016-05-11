@@ -6,6 +6,16 @@
     <title>Forms</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="demo.css">
+    <script>
+        (function(d) {
+            var config = {
+                kitId: 'lcv3wao',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    </script>
 </head>
 <body>
     <header class="navbar" role="banner">
@@ -62,19 +72,53 @@
                 </fieldset>
 
                 <div class="form__group">
-                    <span class="form__label">Please choose one of the following:</span>
+                    <span class="form__label">Please choose:</span>
 
                     <fieldset>
-                        <label for="radio_choice_1" class="radio">
-                            <input type="radio" id="radio_choice_1" name="radios" value="1">Choice 1
+                        <label for="radio_1" class="radio">
+                            <input type="radio" id="radio_1" name='radios' />
+                            <span>Choice 1</span>
                         </label>
 
-                        <label for="radio_choice_2" class="radio">
-                            <input type="radio" id="radio_choice_2" name="radios" value="2">Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                        <label for="radio_2" class="radio">
+                            <input type="radio" id="radio_2" name='radios' />
+                            <span>
+                                Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just
+                                needed to prove these labels can go on to two or more lines (just in case), that's all. We
+                                just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                            </span>
                         </label>
 
-                        <label for="radio_choice_3" class="radio">
-                            <input type="radio" id="radio_choice_3" name="radios" value="3">Choice 3
+                        <label for="radio_3" class="radio">
+                            <input id="radio_3" type="radio" name='radios'>
+                            <span>
+                                Choice 3
+                            </span>
+                        </label>
+                    </fieldset>
+                </div>
+
+                <div class="form__group">
+                    <span class="form__label">Please choose:</span>
+
+                    <fieldset>
+                        <label for="inline_radio_1" class="radio">
+                            <input type="radio" id="inline_radio_1" name='inline_radios' />
+                            <span>Yes</span>
+                        </label>
+
+                        <label for="inline_radio_2" class="radio">
+                            <input type="radio" id="inline_radio_2" name='inline_radios' />
+                            <span>
+                                No
+                            </span>
+                        </label>
+
+                        <label for="inline_radio_3" class="radio">
+                            <input id="inline_radio_3" type="radio" name='inline_radios'>
+                            <span>
+                                Maybe
+                            </span>
                         </label>
                     </fieldset>
                 </div>
@@ -83,19 +127,27 @@
                     <span class="form__label">Please tick all that apply:</span>
 
                     <fieldset>
-                        <label for="checkbox_choice_1" class="radio">
-                            <input type="checkbox" id="checkbox_choice_1" name="checkboxes" value="1">Choice 1
+                        <label for="checkbox_choice_1" class="checkbox">
+                            <input type="checkbox" id="checkbox_choice_1" name="checkboxes" value="1">
+                            <span>Choice 1</span>
                         </label>
 
                         <label for="checkbox_choice_2" class="checkbox">
-                            <input type="checkbox" id="checkbox_choice_2" name="checkboxes" value="2">Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                            <input type="checkbox" id="checkbox_choice_2" name="checkboxes" value="2">
+                            <span>
+                                Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just
+                                needed to prove these labels can go on to two or more lines (just in case), that's all. We
+                                just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                            </span>
                         </label>
 
                         <label for="checkbox_choice_3" class="checkbox">
-                            <input type="checkbox" id="checkbox_choice_3" name="checkboxes" value="3">Choice 3
+                            <input type="checkbox" id="checkbox_choice_3" name="checkboxes" value="3">
+                            <span>Choice 3</span>
                         </label>
                     </fieldset>
                 </div>
+
 
                 <div class="form__group">
                     <p>You can also make switchable radio buttons like the one below:</p>
