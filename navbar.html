@@ -28,117 +28,125 @@
 
     <main class="main" role="main">
         <div class="container">
-            <h1>Navbar</h1>
+            <article>
+                <h1 class="page-heading">Navbar</h1>
 
-            <p>Can be used either horizontally or vertically, fixed or floating.</p>
+                <p>Can be used either horizontally or vertically, fixed or floating.</p>
 
-            <h2>Basic</h2>
+                <section class="section">
+                    <h2 class="section__title">Basic</h2>
 
-            <div class="navbar">
-                <div class="container-fluid">
+                    <div class="navbar">
+                    <div class="container-fluid">
+                        <a href="#" class="brand"><span>POD Point</span></a>
+
+                        <button type="button" class="button navbar__toggle collapsed" data-js-module="collapse" data-target=".navbar__collapse" aria-expanded="false">
+                            <svg class="icon" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"/></svg>
+                        </button>
+
+                        <div class="navbar__collapse collapse">
+                            <ul class="nav navbar__nav">
+                                <li><a href="#">Nav Item</a></li>
+                                <li class="active"><a href="#">Nav Item</a></li>
+                            </ul>
+
+                            <ul class="nav navbar__nav navbar__nav--right">
+                                <li><a href="#">Nav Item</a></li>
+                                <li class="dropdown">
+                                    <a href="#" data-js-module="dropdown">Nav Dropdown Item</a>
+
+                                    <ul class="nav dropdown-menu">
+                                        <li><a href="#">Nav Item</a></li>
+                                        <li><a href="#">Nav Item</a></li>
+                                        <li><a href="#">Nav Item</a></li>
+                                        <li><a href="#">Nav Item</a></li>
+                                        <li class="separator"></li>
+                                        <li><a href="#">Nav Item</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section__title">Dark</h2>
+
+                    <div class="navbar navbar--dark">
+                    <div class="container-fluid">
+                        <a href="#" class="brand"><span>POD Point</span></a>
+
+                        <button type="button" class="button navbar__toggle collapsed" data-js-module="collapse" data-target=".navbar__collapse" aria-expanded="false">
+                            <svg class="icon" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"/></svg>
+                        </button>
+
+                        <div class="navbar__collapse collapse">
+                            <ul class="nav navbar__nav">
+                                <li><a href="#">Nav Item</a></li>
+                                <li class="active"><a href="#">Nav Item</a></li>
+                            </ul>
+
+                            <ul class="nav navbar__nav navbar__nav--right">
+                                <li><a href="#">Nav Item</a></li>
+                                <li class="dropdown">
+                                    <a href="#" data-js-module="dropdown">Nav Dropdown Item</a>
+
+                                    <ul class="nav dropdown-menu">
+                                        <li><a href="#">Nav Item</a></li>
+                                        <li><a href="#">Nav Item</a></li>
+                                        <li><a href="#">Nav Item</a></li>
+                                        <li><a href="#">Nav Item</a></li>
+                                        <li class="separator"></li>
+                                        <li><a href="#">Nav Item</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section__title">Vertical</h2>
+
+                    <p>Will stretch to fill it's container or can be given an explicit width.</p>
+
+                    <div class="navbar navbar--vertical navbar--dark">
                     <a href="#" class="brand"><span>POD Point</span></a>
 
-                    <button type="button" class="button navbar__toggle collapsed" data-js-module="collapse" data-target=".navbar__collapse" aria-expanded="false">
-                        <svg class="icon" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"/></svg>
-                    </button>
-
-                    <div class="navbar__collapse collapse">
+                    <nav role="navigation">
                         <ul class="nav navbar__nav">
-                            <li><a href="#">Nav Item</a></li>
-                            <li class="active"><a href="#">Nav Item</a></li>
-                        </ul>
+                            <li>
+                                <a href="#">Nav Section</a>
 
-                        <ul class="nav navbar__nav navbar__nav--right">
-                            <li><a href="#">Nav Item</a></li>
+                                <ul class="nav">
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Nav Item</a></li>
+                                </ul>
+                            </li>
                             <li class="dropdown">
-                                <a href="#" data-js-module="dropdown">Nav Dropdown Item</a>
+                                <a href="#" data-js-module="dropdown">Nav Section</a>
 
                                 <ul class="nav dropdown-menu">
                                     <li><a href="#">Nav Item</a></li>
                                     <li><a href="#">Nav Item</a></li>
                                     <li><a href="#">Nav Item</a></li>
                                     <li><a href="#">Nav Item</a></li>
-                                    <li class="separator"></li>
                                     <li><a href="#">Nav Item</a></li>
                                 </ul>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <h2>Dark</h2>
-
-            <div class="navbar navbar--dark">
-                <div class="container-fluid">
-                    <a href="#" class="brand"><span>POD Point</span></a>
-
-                    <button type="button" class="button navbar__toggle collapsed" data-js-module="collapse" data-target=".navbar__collapse" aria-expanded="false">
-                        <svg class="icon" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"/></svg>
-                    </button>
-
-                    <div class="navbar__collapse collapse">
-                        <ul class="nav navbar__nav">
-                            <li><a href="#">Nav Item</a></li>
-                            <li class="active"><a href="#">Nav Item</a></li>
-                        </ul>
-
-                        <ul class="nav navbar__nav navbar__nav--right">
-                            <li><a href="#">Nav Item</a></li>
-                            <li class="dropdown">
-                                <a href="#" data-js-module="dropdown">Nav Dropdown Item</a>
-
-                                <ul class="nav dropdown-menu">
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li class="separator"></li>
-                                    <li><a href="#">Nav Item</a></li>
-                                </ul>
+                            <li>
+                                <a href="#">Nav Section</a>
                             </li>
                         </ul>
-                    </div>
+                    </nav>
                 </div>
-            </div>
-
-            <h2>Vertical</h2>
-
-            <p>Will stretch to fill it's container or can be given an explicit width.</p>
-
-            <div class="navbar navbar--vertical navbar--dark">
-                <a href="#" class="brand"><span>POD Point</span></a>
-
-                <nav role="navigation">
-                    <ul class="nav navbar__nav">
-                        <li>
-                            <a href="#">Nav Section</a>
-
-                            <ul class="nav">
-                                <li><a href="#">Nav Item</a></li>
-                                <li><a href="#">Nav Item</a></li>
-                                <li><a href="#">Nav Item</a></li>
-                                <li><a href="#">Nav Item</a></li>
-                                <li><a href="#">Nav Item</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" data-js-module="dropdown">Nav Section</a>
-
-                            <ul class="nav dropdown-menu">
-                                <li><a href="#">Nav Item</a></li>
-                                <li><a href="#">Nav Item</a></li>
-                                <li><a href="#">Nav Item</a></li>
-                                <li><a href="#">Nav Item</a></li>
-                                <li><a href="#">Nav Item</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Nav Section</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+                </section>
+            </article>
         </div>
     </main>
 

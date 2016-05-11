@@ -26,168 +26,174 @@
 
     <main class="main" role="main">
         <div class="container">
-            <h1>Forms</h1>
+            <article>
+                <h1 class="page-heading">Forms</h1>
 
-            <p>None of these forms are real - it's just a demo!</p>
+                <p>None of these forms are real - it's just a demo!</p>
 
-            <h2>Basic</h2>
+                <section class="section">
+                    <h2 class="section__title">Basic</h2>
 
-            <form class="form" action="https://httpbin.org/post" method="post" data-js-module="ajaxForm">
-                <fieldset class="form__group form__group--text">
-                    <label for="first_name" class="form__label">First Name</label>
+                    <form class="form" action="https://httpbin.org/post" method="post" data-js-module="ajaxForm">
+                        <fieldset class="form__group form__group--text">
+                            <label for="first_name" class="form__label">First Name</label>
 
-                    <input type="text" id="first_name" name="first_name" class="form__control">
-                </fieldset>
+                            <input type="text" id="first_name" name="first_name" class="form__control">
+                        </fieldset>
 
-                <fieldset class="form__group form__group--text">
-                    <label for="disabled__input" class="form__label">Disabled Input</label>
+                        <fieldset class="form__group form__group--text">
+                            <label for="disabled__input" class="form__label">Disabled Input</label>
 
-                    <input disabled type="text" value="You can't touch this" id="disabled__input" name="disabled__input" class="form__control">
-                </fieldset>
+                            <input disabled type="text" value="You can't touch this" id="disabled__input" name="disabled__input" class="form__control">
+                        </fieldset>
 
-                <fieldset class="form__group">
-                    <label for="status" class="form__label">Status</label>
+                        <fieldset class="form__group">
+                            <label for="status" class="form__label">Status</label>
 
-                    <div class="select-wrapper">
-                        <select class="form__control" name="status" id="status">
-                            <option value="">Lorem</option>
-                            <option value="">Iusto</option>
-                            <option value="">Harum</option>
-                            <option value="">Quae</option>
-                            <option value="">Quod</option>
-                        </select>
-                    </div>
-                </fieldset>
+                            <div class="select-wrapper">
+                                <select class="form__control" name="status" id="status">
+                                    <option value="">Lorem</option>
+                                    <option value="">Iusto</option>
+                                    <option value="">Harum</option>
+                                    <option value="">Quae</option>
+                                    <option value="">Quod</option>
+                                </select>
+                            </div>
+                        </fieldset>
 
-                <fieldset class="form__group">
-                    <label for="status" class="form__label">Status</label>
+                        <fieldset class="form__group">
+                            <label for="status" class="form__label">Status</label>
 
-                    <select multiple class="form__control" name="status" id="status">
-                        <option value="">Lorem</option>
-                        <option value="">Iusto</option>
-                        <option value="">Harum</option>
-                        <option value="">Quae</option>
-                        <option value="">Quod</option>
-                    </select>
-                </fieldset>
+                            <select multiple class="form__control" name="status" id="status">
+                                <option value="">Lorem</option>
+                                <option value="">Iusto</option>
+                                <option value="">Harum</option>
+                                <option value="">Quae</option>
+                                <option value="">Quod</option>
+                            </select>
+                        </fieldset>
 
-                <div class="form__group">
-                    <span class="form__label">Please choose:</span>
+                        <div class="form__group">
+                            <span class="form__label">Please choose:</span>
 
-                    <fieldset>
-                        <label for="radio_1" class="radio">
-                            <input type="radio" id="radio_1" name='radios' />
-                            <span>Choice 1</span>
-                        </label>
+                            <fieldset>
+                                <label for="radio_1" class="radio">
+                                    <input type="radio" id="radio_1" name='radios' />
+                                    <span>Choice 1</span>
+                                </label>
 
-                        <label for="radio_2" class="radio">
-                            <input type="radio" id="radio_2" name='radios' />
-                            <span>
-                                Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just
-                                needed to prove these labels can go on to two or more lines (just in case), that's all. We
-                                just needed to prove these labels can go on to two or more lines (just in case), that's all.
-                            </span>
-                        </label>
+                                <label for="radio_2" class="radio">
+                                    <input type="radio" id="radio_2" name='radios' />
+                                    <span>
+                                        Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just
+                                        needed to prove these labels can go on to two or more lines (just in case), that's all. We
+                                        just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                                    </span>
+                                </label>
 
-                        <label for="radio_3" class="radio">
-                            <input id="radio_3" type="radio" name='radios'>
-                            <span>
-                                Choice 3
-                            </span>
-                        </label>
-                    </fieldset>
-                </div>
+                                <label for="radio_3" class="radio">
+                                    <input id="radio_3" type="radio" name='radios'>
+                                    <span>
+                                        Choice 3
+                                    </span>
+                                </label>
+                            </fieldset>
+                        </div>
 
-                <div class="form__group">
-                    <span class="form__label">Please choose:</span>
+                        <div class="form__group">
+                            <span class="form__label">Please choose:</span>
 
-                    <fieldset>
-                        <label for="inline_radio_1" class="radio">
-                            <input type="radio" id="inline_radio_1" name='inline_radios' />
-                            <span>Yes</span>
-                        </label>
+                            <fieldset>
+                                <label for="inline_radio_1" class="radio">
+                                    <input type="radio" id="inline_radio_1" name='inline_radios' />
+                                    <span>Yes</span>
+                                </label>
 
-                        <label for="inline_radio_2" class="radio">
-                            <input type="radio" id="inline_radio_2" name='inline_radios' />
-                            <span>
-                                No
-                            </span>
-                        </label>
+                                <label for="inline_radio_2" class="radio">
+                                    <input type="radio" id="inline_radio_2" name='inline_radios' />
+                                    <span>
+                                        No
+                                    </span>
+                                </label>
 
-                        <label for="inline_radio_3" class="radio">
-                            <input id="inline_radio_3" type="radio" name='inline_radios'>
-                            <span>
-                                Maybe
-                            </span>
-                        </label>
-                    </fieldset>
-                </div>
+                                <label for="inline_radio_3" class="radio">
+                                    <input id="inline_radio_3" type="radio" name='inline_radios'>
+                                    <span>
+                                        Maybe
+                                    </span>
+                                </label>
+                            </fieldset>
+                        </div>
 
-                <div class="form__group">
-                    <span class="form__label">Please tick all that apply:</span>
+                        <div class="form__group">
+                            <span class="form__label">Please tick all that apply:</span>
 
-                    <fieldset>
-                        <label for="checkbox_choice_1" class="checkbox">
-                            <input type="checkbox" id="checkbox_choice_1" name="checkboxes" value="1">
-                            <span>Choice 1</span>
-                        </label>
+                            <fieldset>
+                                <label for="checkbox_choice_1" class="checkbox">
+                                    <input type="checkbox" id="checkbox_choice_1" name="checkboxes" value="1">
+                                    <span>Choice 1</span>
+                                </label>
 
-                        <label for="checkbox_choice_2" class="checkbox">
-                            <input type="checkbox" id="checkbox_choice_2" name="checkboxes" value="2">
-                            <span>
-                                Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just
-                                needed to prove these labels can go on to two or more lines (just in case), that's all. We
-                                just needed to prove these labels can go on to two or more lines (just in case), that's all.
-                            </span>
-                        </label>
+                                <label for="checkbox_choice_2" class="checkbox">
+                                    <input type="checkbox" id="checkbox_choice_2" name="checkboxes" value="2">
+                                    <span>
+                                        Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just
+                                        needed to prove these labels can go on to two or more lines (just in case), that's all. We
+                                        just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                                    </span>
+                                </label>
 
-                        <label for="checkbox_choice_3" class="checkbox">
-                            <input type="checkbox" id="checkbox_choice_3" name="checkboxes" value="3">
-                            <span>Choice 3</span>
-                        </label>
-                    </fieldset>
-                </div>
+                                <label for="checkbox_choice_3" class="checkbox">
+                                    <input type="checkbox" id="checkbox_choice_3" name="checkboxes" value="3">
+                                    <span>Choice 3</span>
+                                </label>
+                            </fieldset>
+                        </div>
 
 
-                <div class="form__group">
-                    <p>You can also make switchable radio buttons like the one below:</p>
+                        <div class="form__group">
+                            <p>You can also make switchable radio buttons like the one below:</p>
 
-                    <div class="switch">
-                        <input checked type="radio" id="switch_on" name="switch" value="on">
-                        <label for="switch_on">On</label>
+                            <div class="switch">
+                                <input checked type="radio" id="switch_on" name="switch" value="on">
+                                <label for="switch_on">On</label>
 
-                        <input type="radio" id="switch_off" name="switch" value="off">
-                        <label for="switch_off">Off</label>
-                    </div>
-                </div>
+                                <input type="radio" id="switch_off" name="switch" value="off">
+                                <label for="switch_off">Off</label>
+                            </div>
+                        </div>
 
-                <fieldset class="form__group">
-                    <label for="message" class="form__label">Message</label>
+                        <fieldset class="form__group">
+                            <label for="message" class="form__label">Message</label>
 
-                    <textarea id="message" name="message" class="form__control"></textarea>
-                </fieldset>
+                            <textarea id="message" name="message" class="form__control"></textarea>
+                        </fieldset>
 
-                <div class="form__group">
-                    <button class="button button--primary" type="submit">
-                        <i class="icon icon--loading loading-icon"></i>
-                        Submit
-                    </button>
-                    <a href="#" class="button">Cancel</a>
-                </div>
+                        <div class="form__group">
+                            <button class="button button--primary" type="submit">
+                                <i class="icon icon--loading loading-icon"></i>
+                                Submit
+                            </button>
+                            <a href="#" class="button button--default">Cancel</a>
+                        </div>
 
-            </form>
+                    </form>
+                </section>
 
-            <h2>Form Errors</h2>
+                <section class="section">
+                    <h2 class="section__title">Form Errors</h2>
 
-            <form class="form">
-                <fieldset class="form__group form__group--text form__group--error">
-                    <label for="first_name" class="form__label">First Name</label>
+                    <form class="form">
+                        <fieldset class="form__group form__group--error">
+                            <label for="first_name" class="form__label">First Name</label>
 
-                    <input type="text" id="first_name" name="first_name" class="form__control">
+                            <input type="text" id="first_name" name="first_name" class="form__control">
 
-                    <span class="form__error">omg this is required</span>
-                </fieldset>
-            </form>
+                            <span class="form__error">omg this is required</span>
+                        </fieldset>
+                    </form>
+                </section>
+            </article>
         </div>
     </main>
 
