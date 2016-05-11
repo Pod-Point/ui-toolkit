@@ -14,7 +14,11 @@ const config = require('./config');
 gulp.task('css', () => {
     return gulp.src(config.src.root + '/' + config.src.scss + '/**/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({ errLogToConsole: true }))
+        .pipe(
+            sass().on('error', function (err) {
+                this.emit('end');
+            })
+        )
         .pipe(postcss([
             autoprefixer({ browsers: ['last 2 versions'] }),
             cssnano()

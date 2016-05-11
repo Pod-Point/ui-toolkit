@@ -23,6 +23,19 @@
     background-image: url(https://unsplash.it/800/600?image=989);
 }
 
+.section:not(:last-child) {
+    margin-bottom: 4rem;
+}
+
+    .section__title {
+        border-bottom: 1px solid #eee;
+        font-size: 2rem;
+        line-height: 2rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+    }
+
 .footer {
     border-top: 1px solid #eee;
     padding: 1.5rem 0;
