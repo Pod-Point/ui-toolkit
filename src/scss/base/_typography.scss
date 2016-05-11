@@ -1,0 +1,24 @@
+/**
+ * Alignment
+ */
+
+.text--center {
+    text-align: center;
+}
+
+.text--left {
+    text-align: left;
+}
+
+.text--right {
+    text-align: right;
+}
+
+/**
+ * Typography
+ */
+
+.text--lead {
+    font-size: $font-size-mega;
+    line-height: ($line-height * 1.25);
+}
