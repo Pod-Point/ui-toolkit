@@ -4,8 +4,16 @@ $line-height: 1.5rem;
 
 $base-font-size: 18;
 
-$font-size-micro: (14 / $base-font-size) * 1rem;
-$font-size-milli: (16 / $base-font-size) * 1rem;
-$font-size-kilo: (20 / $base-font-size) * 1rem;
-$font-size-mega: (24 / $base-font-size) * 1rem;
-$font-size-giga: (36 / $base-font-size) * 1rem;
+$sizes: (
+    micro: 0.777,
+    milli: 0.888,
+    kilo: 1.111,
+    mega: 1.333,
+    giga: 2
+);
+
+$font-size-micro: map_get($sizes, 'micro') * 1rem;
+$font-size-milli: map_get($sizes, 'milli') * 1rem;
+$font-size-kilo: map_get($sizes, 'kilo') * 1rem;
+$font-size-mega: map_get($sizes, 'mega') * 1rem;
+$font-size-giga: map_get($sizes, 'giga') * 1rem;

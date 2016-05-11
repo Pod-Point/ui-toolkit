@@ -19,7 +19,6 @@ $button-background-colour: $super-light-grey;
 }
 
 .button {
-    @include button-variant($super-light-grey, $dark-grey);
     border-radius: $border-radius;
     border: 0;
     cursor: pointer;
@@ -48,6 +47,10 @@ $button-background-colour: $super-light-grey;
     }
 }
 
+.button--default {
+    @include button-variant($super-light-grey, $dark-grey);
+}
+
 .button--danger {
     @include button-variant($brand-danger, white);
 }
@@ -56,20 +59,13 @@ $button-background-colour: $super-light-grey;
     @include button-variant($brand-primary, white);
 }
 
-&.button--kilo {
-    font-size: $font-size-kilo;
-    height: 3rem;
-    line-height: 3rem;
-    padding: 0 2rem;
-}
-
-&.button--milli {
-    box-shadow: none;
-    font-size: $font-size-milli;
-    line-height: 1.5rem;
-    height: 1.5rem;
-    padding: 0 0.75rem;
-    text-shadow: none;
+@each $size, $multiplier in $sizes {
+    .button--#{$size} {
+        font-size: $multiplier * 1rem;
+        height: $multiplier * 2rem;
+        line-height: $multiplier * 2rem;
+        padding: 0 ($multiplier * 1rem);
+    }
 }
 
 .button--block {
@@ -77,10 +73,7 @@ $button-background-colour: $super-light-grey;
 }
 
 .button--link {
-    background-color: transparent;
-    box-shadow: none;
     color: $brand-primary;
-    text-shadow: none;
 }
 
 .loading-icon {

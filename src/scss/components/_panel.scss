@@ -13,6 +13,14 @@ $panel-list-width: 200px;
     padding-bottom: 0;
 }
 
+.panel--primary {
+    .panel__header {
+        background-color: $brand-primary;
+        color: white;
+        border-radius: $border-radius $border-radius 0 0;
+    }
+}
+
     .panel__header,
     .panel__body,
     .panel__footer {
@@ -32,6 +40,11 @@ $panel-list-width: 200px;
         font-size: 1.25rem;
     }
 
+    .panel__subtitle {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
     .panel__body {
         padding-bottom: 0;
 
@@ -39,10 +52,6 @@ $panel-list-width: 200px;
         > ol {
             text-align: left;
         }
-    }
-
-    .panel__subtitle {
-        font-size: 1rem;
     }
 
     .panel__footer {

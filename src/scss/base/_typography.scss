@@ -1,3 +1,19 @@
+h1,
+.h1 {
+    font-size: $font-size-giga;
+    line-height: ($line-height * 2);
+}
+
+h2,
+.h2 {
+    font-size: $font-size-mega;
+}
+
+h3,
+.h3 {
+    font-size: $font-size-kilo;
+}
+
 /**
  * Alignment
  */

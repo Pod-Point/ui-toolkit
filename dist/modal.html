@@ -26,9 +26,13 @@
 
     <main class="main" role="main">
         <div class="container">
-            <button type="button" class="button button--primary" data-js-module="modal" data-modal="testModal">
-                Show Me A Modal!
-            </button>
+            <article>
+                <h1 class="page-heading">Modal</h1>
+
+                <button type="button" class="button button--primary" data-js-module="modal" data-modal="testModal">
+                    Show Me One!
+                </button>
+            </article>
         </div>
     </main>
 
@@ -37,13 +41,17 @@
 
         <div class="modal__content">
             <div class="panel">
-                <h4 class="panel__title">A Title For This Panel</h4>
-                <img class="responsive" src="http://placehold.it/1000x400">
-                <h5 class="panel__subtitle">Some extra stuff you ought to know</h5>
-                <ul>
-                    <li>Buy our stuff now!</li>
-                    <li>Please&hellip;</li>
-                </ul>
+                <div class="panel__header">
+                    <h2 class="panel__title">A Title For This Panel</h2>
+                </div>
+                <div class="panel__body">
+                    <p><img class="responsive" src="http://placehold.it/1000x400"></p>
+                    <h3 class="panel__subtitle">Some extra stuff you ought to know</h3>
+                    <ul>
+                        <li>Buy our stuff now!</li>
+                        <li>Please&hellip;</li>
+                    </ul>
+                </div>
                 <div class="panel__footer">
                     <button class="button button--primary modal-close">
                         Don't Click Here
