@@ -13,7 +13,8 @@ $button-background-colour: $super-light-grey;
         text-shadow: 0 1px 0 white;
     }
 
-    &:active {
+    &:active,
+    &.active {
         box-shadow: 0 1px 0 0 $background-colour-dark inset;
     }
 }
@@ -38,7 +39,8 @@ $button-background-colour: $super-light-grey;
         opacity: 0.5;
     }
 
-    &:active {
+    &:active,
+    &.active {
         transform: translateY(2px);
     }
 
