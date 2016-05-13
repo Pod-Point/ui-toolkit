@@ -3,6 +3,10 @@ import { selectFirst } from '@pod-point/dom-ops';
 
 let instances = [];
 
+const LOCAL_KEY = 'toggle-state-';
+const HIDDEN = 'hidden';
+const VISIBLE = 'visible';
+
 class Toggle {
 
     /**
@@ -16,6 +20,15 @@ class Toggle {
 
         this.hide = element.dataset.hide;
         this.show = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
+
+        this.storageKey = LOCAL_KEY + element.getAttribute('id');
+        this.initialVisibility = localStorage.getItem(this.storageKey);
+
+        if (this.initialVisibility !== HIDDEN) {
+            selectFirst(this.hide).style.visibility = VISIBLE;
+        } else {
+            selectFirst(this.hide).style.visibility = HIDDEN;
+        }
 
         this.bindEvents();
     }
@@ -46,6 +59,7 @@ class Toggle {
     doToggle(event) {
         event.preventDefault();
 
+        let visibility = HIDDEN;
         let hideElement = selectFirst(this.hide);
         let showElement = this.show ? selectFirst(this.show) : null;
 
@@ -59,6 +73,7 @@ class Toggle {
 
         } else {
 
+            visibility = VISIBLE;
             hideElement.style.display = 'block';
 
             if (this.show) {
@@ -66,6 +81,9 @@ class Toggle {
             }
         }
 
+        if (this.storageKey) {
+            localStorage.setItem(this.storageKey, visibility);
+        }
     }
 }
 
