@@ -3078,13 +3078,17 @@
 	        this.hide = element.dataset.hide;
 	        this.show = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
 	
-	        this.storageKey = LOCAL_KEY + element.getAttribute('id');
-	        this.initialVisibility = localStorage.getItem(this.storageKey);
+	        this.storageKey = null;
 	
-	        if (this.initialVisibility !== HIDDEN) {
-	            (0, _domOps.selectFirst)(this.hide).style.visibility = VISIBLE;
-	        } else {
-	            (0, _domOps.selectFirst)(this.hide).style.visibility = HIDDEN;
+	        if (element.getAttribute('data-persist')) {
+	            this.storageKey = LOCAL_KEY + element.getAttribute('id');
+	            this.initialVisibility = localStorage.getItem(this.storageKey);
+	
+	            if (this.initialVisibility !== HIDDEN) {
+	                (0, _domOps.selectFirst)(this.hide).style.visibility = VISIBLE;
+	            } else {
+	                (0, _domOps.selectFirst)(this.hide).style.visibility = HIDDEN;
+	            }
 	        }
 	
 	        this.bindEvents();
@@ -3133,15 +3137,14 @@
 	            var showElement = this.show ? (0, _domOps.selectFirst)(this.show) : null;
 	
 	            if (hideElement.style.display !== 'none' || hideElement.style.display === '') {
-	
 	                hideElement.style.display = 'none';
 	
 	                if (this.show) {
 	                    showElement.style.display = 'block';
 	                }
 	            } else {
-	
 	                visibility = VISIBLE;
+	
 	                hideElement.style.display = 'block';
 	
 	                if (this.show) {
