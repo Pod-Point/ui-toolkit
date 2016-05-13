@@ -3057,6 +3057,10 @@
 	
 	var instances = [];
 	
+	var LOCAL_KEY = 'toggle-state-';
+	var HIDDEN = 'hidden';
+	var VISIBLE = 'visible';
+	
 	var Toggle = function () {
 	
 	    /**
@@ -3073,6 +3077,20 @@
 	
 	        this.hide = element.dataset.hide;
 	        this.show = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
+	
+	        this.storageKey = null;
+	
+	        if (element.getAttribute('data-persist')) {
+	            this.storageKey = LOCAL_KEY + element.getAttribute('id');
+	        }
+	
+	        this.initialVisibility = localStorage.getItem(this.storageKey);
+	
+	        if (this.initialVisibility !== HIDDEN) {
+	            (0, _domOps.selectFirst)(this.hide).style.visibility = VISIBLE;
+	        } else {
+	            (0, _domOps.selectFirst)(this.hide).style.visibility = HIDDEN;
+	        }
 	
 	        this.bindEvents();
 	    }
@@ -3115,23 +3133,28 @@
 	        value: function doToggle(event) {
 	            event.preventDefault();
 	
+	            var visibility = HIDDEN;
 	            var hideElement = (0, _domOps.selectFirst)(this.hide);
 	            var showElement = this.show ? (0, _domOps.selectFirst)(this.show) : null;
 	
 	            if (hideElement.style.display !== 'none' || hideElement.style.display === '') {
-	
 	                hideElement.style.display = 'none';
 	
 	                if (this.show) {
 	                    showElement.style.display = 'block';
 	                }
 	            } else {
+	                visibility = VISIBLE;
 	
 	                hideElement.style.display = 'block';
 	
 	                if (this.show) {
 	                    showElement.style.display = 'none';
 	                }
+	            }
+	
+	            if (this.storageKey) {
+	                localStorage.setItem(this.storageKey, visibility);
 	            }
 	        }
 	    }]);
