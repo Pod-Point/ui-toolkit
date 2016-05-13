@@ -25,13 +25,14 @@ class Toggle {
 
         if (element.getAttribute('data-persist')) {
             this.storageKey = LOCAL_KEY + element.getAttribute('id');
-            this.initialVisibility = localStorage.getItem(this.storageKey);
+        }
 
-            if (this.initialVisibility !== HIDDEN) {
-                selectFirst(this.hide).style.visibility = VISIBLE;
-            } else {
-                selectFirst(this.hide).style.visibility = HIDDEN;
-            }
+        this.initialVisibility = localStorage.getItem(this.storageKey);
+
+        if (this.initialVisibility !== HIDDEN) {
+            selectFirst(this.hide).style.visibility = VISIBLE;
+        } else {
+            selectFirst(this.hide).style.visibility = HIDDEN;
         }
 
         this.bindEvents();

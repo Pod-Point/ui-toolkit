@@ -39,13 +39,14 @@ var Toggle = function () {
 
         if (element.getAttribute('data-persist')) {
             this.storageKey = LOCAL_KEY + element.getAttribute('id');
-            this.initialVisibility = localStorage.getItem(this.storageKey);
+        }
 
-            if (this.initialVisibility !== HIDDEN) {
-                (0, _domOps.selectFirst)(this.hide).style.visibility = VISIBLE;
-            } else {
-                (0, _domOps.selectFirst)(this.hide).style.visibility = HIDDEN;
-            }
+        this.initialVisibility = localStorage.getItem(this.storageKey);
+
+        if (this.initialVisibility !== HIDDEN) {
+            (0, _domOps.selectFirst)(this.hide).style.visibility = VISIBLE;
+        } else {
+            (0, _domOps.selectFirst)(this.hide).style.visibility = HIDDEN;
         }
 
         this.bindEvents();
