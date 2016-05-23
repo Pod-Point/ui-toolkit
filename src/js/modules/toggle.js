@@ -18,21 +18,21 @@ class Toggle {
         this.element = element;
         this.action = element.dataset.hasOwnProperty('action') ? element.dataset.action : 'click';
 
-        this.hide = element.dataset.hide;
-        this.show = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
+        this.shouldHide = element.dataset.hide;
+        this.shouldShow = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
 
         this.storageKey = null;
 
         if (element.getAttribute('data-persist')) {
             this.storageKey = LOCAL_KEY + element.getAttribute('id');
-        }
 
-        this.initialVisibility = localStorage.getItem(this.storageKey);
+            this.initialVisibility = localStorage.getItem(this.storageKey);
 
-        if (this.initialVisibility !== HIDDEN) {
-            selectFirst(this.hide).style.visibility = VISIBLE;
-        } else {
-            selectFirst(this.hide).style.visibility = HIDDEN;
+            if (this.initialVisibility === HIDDEN) {
+                this.hide(selectFirst(this.shouldHide));
+            } else {
+                this.show(selectFirst(this.shouldHide));
+            }
         }
 
         this.bindEvents();
@@ -57,36 +57,75 @@ class Toggle {
     }
 
     /**
-     * Toggles the elements
+     * Toggles the elements.
+     *
      * @param {Event} event
-     * @param {Element} trigger
      */
     doToggle(event) {
         event.preventDefault();
 
-        let visibility = HIDDEN;
-        let hideElement = selectFirst(this.hide);
-        let showElement = this.show ? selectFirst(this.show) : null;
-
-        if (hideElement.style.display !== 'none' || hideElement.style.display === '') {
-            hideElement.style.display = 'none';
-
-            if (this.show) {
-                showElement.style.display = 'block';
-            }
-        } else {
-            visibility = VISIBLE;
-
-            hideElement.style.display = 'block';
-
-            if (this.show) {
-                showElement.style.display = 'none';
-            }
-        }
+        let hideElement = selectFirst(this.shouldHide);
+        let showElement = this.shouldShow ? selectFirst(this.shouldShow) : null;
 
         if (this.storageKey) {
-            localStorage.setItem(this.storageKey, visibility);
+            localStorage.setItem(this.storageKey, this.isVisible(hideElement) ? HIDDEN : VISIBLE);
         }
+
+        if (this.isVisible(hideElement)) {
+            this.hide(hideElement);
+
+            if (this.shouldShow) {
+                this.show(showElement);
+            }
+        } else {
+            this.show(hideElement);
+
+            if (this.shouldShow) {
+                this.hide(showElement);
+            }
+        }
+    }
+
+    /**
+     * Check if an element is hidden.
+     *
+     * @param element
+     * @returns {boolean}
+     */
+    isHidden(element) {
+        return element.style.visibility === 'hidden';
+    }
+
+    /**
+     * Check if an element is visible.
+     *
+     * @param element
+     * @returns {boolean}
+     */
+    isVisible(element) {
+        return !this.isHidden(element);
+    }
+
+    /**
+     * Display an element.
+     *
+     * @param element
+     */
+    show(element) {
+        element.style.visibility = 'visible';
+        element.style.height = 'auto';
+        element.style.overflow = 'auto';
+    }
+
+    /**
+     * Hide an element.
+     *
+     * @param element
+     */
+    hide(element) {
+        element.style.visibility = 'hidden';
+        element.style.height = '0px';
+        element.style.overflow = 'hidden';
     }
 }
 

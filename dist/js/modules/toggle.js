@@ -32,21 +32,21 @@ var Toggle = function () {
         this.element = element;
         this.action = element.dataset.hasOwnProperty('action') ? element.dataset.action : 'click';
 
-        this.hide = element.dataset.hide;
-        this.show = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
+        this.shouldHide = element.dataset.hide;
+        this.shouldShow = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
 
         this.storageKey = null;
 
         if (element.getAttribute('data-persist')) {
             this.storageKey = LOCAL_KEY + element.getAttribute('id');
-        }
 
-        this.initialVisibility = localStorage.getItem(this.storageKey);
+            this.initialVisibility = localStorage.getItem(this.storageKey);
 
-        if (this.initialVisibility !== HIDDEN) {
-            (0, _domOps.selectFirst)(this.hide).style.visibility = VISIBLE;
-        } else {
-            (0, _domOps.selectFirst)(this.hide).style.visibility = HIDDEN;
+            if (this.initialVisibility === HIDDEN) {
+                this.hide((0, _domOps.selectFirst)(this.shouldHide));
+            } else {
+                this.show((0, _domOps.selectFirst)(this.shouldHide));
+            }
         }
 
         this.bindEvents();
@@ -80,9 +80,9 @@ var Toggle = function () {
         }
 
         /**
-         * Toggles the elements
+         * Toggles the elements.
+         *
          * @param {Event} event
-         * @param {Element} trigger
          */
 
     }, {
@@ -90,29 +90,80 @@ var Toggle = function () {
         value: function doToggle(event) {
             event.preventDefault();
 
-            var visibility = HIDDEN;
-            var hideElement = (0, _domOps.selectFirst)(this.hide);
-            var showElement = this.show ? (0, _domOps.selectFirst)(this.show) : null;
-
-            if (hideElement.style.display !== 'none' || hideElement.style.display === '') {
-                hideElement.style.display = 'none';
-
-                if (this.show) {
-                    showElement.style.display = 'block';
-                }
-            } else {
-                visibility = VISIBLE;
-
-                hideElement.style.display = 'block';
-
-                if (this.show) {
-                    showElement.style.display = 'none';
-                }
-            }
+            var hideElement = (0, _domOps.selectFirst)(this.shouldHide);
+            var showElement = this.shouldShow ? (0, _domOps.selectFirst)(this.shouldShow) : null;
 
             if (this.storageKey) {
-                localStorage.setItem(this.storageKey, visibility);
+                localStorage.setItem(this.storageKey, this.isVisible(hideElement) ? HIDDEN : VISIBLE);
             }
+
+            if (this.isVisible(hideElement)) {
+                this.hide(hideElement);
+
+                if (this.shouldShow) {
+                    this.show(showElement);
+                }
+            } else {
+                this.show(hideElement);
+
+                if (this.shouldShow) {
+                    this.hide(showElement);
+                }
+            }
+        }
+
+        /**
+         * Check if an element is hidden.
+         *
+         * @param element
+         * @returns {boolean}
+         */
+
+    }, {
+        key: 'isHidden',
+        value: function isHidden(element) {
+            return element.style.visibility === 'hidden';
+        }
+
+        /**
+         * Check if an element is visible.
+         *
+         * @param element
+         * @returns {boolean}
+         */
+
+    }, {
+        key: 'isVisible',
+        value: function isVisible(element) {
+            return !this.isHidden(element);
+        }
+
+        /**
+         * Display an element.
+         *
+         * @param element
+         */
+
+    }, {
+        key: 'show',
+        value: function show(element) {
+            element.style.visibility = 'visible';
+            element.style.height = 'auto';
+            element.style.overflow = 'auto';
+        }
+
+        /**
+         * Hide an element.
+         *
+         * @param element
+         */
+
+    }, {
+        key: 'hide',
+        value: function hide(element) {
+            element.style.visibility = 'hidden';
+            element.style.height = '0px';
+            element.style.overflow = 'hidden';
         }
     }]);
 
