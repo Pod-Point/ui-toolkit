@@ -11,7 +11,7 @@ Add the following to your project's `devDependencies`:
 ```json
 {
     "devDependencies": {
-        "ui-toolkit": "git+https://git@github.com/Pod-Point/ui-toolkit.git#toggle-updates"
+        "ui-toolkit": "git+https://git@github.com/Pod-Point/ui-toolkit.git"
     }
 }
 ```
