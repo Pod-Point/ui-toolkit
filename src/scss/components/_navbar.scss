@@ -41,6 +41,7 @@ $navbar-brand-height: 40px;
         right: $line-height;
 
         > .icon {
+            margin: 0;
             fill: $brand-primary;
         }
 
@@ -50,7 +51,6 @@ $navbar-brand-height: 40px;
 
             > .icon {
                 fill: $grey;
-                margin: 0;
             }
         }
 
