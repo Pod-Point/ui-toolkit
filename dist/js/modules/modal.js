@@ -26,38 +26,20 @@ var Modal = function () {
         _classCallCheck(this, Modal);
 
         this.openButton = element;
+        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
         this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
-        this.modal = (0, _domOps.selectFirst)('#' + this.openButton.dataset.modal);
-        this.overlay = this.getModalOverlay();
+        this.overlay = (0, _domOps.selectFirst)('.modal__overlay', this.modal);
 
         this.bindOpenEvent();
         this.bindCloseEvent();
     }
 
     /**
-     * Get the modal's overlay.
-     *
-     * @returns {*}
+     * Binds open modal event.
      */
 
 
     _createClass(Modal, [{
-        key: 'getModalOverlay',
-        value: function getModalOverlay() {
-            for (var i = 0; i < this.modal.childNodes.length; i++) {
-                if (this.modal.childNodes[i].className == 'modal__overlay') {
-                    return this.modal.childNodes[i];
-                }
-            }
-
-            return null;
-        }
-
-        /**
-         * Binds open modal event.
-         */
-
-    }, {
         key: 'bindOpenEvent',
         value: function bindOpenEvent() {
             var _this = this;
