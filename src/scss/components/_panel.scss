@@ -83,16 +83,21 @@ $panel-list-width: 200px;
         }
 
         > dt {
-            float: left;
             font-weight: bold;
-            width: $panel-list-width;
-            overflow: hidden;
-            clear: left;
             text-overflow: ellipsis;
             white-space: nowrap;
+
+            @media screen and (min-width: $screen-sm) {
+                clear: left;
+                float: left;
+                overflow: hidden;
+                width: $panel-list-width;
+            }
         }
 
         > dd {
-            padding-left: $panel-list-width;
+            @media screen and (min-width: $screen-sm) {
+                padding-left: $panel-list-width;
+            }
         }
     }
