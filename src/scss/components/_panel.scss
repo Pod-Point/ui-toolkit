@@ -84,6 +84,7 @@ $panel-list-width: 200px;
 
         > dt {
             font-weight: bold;
+            padding-bottom: 0;
             text-overflow: ellipsis;
             white-space: nowrap;
 
@@ -91,6 +92,7 @@ $panel-list-width: 200px;
                 clear: left;
                 float: left;
                 overflow: hidden;
+                padding-bottom: ($line-height / 2);
                 width: $panel-list-width;
             }
         }
