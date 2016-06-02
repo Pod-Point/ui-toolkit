@@ -23,6 +23,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var instances = [];
 
 var AjaxForm = function () {
+
+    /**
+     * Create a new AJAX form.
+     *
+     * @param form
+     */
+
     function AjaxForm(form) {
         _classCallCheck(this, AjaxForm);
 
@@ -32,6 +39,11 @@ var AjaxForm = function () {
 
         this.bindEvents();
     }
+
+    /**
+     * Handle the form submission.
+     */
+
 
     _createClass(AjaxForm, [{
         key: 'submitForm',
@@ -51,6 +63,11 @@ var AjaxForm = function () {
                 }
             });
         }
+
+        /**
+         * Bind any event listeners to the elements.
+         */
+
     }, {
         key: 'bindEvents',
         value: function bindEvents() {
@@ -66,6 +83,11 @@ var AjaxForm = function () {
                 }
             });
         }
+
+        /**
+         * Unbinds the event listeners from the elements.
+         */
+
     }, {
         key: 'unbindEvents',
         value: function unbindEvents() {

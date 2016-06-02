@@ -10,6 +10,8 @@ var _domDelegate = require('dom-delegate');
 
 var _domOps = require('@pod-point/dom-ops');
 
+var _utilities = require('./../utilities');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
@@ -17,7 +19,7 @@ var instances = [];
 var Modal = function () {
 
     /**
-     * Creates a new modal.
+     * Creates a new modal window.
      *
      * @param element
      */
@@ -30,18 +32,17 @@ var Modal = function () {
         this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
         this.overlay = (0, _domOps.selectFirst)('.modal__overlay', this.modal);
 
-        this.bindOpenEvent();
-        this.bindCloseEvent();
+        this.bindEvents();
     }
 
     /**
-     * Binds open modal event.
+     * Binds the event listeners from the elements.
      */
 
 
     _createClass(Modal, [{
-        key: 'bindOpenEvent',
-        value: function bindOpenEvent() {
+        key: 'bindEvents',
+        value: function bindEvents() {
             var _this = this;
 
             this.openListener = new _domDelegate.Delegate(this.openButton);
@@ -49,27 +50,17 @@ var Modal = function () {
             this.openListener.on('click', function (event) {
                 _this.doModal(event);
             });
-        }
-
-        /**
-         * Bind the close modal event to the close button.
-         */
-
-    }, {
-        key: 'bindCloseEvent',
-        value: function bindCloseEvent() {
-            var _this2 = this;
 
             this.closeListener = new _domDelegate.Delegate(this.closeButton);
 
             this.closeListener.on('click', function (event) {
-                _this2.closeModal(event);
+                _this.closeModal();
             });
 
             this.overlayListener = new _domDelegate.Delegate(this.overlay);
 
             this.overlayListener.on('click', function (event) {
-                _this2.closeModal(event);
+                _this.closeModal();
             });
         }
 
@@ -86,7 +77,8 @@ var Modal = function () {
         }
 
         /**
-         * Opens the modal
+         * Handle the modal opening.
+         *
          * @param {Event} event
          */
 
@@ -95,32 +87,21 @@ var Modal = function () {
         value: function doModal(event) {
             event.preventDefault();
 
-            var elements = [this.overlay, this.modal];
-
-            for (var i = 0; i < elements.length; i++) {
-                if (elements[i].style.display === 'none' || !elements[i].style.display) {
-                    elements[i].style.display = 'block';
-                } else {
-                    elements[i].style.display = 'none';
-                }
+            if ((0, _utilities.isVisible)(this.modal)) {
+                this.closeModal(event);
+            } else {
+                (0, _utilities.show)(this.modal);
             }
         }
 
         /**
-         * Closes the modal
-         * @param {Event} event
+         * Handle the modal closing.
          */
 
     }, {
         key: 'closeModal',
-        value: function closeModal(event) {
-            event.preventDefault();
-
-            var elements = [this.overlay, this.modal];
-
-            for (var i = 0; i < elements.length; i++) {
-                elements[i].style.display = 'none';
-            }
+        value: function closeModal() {
+            (0, _utilities.hide)(this.modal);
         }
     }]);
 

@@ -2,9 +2,15 @@ import { Delegate } from 'dom-delegate';
 import request from 'superagent';
 import progressButton from './progress-button';
 
-var instances = [];
+let instances = [];
 
 class AjaxForm {
+
+    /**
+     * Create a new AJAX form.
+     *
+     * @param form
+     */
     constructor(form) {
         this.form = form;
         this.button = progressButton.create(form.querySelector('button[type="submit"]'));
@@ -13,6 +19,9 @@ class AjaxForm {
         this.bindEvents();
     }
 
+    /**
+     * Handle the form submission.
+     */
     submitForm() {
         this.requestInProgress = true;
         this.button.handleLoading();
@@ -31,6 +40,9 @@ class AjaxForm {
             });
     }
 
+    /**
+     * Bind any event listeners to the elements.
+     */
     bindEvents() {
         this.listener = new Delegate(this.form);
 
@@ -43,6 +55,9 @@ class AjaxForm {
         });
     }
 
+    /**
+     * Unbinds the event listeners from the elements.
+     */
     unbindEvents() {
         this.listener.destroy();
     }

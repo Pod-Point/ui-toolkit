@@ -11,14 +11,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var IS_LOADING = 'is-loading';
 var IS_COMPLETE = 'is-complete';
 
-var instances = [];
-
 var ProgressButton = function () {
+
+    /**
+     * Create a new progress button.
+     *
+     * @param button
+     */
+
     function ProgressButton(button) {
         _classCallCheck(this, ProgressButton);
 
         this.button = button;
     }
+
+    /**
+     * Handle the button in a loading state.
+     */
+
 
     _createClass(ProgressButton, [{
         key: 'handleLoading',
@@ -26,6 +36,13 @@ var ProgressButton = function () {
             this.button.setAttribute('disabled', true);
             this.button.classList.add(IS_LOADING);
         }
+
+        /**
+         * Handle the button on success.
+         * 
+         * @param success
+         */
+
     }, {
         key: 'handleComplete',
         value: function handleComplete(success) {

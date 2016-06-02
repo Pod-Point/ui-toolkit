@@ -1,12 +1,11 @@
 import { Delegate } from 'dom-delegate';
-import { removeClass } from '@pod-point/dom-ops';
 
 let instances = [];
 
 class DropDown {
 
     /**
-     * Creates a new dropdown.
+     * Creates a new drop down element.
      *
      * @param element
      */
@@ -17,17 +16,21 @@ class DropDown {
     }
 
     /**
-     * Binds dropdown event.
+     * Bind any event listeners to the elements.
      */
     bindEvents() {
         this.listener = new Delegate(this.element);
 
         this.listener.on('click', (event, input) => {
-            this.doDropDown(event, input);
+            event.preventDefault();
+
+            this.doDropDown(input);
         });
 
         this.listener.on('blur', (event, input) => {
-            this.closeDropDown(event, input);
+            event.preventDefault();
+
+            this.closeDropDown(input);
         });
     }
 
@@ -39,22 +42,21 @@ class DropDown {
     }
 
     /**
-     * Drops down
-     * @param {Event} event
+     * Handle drop down opening.
+     *
      * @param {Element} input
      */
-    doDropDown(event, input) {
-        event.preventDefault();
+    doDropDown(input) {
         input.parentElement.classList.toggle('open');
     }
 
     /**
-     * Closes the dropdown
-     * @param {Event} event
+     * Handle drop down closing.
+     *
      * @param {Element} input
      */
-    closeDropDown(event, input) {
-        removeClass(input.parentElement, 'open');
+    closeDropDown(input) {
+        input.parentElement.classList.remove('open');
 
         // Trigger the click event on the target if it not opening another menu
         if (event.relatedTarget && event.relatedTarget.getAttribute('data-js-module') !== 'dropdown') {
