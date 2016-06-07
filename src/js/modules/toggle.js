@@ -30,9 +30,9 @@ class Toggle {
             this.initialVisibility = localStorage.getItem(this.storageKey);
 
             if (this.initialVisibility === HIDDEN) {
-                this.hide(selectFirst(this.shouldHide));
+                hide(selectFirst(this.shouldHide));
             } else {
-                this.show(selectFirst(this.shouldHide));
+                show(selectFirst(this.shouldHide));
             }
         }
 

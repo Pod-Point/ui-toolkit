@@ -45,9 +45,9 @@ var Toggle = function () {
             this.initialVisibility = localStorage.getItem(this.storageKey);
 
             if (this.initialVisibility === HIDDEN) {
-                this.hide((0, _domOps.selectFirst)(this.shouldHide));
+                (0, _utilities.hide)((0, _domOps.selectFirst)(this.shouldHide));
             } else {
-                this.show((0, _domOps.selectFirst)(this.shouldHide));
+                (0, _utilities.show)((0, _domOps.selectFirst)(this.shouldHide));
             }
         }
 
