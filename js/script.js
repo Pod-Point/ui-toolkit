@@ -62,11 +62,11 @@
 	
 	var _modal2 = _interopRequireDefault(_modal);
 	
-	var _ajaxForm = __webpack_require__(8);
+	var _ajaxForm = __webpack_require__(9);
 	
 	var _ajaxForm2 = _interopRequireDefault(_ajaxForm);
 	
-	var _collapse = __webpack_require__(16);
+	var _collapse = __webpack_require__(17);
 	
 	var _collapse2 = _interopRequireDefault(_collapse);
 	
@@ -494,6 +494,8 @@
 	
 	var _domOps = __webpack_require__(4);
 	
+	var _utilities = __webpack_require__(8);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
@@ -501,7 +503,7 @@
 	var Modal = function () {
 	
 	    /**
-	     * Creates a new modal.
+	     * Creates a new modal window.
 	     *
 	     * @param element
 	     */
@@ -514,18 +516,17 @@
 	        this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
 	        this.overlay = (0, _domOps.selectFirst)('.modal__overlay', this.modal);
 	
-	        this.bindOpenEvent();
-	        this.bindCloseEvent();
+	        this.bindEvents();
 	    }
 	
 	    /**
-	     * Binds open modal event.
+	     * Binds the event listeners from the elements.
 	     */
 	
 	
 	    _createClass(Modal, [{
-	        key: 'bindOpenEvent',
-	        value: function bindOpenEvent() {
+	        key: 'bindEvents',
+	        value: function bindEvents() {
 	            var _this = this;
 	
 	            this.openListener = new _domDelegate.Delegate(this.openButton);
@@ -533,27 +534,17 @@
 	            this.openListener.on('click', function (event) {
 	                _this.doModal(event);
 	            });
-	        }
-	
-	        /**
-	         * Bind the close modal event to the close button.
-	         */
-	
-	    }, {
-	        key: 'bindCloseEvent',
-	        value: function bindCloseEvent() {
-	            var _this2 = this;
 	
 	            this.closeListener = new _domDelegate.Delegate(this.closeButton);
 	
 	            this.closeListener.on('click', function (event) {
-	                _this2.closeModal(event);
+	                _this.closeModal();
 	            });
 	
 	            this.overlayListener = new _domDelegate.Delegate(this.overlay);
 	
 	            this.overlayListener.on('click', function (event) {
-	                _this2.closeModal(event);
+	                _this.closeModal();
 	            });
 	        }
 	
@@ -570,7 +561,8 @@
 	        }
 	
 	        /**
-	         * Opens the modal
+	         * Handle the modal opening.
+	         *
 	         * @param {Event} event
 	         */
 	
@@ -579,32 +571,21 @@
 	        value: function doModal(event) {
 	            event.preventDefault();
 	
-	            var elements = [this.overlay, this.modal];
-	
-	            for (var i = 0; i < elements.length; i++) {
-	                if (elements[i].style.display === 'none' || !elements[i].style.display) {
-	                    elements[i].style.display = 'block';
-	                } else {
-	                    elements[i].style.display = 'none';
-	                }
+	            if ((0, _utilities.isVisible)(this.modal)) {
+	                this.closeModal(event);
+	            } else {
+	                (0, _utilities.show)(this.modal);
 	            }
 	        }
 	
 	        /**
-	         * Closes the modal
-	         * @param {Event} event
+	         * Handle the modal closing.
 	         */
 	
 	    }, {
 	        key: 'closeModal',
-	        value: function closeModal(event) {
-	            event.preventDefault();
-	
-	            var elements = [this.overlay, this.modal];
-	
-	            for (var i = 0; i < elements.length; i++) {
-	                elements[i].style.display = 'none';
-	            }
+	        value: function closeModal() {
+	            (0, _utilities.hide)(this.modal);
 	        }
 	    }]);
 	
@@ -1086,6 +1067,57 @@
 
 /***/ },
 /* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.show = show;
+	exports.hide = hide;
+	exports.isVisible = isVisible;
+	exports.isHidden = isHidden;
+	/**
+	 * Remove hidden class from element, showing it via CSS.
+	 *
+	 * @param element
+	 */
+	function show(element) {
+	  element.classList.remove('hidden');
+	}
+	
+	/**
+	 * Apply hidden class to element, hiding it via CSS.
+	 *
+	 * @param element
+	 */
+	function hide(element) {
+	  element.classList.add('hidden');
+	}
+	
+	/**
+	 * Check if an element is visible (isn't hidden by CSS).
+	 *
+	 * @param element
+	 * @returns {boolean}
+	 */
+	function isVisible(element) {
+	  return !isHidden(element);
+	}
+	
+	/**
+	 * Check if an element is hidden (by CSS).
+	 * 
+	 * @param element
+	 * @returns {boolean}
+	 */
+	function isHidden(element) {
+	  return element.classList.contains('hidden');
+	}
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1098,11 +1130,11 @@
 	
 	var _domDelegate = __webpack_require__(6);
 	
-	var _superagent = __webpack_require__(9);
+	var _superagent = __webpack_require__(10);
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
-	var _progressButton = __webpack_require__(15);
+	var _progressButton = __webpack_require__(16);
 	
 	var _progressButton2 = _interopRequireDefault(_progressButton);
 	
@@ -1113,6 +1145,13 @@
 	var instances = [];
 	
 	var AjaxForm = function () {
+	
+	    /**
+	     * Create a new AJAX form.
+	     *
+	     * @param form
+	     */
+	
 	    function AjaxForm(form) {
 	        _classCallCheck(this, AjaxForm);
 	
@@ -1122,6 +1161,11 @@
 	
 	        this.bindEvents();
 	    }
+	
+	    /**
+	     * Handle the form submission.
+	     */
+	
 	
 	    _createClass(AjaxForm, [{
 	        key: 'submitForm',
@@ -1141,6 +1185,11 @@
 	                }
 	            });
 	        }
+	
+	        /**
+	         * Bind any event listeners to the elements.
+	         */
+	
 	    }, {
 	        key: 'bindEvents',
 	        value: function bindEvents() {
@@ -1156,6 +1205,11 @@
 	                }
 	            });
 	        }
+	
+	        /**
+	         * Unbinds the event listeners from the elements.
+	         */
+	
 	    }, {
 	        key: 'unbindEvents',
 	        value: function unbindEvents() {
@@ -1180,17 +1234,17 @@
 	};
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 	
-	var Emitter = __webpack_require__(10);
-	var reduce = __webpack_require__(11);
-	var requestBase = __webpack_require__(12);
-	var isObject = __webpack_require__(13);
+	var Emitter = __webpack_require__(11);
+	var reduce = __webpack_require__(12);
+	var requestBase = __webpack_require__(13);
+	var isObject = __webpack_require__(14);
 	
 	/**
 	 * Root reference for iframes.
@@ -1239,7 +1293,7 @@
 	 * Expose `request`.
 	 */
 	
-	var request = module.exports = __webpack_require__(14).bind(null, Request);
+	var request = module.exports = __webpack_require__(15).bind(null, Request);
 	
 	/**
 	 * Determine XHR.
@@ -2263,7 +2317,7 @@
 
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -2432,7 +2486,7 @@
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports) {
 
 	
@@ -2461,13 +2515,13 @@
 	};
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(13);
+	var isObject = __webpack_require__(14);
 	
 	/**
 	 * Clear previous timeout.
@@ -2633,7 +2687,7 @@
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	/**
@@ -2652,7 +2706,7 @@
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	// The node and browser modules expose versions of this with the
@@ -2690,7 +2744,7 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2706,14 +2760,24 @@
 	var IS_LOADING = 'is-loading';
 	var IS_COMPLETE = 'is-complete';
 	
-	var instances = [];
-	
 	var ProgressButton = function () {
+	
+	    /**
+	     * Create a new progress button.
+	     *
+	     * @param button
+	     */
+	
 	    function ProgressButton(button) {
 	        _classCallCheck(this, ProgressButton);
 	
 	        this.button = button;
 	    }
+	
+	    /**
+	     * Handle the button in a loading state.
+	     */
+	
 	
 	    _createClass(ProgressButton, [{
 	        key: 'handleLoading',
@@ -2721,6 +2785,13 @@
 	            this.button.setAttribute('disabled', true);
 	            this.button.classList.add(IS_LOADING);
 	        }
+	
+	        /**
+	         * Handle the button on success.
+	         * 
+	         * @param success
+	         */
+	
 	    }, {
 	        key: 'handleComplete',
 	        value: function handleComplete(success) {
@@ -2743,7 +2814,7 @@
 	};
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2756,9 +2827,7 @@
 	
 	var _domDelegate = __webpack_require__(6);
 	
-	var _domOps = __webpack_require__(4);
-	
-	var _utilities = __webpack_require__(17);
+	var _utilities = __webpack_require__(8);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -2767,7 +2836,7 @@
 	var Collapse = function () {
 	
 	    /**
-	     * Creates a new collapsable element.
+	     * Creates a new collapsible element.
 	     *
 	     * @param element
 	     */
@@ -2781,7 +2850,7 @@
 	    }
 	
 	    /**
-	     * Binds collapse event.
+	     * Bind any event listeners to the elements.
 	     */
 	
 	
@@ -2818,10 +2887,10 @@
 	        value: function doCollapse(event, trigger) {
 	            event.preventDefault();
 	
-	            var target = trigger.dataset.target;
-	            var element = (0, _domOps.selectFirst)(target, trigger.parentNode);
+	            var target = trigger.getAttribute('data-target');
+	            var element = trigger.parentNode.querySelector(target);
 	
-	            if ((0, _domOps.hasClass)(element, 'in')) {
+	            if ((0, _utilities.isVisible)(element)) {
 	                (0, _utilities.hide)(element, trigger);
 	            } else {
 	                (0, _utilities.show)(element, trigger);
@@ -2846,66 +2915,6 @@
 	};
 
 /***/ },
-/* 17 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.getMaxHeight = getMaxHeight;
-	exports.show = show;
-	exports.hide = hide;
-	exports.complete = complete;
-	function getMaxHeight(element) {
-	    var prevHeight = element.style.height;
-	    element.style.height = 'auto';
-	    var maxHeight = getComputedStyle(element).height;
-	    element.style.height = prevHeight;
-	    element.offsetHeight;
-	    return maxHeight;
-	}
-	
-	function show(element, trigger) {
-	    element.classList.remove('collapse');
-	    element.classList.add('collapsing');
-	    trigger.classList.remove('collapsed');
-	    trigger.setAttribute('aria-expanded', true);
-	
-	    element.style.height = getMaxHeight(element);
-	
-	    complete(element);
-	}
-	
-	function hide(element, trigger) {
-	    element.classList.remove('collapse');
-	    element.classList.remove('in');
-	    element.classList.add('collapsing');
-	    trigger.classList.add('collapsed');
-	    trigger.setAttribute('aria-expanded', false);
-	
-	    // Reset element's height
-	    element.style.height = getComputedStyle(element).height;
-	    element.offsetHeight; // force repaint
-	    element.style.height = '0px';
-	
-	    complete(element);
-	}
-	
-	function complete(element) {
-	    element.classList.remove('collapsing');
-	    element.classList.add('collapse');
-	    element.setAttribute('aria-expanded', false);
-	
-	    // Check whether the element is unhidden
-	    if (element.style.height !== '0px') {
-	        element.classList.add('in');
-	        element.style.height = 'auto';
-	    }
-	}
-
-/***/ },
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -2919,8 +2928,6 @@
 	
 	var _domDelegate = __webpack_require__(6);
 	
-	var _domOps = __webpack_require__(4);
-	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
@@ -2928,7 +2935,7 @@
 	var DropDown = function () {
 	
 	    /**
-	     * Creates a new dropdown.
+	     * Creates a new drop down element.
 	     *
 	     * @param element
 	     */
@@ -2942,7 +2949,7 @@
 	    }
 	
 	    /**
-	     * Binds dropdown event.
+	     * Bind any event listeners to the elements.
 	     */
 	
 	
@@ -2954,11 +2961,15 @@
 	            this.listener = new _domDelegate.Delegate(this.element);
 	
 	            this.listener.on('click', function (event, input) {
-	                _this.doDropDown(event, input);
+	                event.preventDefault();
+	
+	                _this.doDropDown(input);
 	            });
 	
 	            this.listener.on('blur', function (event, input) {
-	                _this.closeDropDown(event, input);
+	                event.preventDefault();
+	
+	                _this.closeDropDown(input);
 	            });
 	        }
 	
@@ -2973,28 +2984,27 @@
 	        }
 	
 	        /**
-	         * Drops down
-	         * @param {Event} event
+	         * Handle drop down opening.
+	         *
 	         * @param {Element} input
 	         */
 	
 	    }, {
 	        key: 'doDropDown',
-	        value: function doDropDown(event, input) {
-	            event.preventDefault();
+	        value: function doDropDown(input) {
 	            input.parentElement.classList.toggle('open');
 	        }
 	
 	        /**
-	         * Closes the dropdown
-	         * @param {Event} event
+	         * Handle drop down closing.
+	         *
 	         * @param {Element} input
 	         */
 	
 	    }, {
 	        key: 'closeDropDown',
-	        value: function closeDropDown(event, input) {
-	            (0, _domOps.removeClass)(input.parentElement, 'open');
+	        value: function closeDropDown(input) {
+	            input.parentElement.classList.remove('open');
 	
 	            // Trigger the click event on the target if it not opening another menu
 	            if (event.relatedTarget && event.relatedTarget.getAttribute('data-js-module') !== 'dropdown') {
@@ -3035,6 +3045,8 @@
 	
 	var _domOps = __webpack_require__(4);
 	
+	var _utilities = __webpack_require__(8);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var instances = [];
@@ -3057,8 +3069,8 @@
 	        this.element = element;
 	        this.action = element.dataset.hasOwnProperty('action') ? element.dataset.action : 'click';
 	
-	        this.shouldHide = element.dataset.hide;
-	        this.shouldShow = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
+	        this.shouldHide = element.getAttribute('data-hide');
+	        this.shouldShow = element.getAttribute('data-show') ? element.dataset.show : null;
 	
 	        this.storageKey = null;
 	
@@ -3068,9 +3080,9 @@
 	            this.initialVisibility = localStorage.getItem(this.storageKey);
 	
 	            if (this.initialVisibility === HIDDEN) {
-	                this.hide((0, _domOps.selectFirst)(this.shouldHide));
+	                (0, _utilities.hide)((0, _domOps.selectFirst)(this.shouldHide));
 	            } else {
-	                this.show((0, _domOps.selectFirst)(this.shouldHide));
+	                (0, _utilities.show)((0, _domOps.selectFirst)(this.shouldHide));
 	            }
 	        }
 	
@@ -3078,7 +3090,7 @@
 	    }
 	
 	    /**
-	     * Binds toggle event.
+	     * Binds the event listeners from the elements.
 	     */
 	
 	
@@ -3122,73 +3134,19 @@
 	                localStorage.setItem(this.storageKey, this.isVisible(hideElement) ? HIDDEN : VISIBLE);
 	            }
 	
-	            if (this.isVisible(hideElement)) {
-	                this.hide(hideElement);
+	            if ((0, _utilities.isVisible)(hideElement)) {
+	                (0, _utilities.hide)(hideElement);
 	
 	                if (this.shouldShow) {
-	                    this.show(showElement);
+	                    (0, _utilities.show)(showElement);
 	                }
 	            } else {
-	                this.show(hideElement);
+	                (0, _utilities.show)(hideElement);
 	
 	                if (this.shouldShow) {
-	                    this.hide(showElement);
+	                    (0, _utilities.hide)(showElement);
 	                }
 	            }
-	        }
-	
-	        /**
-	         * Check if an element is hidden.
-	         *
-	         * @param element
-	         * @returns {boolean}
-	         */
-	
-	    }, {
-	        key: 'isHidden',
-	        value: function isHidden(element) {
-	            return element.style.visibility === 'hidden';
-	        }
-	
-	        /**
-	         * Check if an element is visible.
-	         *
-	         * @param element
-	         * @returns {boolean}
-	         */
-	
-	    }, {
-	        key: 'isVisible',
-	        value: function isVisible(element) {
-	            return !this.isHidden(element);
-	        }
-	
-	        /**
-	         * Display an element.
-	         *
-	         * @param element
-	         */
-	
-	    }, {
-	        key: 'show',
-	        value: function show(element) {
-	            element.style.visibility = 'visible';
-	            element.style.height = 'auto';
-	            element.style.overflow = 'auto';
-	        }
-	
-	        /**
-	         * Hide an element.
-	         *
-	         * @param element
-	         */
-	
-	    }, {
-	        key: 'hide',
-	        value: function hide(element) {
-	            element.style.visibility = 'hidden';
-	            element.style.height = '0px';
-	            element.style.overflow = 'hidden';
 	        }
 	    }]);
 	

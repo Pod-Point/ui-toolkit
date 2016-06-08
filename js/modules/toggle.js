@@ -10,6 +10,8 @@ var _domDelegate = require('dom-delegate');
 
 var _domOps = require('@pod-point/dom-ops');
 
+var _utilities = require('./../utilities');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
@@ -32,8 +34,8 @@ var Toggle = function () {
         this.element = element;
         this.action = element.dataset.hasOwnProperty('action') ? element.dataset.action : 'click';
 
-        this.shouldHide = element.dataset.hide;
-        this.shouldShow = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
+        this.shouldHide = element.getAttribute('data-hide');
+        this.shouldShow = element.getAttribute('data-show') ? element.dataset.show : null;
 
         this.storageKey = null;
 
@@ -43,9 +45,9 @@ var Toggle = function () {
             this.initialVisibility = localStorage.getItem(this.storageKey);
 
             if (this.initialVisibility === HIDDEN) {
-                this.hide((0, _domOps.selectFirst)(this.shouldHide));
+                (0, _utilities.hide)((0, _domOps.selectFirst)(this.shouldHide));
             } else {
-                this.show((0, _domOps.selectFirst)(this.shouldHide));
+                (0, _utilities.show)((0, _domOps.selectFirst)(this.shouldHide));
             }
         }
 
@@ -53,7 +55,7 @@ var Toggle = function () {
     }
 
     /**
-     * Binds toggle event.
+     * Binds the event listeners from the elements.
      */
 
 
@@ -97,73 +99,19 @@ var Toggle = function () {
                 localStorage.setItem(this.storageKey, this.isVisible(hideElement) ? HIDDEN : VISIBLE);
             }
 
-            if (this.isVisible(hideElement)) {
-                this.hide(hideElement);
+            if ((0, _utilities.isVisible)(hideElement)) {
+                (0, _utilities.hide)(hideElement);
 
                 if (this.shouldShow) {
-                    this.show(showElement);
+                    (0, _utilities.show)(showElement);
                 }
             } else {
-                this.show(hideElement);
+                (0, _utilities.show)(hideElement);
 
                 if (this.shouldShow) {
-                    this.hide(showElement);
+                    (0, _utilities.hide)(showElement);
                 }
             }
-        }
-
-        /**
-         * Check if an element is hidden.
-         *
-         * @param element
-         * @returns {boolean}
-         */
-
-    }, {
-        key: 'isHidden',
-        value: function isHidden(element) {
-            return element.style.visibility === 'hidden';
-        }
-
-        /**
-         * Check if an element is visible.
-         *
-         * @param element
-         * @returns {boolean}
-         */
-
-    }, {
-        key: 'isVisible',
-        value: function isVisible(element) {
-            return !this.isHidden(element);
-        }
-
-        /**
-         * Display an element.
-         *
-         * @param element
-         */
-
-    }, {
-        key: 'show',
-        value: function show(element) {
-            element.style.visibility = 'visible';
-            element.style.height = 'auto';
-            element.style.overflow = 'auto';
-        }
-
-        /**
-         * Hide an element.
-         *
-         * @param element
-         */
-
-    }, {
-        key: 'hide',
-        value: function hide(element) {
-            element.style.visibility = 'hidden';
-            element.style.height = '0px';
-            element.style.overflow = 'hidden';
         }
     }]);
 

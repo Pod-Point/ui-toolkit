@@ -8,8 +8,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _domDelegate = require('dom-delegate');
 
-var _domOps = require('@pod-point/dom-ops');
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instances = [];
@@ -17,7 +15,7 @@ var instances = [];
 var DropDown = function () {
 
     /**
-     * Creates a new dropdown.
+     * Creates a new drop down element.
      *
      * @param element
      */
@@ -31,7 +29,7 @@ var DropDown = function () {
     }
 
     /**
-     * Binds dropdown event.
+     * Bind any event listeners to the elements.
      */
 
 
@@ -43,11 +41,15 @@ var DropDown = function () {
             this.listener = new _domDelegate.Delegate(this.element);
 
             this.listener.on('click', function (event, input) {
-                _this.doDropDown(event, input);
+                event.preventDefault();
+
+                _this.doDropDown(input);
             });
 
             this.listener.on('blur', function (event, input) {
-                _this.closeDropDown(event, input);
+                event.preventDefault();
+
+                _this.closeDropDown(input);
             });
         }
 
@@ -62,28 +64,27 @@ var DropDown = function () {
         }
 
         /**
-         * Drops down
-         * @param {Event} event
+         * Handle drop down opening.
+         *
          * @param {Element} input
          */
 
     }, {
         key: 'doDropDown',
-        value: function doDropDown(event, input) {
-            event.preventDefault();
+        value: function doDropDown(input) {
             input.parentElement.classList.toggle('open');
         }
 
         /**
-         * Closes the dropdown
-         * @param {Event} event
+         * Handle drop down closing.
+         *
          * @param {Element} input
          */
 
     }, {
         key: 'closeDropDown',
-        value: function closeDropDown(event, input) {
-            (0, _domOps.removeClass)(input.parentElement, 'open');
+        value: function closeDropDown(input) {
+            input.parentElement.classList.remove('open');
 
             // Trigger the click event on the target if it not opening another menu
             if (event.relatedTarget && event.relatedTarget.getAttribute('data-js-module') !== 'dropdown') {
