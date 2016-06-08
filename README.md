@@ -23,6 +23,7 @@ Then either link to the production ready files:
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Document</title>
     <link rel="stylesheet" href="/path/to/node_modules/pod-point/ui-toolkit/dist/css/style.min.css">
 </head>
