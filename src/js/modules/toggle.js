@@ -1,5 +1,6 @@
 import { Delegate } from 'dom-delegate';
 import { selectFirst } from '@pod-point/dom-ops';
+import { isVisible, hide, show } from './../utilities';
 
 let instances = [];
 
@@ -18,8 +19,8 @@ class Toggle {
         this.element = element;
         this.action = element.dataset.hasOwnProperty('action') ? element.dataset.action : 'click';
 
-        this.shouldHide = element.dataset.hide;
-        this.shouldShow = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
+        this.shouldHide = element.getAttribute('data-hide');
+        this.shouldShow = element.getAttribute('data-show') ? element.dataset.show : null;
 
         this.storageKey = null;
 
@@ -29,9 +30,9 @@ class Toggle {
             this.initialVisibility = localStorage.getItem(this.storageKey);
 
             if (this.initialVisibility === HIDDEN) {
-                this.hide(selectFirst(this.shouldHide));
+                hide(selectFirst(this.shouldHide));
             } else {
-                this.show(selectFirst(this.shouldHide));
+                show(selectFirst(this.shouldHide));
             }
         }
 
@@ -39,7 +40,7 @@ class Toggle {
     }
 
     /**
-     * Binds toggle event.
+     * Binds the event listeners from the elements.
      */
     bindEvents() {
         this.listener = new Delegate(this.element);
@@ -71,61 +72,19 @@ class Toggle {
             localStorage.setItem(this.storageKey, this.isVisible(hideElement) ? HIDDEN : VISIBLE);
         }
 
-        if (this.isVisible(hideElement)) {
-            this.hide(hideElement);
+        if (isVisible(hideElement)) {
+            hide(hideElement);
 
             if (this.shouldShow) {
-                this.show(showElement);
+                show(showElement);
             }
         } else {
-            this.show(hideElement);
+            show(hideElement);
 
             if (this.shouldShow) {
-                this.hide(showElement);
+                hide(showElement);
             }
         }
-    }
-
-    /**
-     * Check if an element is hidden.
-     *
-     * @param element
-     * @returns {boolean}
-     */
-    isHidden(element) {
-        return element.style.visibility === 'hidden';
-    }
-
-    /**
-     * Check if an element is visible.
-     *
-     * @param element
-     * @returns {boolean}
-     */
-    isVisible(element) {
-        return !this.isHidden(element);
-    }
-
-    /**
-     * Display an element.
-     *
-     * @param element
-     */
-    show(element) {
-        element.style.visibility = 'visible';
-        element.style.height = 'auto';
-        element.style.overflow = 'auto';
-    }
-
-    /**
-     * Hide an element.
-     *
-     * @param element
-     */
-    hide(element) {
-        element.style.visibility = 'hidden';
-        element.style.height = '0px';
-        element.style.overflow = 'hidden';
     }
 }
 
