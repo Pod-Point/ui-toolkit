@@ -3,7 +3,7 @@
  *
  * Global variables, config switches.
  */
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 @import 'settings/layout';
 @import 'settings/colours';
 @import 'settings/easing';
@@ -25,8 +25,8 @@
 @import 'tools/responsive';
 @import 'tools/sprites';
 @import 'tools/z-index';
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid-framework';
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid';
+@import '/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid-framework';
+@import '/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid';
 
 /**
  * Generic
