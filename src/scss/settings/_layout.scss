@@ -2,7 +2,7 @@ $border-radius: 0.25rem;
 
 $line-height: 1.5rem;
 
-$base-font-size: 18;
+$base-font-size: 17;
 
 $sizes: (
     micro: 0.777,
@@ -17,3 +17,5 @@ $font-size-milli: map_get($sizes, 'milli') * 1rem;
 $font-size-kilo: map_get($sizes, 'kilo') * 1rem;
 $font-size-mega: map_get($sizes, 'mega') * 1rem;
 $font-size-giga: map_get($sizes, 'giga') * 1rem;
+
+$global: mainNavShade, mainNav, mainNavToggle, pageCta;

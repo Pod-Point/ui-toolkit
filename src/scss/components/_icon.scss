@@ -10,6 +10,11 @@
     font-style: normal;
 }
 
+.icon {
+    height: 1rem;
+    width: 1rem;
+}
+
 .icon:before {
     display: inline-block;
     font-family: "fontello";
@@ -39,25 +44,20 @@
 
 .icon--circle-empty:before {
     content: '\e803';
-    font-size: 2em;
 }
 
 .icon--circle-checked:before {
     content: '\e804';
-    font-size: 2em;
-}
-
-.icon--check:before {
-    content: '\e805';
-    font-size: 2em;
 }
 
 .icon--check-empty:before {
     content: '\e806';
-    font-size: 2em;
+}
+
+.icon--check:before {
+    content: '\e805';
 }
 
 .icon--attention:before {
     content: '\e807';
-    font-size: 2em;
 }

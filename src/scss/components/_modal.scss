@@ -1,43 +1,28 @@
-$modal-margin: ($line-height-base * 2);
-
 .modal {
     display: none;
+    height: 100%;
+    overflow-y: auto;
     z-index: 2000;
 }
 
-.modal,
-.modal__overlay {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-}
+    .modal,
+    .modal__overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
 
-.modal__overlay {
-    background-color: rgba(black, 0.5);
-    position: fixed;
-    z-index: 2001;
-}
+    .modal__overlay {
+        background-color: rgba(black, 0.5);
+        position: fixed;
+        z-index: 2001;
+    }
 
-.modal {
-    height: 100%;
-    overflow-y: auto;
-}
-
-.modal__loading {
-    animation: rotate 2s linear infinite;
-    height: 4rem;
-    transform-origin: center center;
-    width: 4rem;
-    position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
-    margin: auto;
-}
-
-.modal__content {
-    margin: $modal-margin auto;
-    max-width: $container-desktop;
-    position: relative;
-    z-index: 2002;
-}
+    .modal__content {
+        margin: $modal-margin auto;
+        max-width: $container-desktop;
+        position: relative;
+        z-index: 2002;
+    }

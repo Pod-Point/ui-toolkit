@@ -1,4 +1,38 @@
-@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/labels';
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: $label-colour;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+
+    // [converter] extracted a& to a.label
+
+    // Empty labels collapse automatically (not available in IE8)
+    &:empty {
+        display: none;
+    }
+
+    // Quick fix for labels in buttons
+    .btn & {
+        position: relative;
+        top: -1px;
+    }
+}
+
+// Add hover effects, but only for links
+a.label {
+    &:hover,
+    &:focus {
+        color: $label-link-hover-colour;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
 
 .label--default {
   @include label-variant($label-default-bg);

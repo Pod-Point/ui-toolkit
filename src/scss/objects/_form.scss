@@ -1,10 +1,8 @@
-$input-background-colour: white;
-
 .form__control {
     background-color: $input-background-colour;
     border: 1px solid $light-grey;
     border-radius: $border-radius;
-    color: $grey;
+    color: $text-colour;
     height: auto;
     line-height: 1.5rem;
     padding: 0.25rem 0.5rem;
@@ -75,23 +73,92 @@ select.form__control > option {
 }
 
 .form__label {
-    color: $grey;
+    color: $text-colour;
     display: block;
     margin-bottom: ($line-height / 2);
 }
 
 .form__error {
-    color: $red;
+    color: $state-danger-text;
+    display: block;
     font-weight: bold;
-    font-size: 0.875rem;
+    font-size: $font-size-milli;
     opacity: 0;
-    margin-top: 10px;
     transition: all 150ms ease-out;
 }
 
 .form--inline {
     .form__control {
         width: auto;
+    }
+}
+
+.radio,
+.checkbox {
+    display: inline-block;
+    user-select: none;
+
+    &:not(:last-child) {
+        margin-bottom: ($line-height / 2);
+    }
+
+    &.radio--inline,
+    &.checkbox--inline {
+        margin-bottom: 0;
+
+        &:not(:last-child) {
+            margin-right: ($line-height / 2);
+        }
+    }
+
+    > input {
+        display: none;
+
+        + span {
+            display: block;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        + span:before {
+            @extend .icon;
+            @extend .icon--circle-empty;
+
+            color: $grey;
+            font-size: $font-size-mega;
+            width: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            vertical-align: middle;
+            display: block;
+        }
+
+        &:checked + span:before,
+        &:hover + span:before {
+            color: $brand-primary;
+        }
+    }
+}
+
+.radio > input {
+    + span:before {
+        @extend .icon--circle-empty;
+    }
+
+    &:checked + span:before {
+        @extend .icon--circle-checked;
+    }
+}
+
+.checkbox > input {
+    + span:before {
+        @extend .icon--check-empty;
+    }
+
+    &:checked + span:before {
+        @extend .icon--check;
     }
 }
 

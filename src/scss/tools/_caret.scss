@@ -1,6 +1,3 @@
-/**
- * Make a caret arrow.
- */
 @mixin caret($direction, $colour, $size) {
     border: $size solid transparent;
     $location: 'bottom';
