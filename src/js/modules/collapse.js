@@ -1,13 +1,12 @@
 import { Delegate } from 'dom-delegate';
-import { selectFirst, hasClass } from '@pod-point/dom-ops';
-import { hide, show } from './utilities';
+import { isVisible, hide, show } from './../utilities';
 
 let instances = [];
 
 class Collapse {
 
     /**
-     * Creates a new collapsable element.
+     * Creates a new collapsible element.
      *
      * @param element
      */
@@ -18,7 +17,7 @@ class Collapse {
     }
 
     /**
-     * Binds collapse event.
+     * Bind any event listeners to the elements.
      */
     bindEvents() {
         this.listener = new Delegate(this.element);
@@ -43,10 +42,10 @@ class Collapse {
     doCollapse(event, trigger) {
         event.preventDefault();
 
-        let target = trigger.dataset.target;
-        let element = selectFirst(target, trigger.parentNode);
+        let target = trigger.getAttribute('data-target');
+        let element = trigger.parentNode.querySelector(target);
 
-        if (hasClass(element, 'in')) {
+        if (isVisible(element)) {
             hide(element, trigger);
         } else {
             show(element, trigger);

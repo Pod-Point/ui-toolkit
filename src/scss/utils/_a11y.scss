@@ -1,13 +1,5 @@
-.visible {
-    height: auto;
-    overflow: auto;
-    visibility: visible;
-}
-
 .hidden {
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
+    display: none;
 }
 
 .sr-only {

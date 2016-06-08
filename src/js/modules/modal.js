@@ -1,12 +1,13 @@
 import { Delegate } from 'dom-delegate';
 import { selectFirst } from '@pod-point/dom-ops';
+import { isVisible, show, hide } from './../utilities';
 
 let instances = [];
 
 class Modal {
 
     /**
-     * Creates a new modal.
+     * Creates a new modal window.
      *
      * @param element
      */
@@ -16,36 +17,30 @@ class Modal {
         this.closeButton = selectFirst('.modal-close', this.modal);
         this.overlay = selectFirst('.modal__overlay', this.modal);
 
-        this.bindOpenEvent();
-        this.bindCloseEvent();
+        this.bindEvents();
     }
 
     /**
-     * Binds open modal event.
+     * Binds the event listeners from the elements.
      */
-    bindOpenEvent() {
+    bindEvents() {
         this.openListener = new Delegate(this.openButton);
 
         this.openListener.on('click', (event) => {
             this.doModal(event);
         });
-    }
 
-    /**
-     * Bind the close modal event to the close button.
-     */
-    bindCloseEvent() {
         this.closeListener = new Delegate(this.closeButton);
 
         this.closeListener.on('click', (event) => {
-            this.closeModal(event);
+            this.closeModal();
         });
 
         this.overlayListener = new Delegate(this.overlay);
 
         this.overlayListener.on('click', (event) => {
-            this.closeModal(event);
-    });
+            this.closeModal();
+        });
     }
 
     /**
@@ -58,41 +53,25 @@ class Modal {
     }
 
     /**
-     * Opens the modal
+     * Handle the modal opening.
+     *
      * @param {Event} event
      */
     doModal(event) {
         event.preventDefault();
 
-        var elements = [
-            this.overlay,
-            this.modal
-        ];
-
-        for (var i = 0; i < elements.length; i++) {
-            if (elements[i].style.display === 'none' || !elements[i].style.display) {
-                elements[i].style.display = 'block';
-            } else {
-                elements[i].style.display = 'none';
-            }
+        if (isVisible(this.modal)) {
+            this.closeModal(event);
+        } else {
+            show(this.modal);
         }
     }
 
     /**
-     * Closes the modal
-     * @param {Event} event
+     * Handle the modal closing.
      */
-    closeModal(event) {
-        event.preventDefault();
-
-        var elements = [
-            this.overlay,
-            this.modal
-        ];
-
-        for (var i = 0; i < elements.length; i++) {
-            elements[i].style.display = 'none';
-        }
+    closeModal() {
+        hide(this.modal);
     }
 }
 

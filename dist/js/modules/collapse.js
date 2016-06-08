@@ -8,9 +8,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _domDelegate = require('dom-delegate');
 
-var _domOps = require('@pod-point/dom-ops');
-
-var _utilities = require('./utilities');
+var _utilities = require('./../utilities');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -19,7 +17,7 @@ var instances = [];
 var Collapse = function () {
 
     /**
-     * Creates a new collapsable element.
+     * Creates a new collapsible element.
      *
      * @param element
      */
@@ -33,7 +31,7 @@ var Collapse = function () {
     }
 
     /**
-     * Binds collapse event.
+     * Bind any event listeners to the elements.
      */
 
 
@@ -70,10 +68,10 @@ var Collapse = function () {
         value: function doCollapse(event, trigger) {
             event.preventDefault();
 
-            var target = trigger.dataset.target;
-            var element = (0, _domOps.selectFirst)(target, trigger.parentNode);
+            var target = trigger.getAttribute('data-target');
+            var element = trigger.parentNode.querySelector(target);
 
-            if ((0, _domOps.hasClass)(element, 'in')) {
+            if ((0, _utilities.isVisible)(element)) {
                 (0, _utilities.hide)(element, trigger);
             } else {
                 (0, _utilities.show)(element, trigger);

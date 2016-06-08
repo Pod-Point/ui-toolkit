@@ -29,9 +29,9 @@ gulp.task('css', () => {
 });
 
 gulp.task('js-modules', () => {
-    return gulp.src(config.src.root + '/' + config.src.js + '/modules/**/*.js')
+    return gulp.src(config.src.root + '/' + config.src.js + '/**/*.js')
         .pipe(babel())
-        .pipe(gulp.dest(config.dist.root + '/' + config.dist.js + '/modules'))
+        .pipe(gulp.dest(config.dist.root + '/' + config.dist.js))
         .pipe(browserSync.stream());
 });
 
