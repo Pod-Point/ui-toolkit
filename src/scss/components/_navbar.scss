@@ -63,7 +63,7 @@ $navbar-brand-height: 40px;
         @include clearfix();
 
         @include resp-min($screen-sm-min) {
-            display: block;
+            display: block !important;
         }
     }
 

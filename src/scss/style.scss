@@ -3,30 +3,30 @@
  *
  * Global variables, config switches.
  */
-@import '/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
-@import 'settings/layout';
-@import 'settings/colours';
-@import 'settings/easing';
-@import 'settings/sprites';
+@import 'settings/shared';
+@import 'settings/grid';
+@import 'settings/alert';
+@import 'settings/label';
+@import 'settings/thumbnail';
 @import 'settings/form';
 @import 'settings/table';
 @import 'settings/modal';
+@import 'settings/panel';
 
 /**
  * Tools
  *
  * Default mixins and functions.
  */
+@import 'tools/alert';
+@import 'tools/button';
 @import 'tools/caret';
-@import 'tools/alert-variant';
-@import 'tools/button-variant';
-@import 'tools/label-variant';
+@import 'tools/grid';
+@import 'tools/label';
 @import 'tools/images';
 @import 'tools/responsive';
 @import 'tools/sprites';
 @import 'tools/z-index';
-@import '/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid-framework';
-@import '/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid';
 
 /**
  * Generic
@@ -69,8 +69,8 @@
 @import 'components/switch';
 @import 'components/modal';
 @import 'components/rating';
-@import 'components/thumbnails';
-@import 'components/labels';
+@import 'components/thumbnail';
+@import 'components/label';
 
 /**
  * Trumps
