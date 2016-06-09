@@ -84,7 +84,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
 
-            @media screen and (min-width: $screen-sm-min) {
+            @include resp-min($screen-sm-min) {
                 clear: left;
                 float: left;
                 overflow: hidden;
@@ -94,7 +94,7 @@
         }
 
         > dd {
-            @media screen and (min-width: $screen-sm-min) {
+            @include resp-min($screen-sm-min) {
                 padding-left: $panel-list-width;
             }
         }
