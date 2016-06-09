@@ -1,15 +1,15 @@
-body {
-    background-color: white;
-    color: $dark-grey;
-    font-family: 'myriad-pro', Helvetica, sans-serif;
-    font-size: 1rem;
-    line-height: $line-height;
-    font-weight: 300;
-}
-
 html,
 body {
     height: 100%;
+}
+
+body {
+    background-color: $body-bg;
+    color: $text-colour;
+    font-family: 'myriad-pro', Helvetica, sans-serif;
+    font-size: ($base-font-size / 16) * 1rem;
+    line-height: $line-height;
+    font-weight: 300;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol, hr, address {
@@ -30,7 +30,7 @@ address {
 }
 
 a {
-    color: $brand-primary;
+    color: $link-colour;
     text-decoration: none;
 
     &:focus {
@@ -38,15 +38,6 @@ a {
         text-decoration-style: dashed;
         outline: none;
     }
-}
-
-img[data-lazy] {
-    opacity: 0;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
 }
 
 hr {
@@ -57,9 +48,4 @@ hr {
 
 strong {
     font-weight: bold;
-}
-
-.icon {
-    height: 1rem;
-    width: 1rem;
 }

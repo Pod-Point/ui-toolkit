@@ -1,0 +1,3 @@
+@mixin z($item) {
+    z-index: index($global, $item);
+}

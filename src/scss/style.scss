@@ -1,42 +1,82 @@
-@import
-    'variables/layout',
-    'variables/colours',
-    'variables/easing',
-    'variables/sprites';
+/**
+ * Settings
+ *
+ * Global variables, config switches.
+ */
+@import 'settings/shared';
+@import 'settings/grid';
+@import 'settings/alert';
+@import 'settings/label';
+@import 'settings/thumbnail';
+@import 'settings/form';
+@import 'settings/table';
+@import 'settings/modal';
+@import 'settings/panel';
 
-@import
-    'utils/a11y',
-    'utils/animations',
-    'utils/layout';
+/**
+ * Tools
+ *
+ * Default mixins and functions.
+ */
+@import 'tools/alert';
+@import 'tools/button';
+@import 'tools/caret';
+@import 'tools/grid';
+@import 'tools/label';
+@import 'tools/images';
+@import 'tools/responsive';
+@import 'tools/sprites';
+@import 'tools/z-index';
 
-@import
-    'mixins/caret',
-    'mixins/images',
-    'mixins/responsive',
-    'mixins/sprites',
-    'mixins/z-index';
+/**
+ * Generic
+ *
+ * Ground-zero styles (normalise, reset, box-sizing).
+ */
+@import 'generic/reset';
 
-@import
-    'base/reset',
-    'base/grid',
-    'base/typography',
-    'base/shared',
-    'base/images',
-    'base/form',
-    'base/nav',
-    'base/table';
+/**
+ * Base
+ *
+ * Un-classed HTML elements (type selectors).
+ */
+@import 'base/typography';
+@import 'base/shared';
+@import 'base/images';
+@import 'base/table';
 
-@import
-    'components/alert',
-    'components/button',
-    'components/icon',
-    'components/navbar',
-    'components/hero',
-    'components/panel',
-    'components/radio',
-    'components/checkbox',
-    'components/switch',
-    'components/modal',
-    'components/rating',
-    'components/thumbnails',
-    'components/labels';
+/**
+ * Objects
+ *
+ * Cosmetic-free design patterns.
+ */
+@import 'objects/grid';
+@import 'objects/form';
+@import 'objects/nav';
+@import 'objects/table';
+
+/**
+ * Components
+ *
+ * Designed components, chunks of UI.
+ */
+@import 'components/alert';
+@import 'components/button';
+@import 'components/icon';
+@import 'components/navbar';
+@import 'components/hero';
+@import 'components/panel';
+@import 'components/switch';
+@import 'components/modal';
+@import 'components/rating';
+@import 'components/thumbnail';
+@import 'components/label';
+
+/**
+ * Trumps
+ *
+ * Helpers and overrides.
+ */
+@import 'trumps/a11y';
+@import 'trumps/animations';
+@import 'trumps/layout';

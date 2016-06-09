@@ -16,6 +16,8 @@ gulp.task('css', () => {
         .pipe(sourcemaps.init())
         .pipe(
             sass().on('error', function (err) {
+                console.error(err);
+                
                 this.emit('end');
             })
         )
