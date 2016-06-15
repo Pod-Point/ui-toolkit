@@ -48,7 +48,7 @@ var Modal = function () {
             this.openListener = new _domDelegate.Delegate(this.openButton);
 
             this.openListener.on('click', function (event) {
-                _this.doModal(event);
+                _this.openModal();
             });
 
             this.closeListener = new _domDelegate.Delegate(this.closeButton);
@@ -88,10 +88,22 @@ var Modal = function () {
             event.preventDefault();
 
             if ((0, _utilities.isVisible)(this.modal)) {
-                this.closeModal(event);
+                this.closeModal();
             } else {
-                (0, _utilities.show)(this.modal);
+                this.openModal();
             }
+        }
+
+        /**
+         * Handle the modal opening.
+         */
+
+    }, {
+        key: 'openModal',
+        value: function openModal() {
+            document.body.classList.add('fixed');
+
+            (0, _utilities.show)(this.modal);
         }
 
         /**
@@ -101,6 +113,8 @@ var Modal = function () {
     }, {
         key: 'closeModal',
         value: function closeModal() {
+            document.body.classList.remove('fixed');
+
             (0, _utilities.hide)(this.modal);
         }
     }]);
