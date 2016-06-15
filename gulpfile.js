@@ -17,7 +17,7 @@ gulp.task('css', () => {
         .pipe(
             sass().on('error', function (err) {
                 console.error(err);
-                
+
                 this.emit('end');
             })
         )
@@ -38,7 +38,7 @@ gulp.task('js-modules', () => {
 });
 
 gulp.task('js', () => {
-    return gulp.src(config.src.root + '/' + config.src.js + '/**/*.js')
+    return gulp.src(config.src.root + '/' + config.src.js + '/**.js')
         .pipe(webpack(webpackConfig))
         .pipe(gulp.dest(config.dist.root + '/' + config.dist.js))
         .pipe(browserSync.stream());
@@ -63,8 +63,8 @@ gulp.task('serve', ['default'], () => {
 
 gulp.task('watch', ['serve'], () => {
     gulp.watch(config.src.root + '/' + config.src.scss + '/' + '/**/*.scss', ['css']);
-    gulp.watch(config.src.root + '/' + config.src.js + '/' + '/**/*.js', ['js', 'js-modules']);
+    gulp.watch(config.src.root + '/' + config.src.js + '/' + '/**/*.js', ['js-modules', 'js']);
     gulp.watch(config.dist.root + '/*.html').on('change', browserSync.reload);
 });
 
-gulp.task('default', ['css', 'js', 'copy-fonts', 'copy-images']);
+gulp.task('default', ['css', 'js-modules', 'js', 'copy-fonts', 'copy-images']);

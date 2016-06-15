@@ -27,7 +27,7 @@ class Modal {
         this.openListener = new Delegate(this.openButton);
 
         this.openListener.on('click', (event) => {
-            this.doModal(event);
+            this.openModal();
         });
 
         this.closeListener = new Delegate(this.closeButton);
@@ -61,16 +61,27 @@ class Modal {
         event.preventDefault();
 
         if (isVisible(this.modal)) {
-            this.closeModal(event);
+            this.closeModal();
         } else {
-            show(this.modal);
+            this.openModal();
         }
+    }
+
+    /**
+     * Handle the modal opening.
+     */
+    openModal() {
+        document.body.classList.add('fixed');
+
+        show(this.modal);
     }
 
     /**
      * Handle the modal closing.
      */
     closeModal() {
+        document.body.classList.remove('fixed');
+
         hide(this.modal);
     }
 }
