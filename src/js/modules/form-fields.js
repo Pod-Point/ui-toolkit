@@ -42,9 +42,9 @@ class FormFields {
         // Text input focusout handler
         listener.on('focusout', 'input, textarea', (event, element) => {
             this.checkForContent(element);
-        this.checkForErrors(element);
-        this.removeFocus(element);
-    });
+            this.checkForErrors(element);
+            this.removeFocus(element);
+        });
 
         listener.on('input', 'textarea', (event, element) => {
             var scrollHeight = element.scrollHeight;
