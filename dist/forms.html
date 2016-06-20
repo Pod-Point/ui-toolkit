@@ -187,6 +187,52 @@
                         </fieldset>
                     </form>
                 </section>
+
+                <section class="section">
+                    <h2 class="section__title">Input Sizing</h2>
+
+                    <div class="form__group">
+                        <input type="text" class="form__control input--milli" placeholder="Small input">
+                    </div>
+
+                    <div class="form__group">
+                        <input type="text" class="form__control" placeholder="Default input">
+                    </div>
+
+                    <div class="form__group">
+                        <input type="text" class="form__control input--kilo" placeholder="Large input">
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section__title">Alternate Form</h2>
+
+                    <form action="" class="form form--alternate">
+                        <fieldset class="form__group">
+                            <input type="text" id="address_1" name="address_1" class="form__control">
+
+                            <label for="address_1" class="form__label">Address</label>
+                        </fieldset>
+
+                        <fieldset class="form__group">
+                            <input type="text" id="postcode" name="postcode" class="form__control" required value="E1 6PJ">
+
+                            <label for="postcode" class="form__label">Postcode</label>
+                        </fieldset>
+
+                        <fieldset class="form__group">
+                            <div class="select-wrapper">
+                                <select class="form__control" name="country" id="country">
+                                    <option value="">Please select</option>
+                                    <option>United Kingdom</option>
+                                    <option>United States</option>
+                                </select>
+                            </div>
+
+                            <label for="country" class="form__label">Country</label>
+                        </fieldset>
+                    </form>
+                </section>
             </article>
         </div>
     </main>

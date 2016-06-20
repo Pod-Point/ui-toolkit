@@ -22,7 +22,7 @@ class ProgressButton {
 
     /**
      * Handle the button on success.
-     * 
+     *
      * @param success
      */
     handleComplete(success) {

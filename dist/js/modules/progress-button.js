@@ -39,7 +39,7 @@ var ProgressButton = function () {
 
         /**
          * Handle the button on success.
-         * 
+         *
          * @param success
          */
 

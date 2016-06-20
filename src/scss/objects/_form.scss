@@ -1,11 +1,11 @@
 .form__control {
     background-color: $input-background-colour;
-    border: 1px solid $light-grey;
+    border: 1px solid $input-border-colour;
     border-radius: $border-radius;
     color: $text-colour;
     height: auto;
-    line-height: 1.5rem;
-    padding: 0.25rem 0.5rem;
+    line-height: $input-height;
+    padding: $input-padding-y $input-padding-x;
     width: 100%;
 
     &:focus {
@@ -15,6 +15,14 @@
     &[disabled] {
         background: #f2f2f2;
         cursor: not-allowed;
+    }
+}
+
+@each $size, $multiplier in $sizes {
+    .input--#{$size} {
+        font-size: $multiplier * 1rem;
+        line-height: $multiplier * $input-height;
+        padding: ($input-padding-y * $multiplier) ($input-padding-x * $multiplier);
     }
 }
 
@@ -165,3 +173,35 @@ select.form__control > option {
 .loading-icon {
     display: none;
 }
+
+.form--alternate {
+    .form__group {
+        padding-top: $line-height;
+    }
+
+    .form__label {
+        position: absolute;
+        top: $line-height + $input-padding-y;
+        transition: all 200ms ease-out;
+    }
+
+    .form__control {
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid $input-border-colour;
+        padding: $input-padding-y 0;
+
+        &:focus {
+            border-bottom-width: 2px;
+            border-bottom-color: $brand-primary;
+        }
+    }
+
+    .form__control:focus ~ label,
+    .has-content .form__control ~ label {
+        color: $dark-grey;
+        font-size: $font-size-milli;
+        top: 0;
+    }
+}
+

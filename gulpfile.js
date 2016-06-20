@@ -7,9 +7,8 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const babel = require('gulp-babel');
 const webpack = require('webpack-stream');
-const webpackConfig = require('./webpack.config.js');
-
 const config = require('./config');
+const webpackConfig = require('./webpack.config.js');
 
 gulp.task('css', () => {
     return gulp.src(config.src.root + '/' + config.src.scss + '/**/*.scss')
