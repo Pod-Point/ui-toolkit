@@ -188,10 +188,12 @@ select.form__control > option {
     .form__control {
         border: 0;
         border-radius: 0;
+        margin-bottom: 1px;
         border-bottom: 1px solid $input-border-colour;
         padding: $input-padding-y 0;
 
         &:focus {
+            margin-bottom: 0;
             border-bottom-width: 2px;
             border-bottom-color: $brand-primary;
         }
