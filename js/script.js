@@ -66,15 +66,19 @@
 	
 	var _ajaxForm2 = _interopRequireDefault(_ajaxForm);
 	
-	var _collapse = __webpack_require__(17);
+	var _formFields = __webpack_require__(17);
+	
+	var _formFields2 = _interopRequireDefault(_formFields);
+	
+	var _collapse = __webpack_require__(18);
 	
 	var _collapse2 = _interopRequireDefault(_collapse);
 	
-	var _dropdown = __webpack_require__(18);
+	var _dropdown = __webpack_require__(19);
 	
 	var _dropdown2 = _interopRequireDefault(_dropdown);
 	
-	var _toggle = __webpack_require__(19);
+	var _toggle = __webpack_require__(20);
 	
 	var _toggle2 = _interopRequireDefault(_toggle);
 	
@@ -82,10 +86,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(20);
+	__webpack_require__(21);
 	
 	dom.whenReady(function () {
 	    (0, _moduleLoader2.default)({
+	        formFields: _formFields2.default,
 	        domModules: (0, _domModuleLoader2.default)({
 	            modal: _modal2.default,
 	            ajaxForm: _ajaxForm2.default,
@@ -2802,7 +2807,7 @@
 	
 	        /**
 	         * Handle the button on success.
-	         * 
+	         *
 	         * @param success
 	         */
 	
@@ -2829,6 +2834,122 @@
 
 /***/ },
 /* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _domDelegate = __webpack_require__(6);
+	
+	var _domOps = __webpack_require__(4);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var HAS_CONTENT = 'has-content';
+	var HAS_ERROR = 'has-error';
+	var HAS_FOCUS = 'has-focus';
+	
+	var FormFields = function () {
+	    function FormFields() {
+	        var root = arguments.length <= 0 || arguments[0] === undefined ? document.body : arguments[0];
+	
+	        _classCallCheck(this, FormFields);
+	
+	        this.bindEvents(root);
+	        this.checkAllFieldsForContent();
+	    }
+	
+	    _createClass(FormFields, [{
+	        key: 'checkAllFieldsForContent',
+	        value: function checkAllFieldsForContent() {
+	            var _this = this;
+	
+	            var inputs = (0, _domOps.nodesToArray)((0, _domOps.select)('input'));
+	
+	            if (inputs.length) {
+	                inputs.forEach(function (input) {
+	                    return _this.checkForContent(input);
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'checkForContent',
+	        value: function checkForContent(element) {
+	            var container = this.getInputContainer(element),
+	                callback = element.value ? _domOps.addClass : _domOps.removeClass;
+	
+	            callback(container, HAS_CONTENT);
+	        }
+	    }, {
+	        key: 'checkForErrors',
+	        value: function checkForErrors(element) {
+	            (0, _domOps.removeClass)(this.getInputContainer(element), HAS_ERROR);
+	        }
+	    }, {
+	        key: 'bindEvents',
+	        value: function bindEvents(root) {
+	            var _this2 = this;
+	
+	            var listener = new _domDelegate.Delegate(root);
+	
+	            // Listen to change because of password managers etc
+	            listener.on('change', 'input, textarea', function (event, element) {
+	                return _this2.giveFocus(element);
+	            });
+	
+	            // Text input focus handler
+	            listener.on('focus', 'input, textarea', function (event, element) {
+	                return _this2.giveFocus(element);
+	            });
+	
+	            // Text input focusout handler
+	            listener.on('focusout', 'input, textarea', function (event, element) {
+	                _this2.checkForContent(element);
+	                _this2.checkForErrors(element);
+	                _this2.removeFocus(element);
+	            });
+	
+	            listener.on('input', 'textarea', function (event, element) {
+	                var scrollHeight = element.scrollHeight;
+	
+	                if (scrollHeight > parseInt(css.get(element, 'height'))) {
+	                    css.set(element, 'height', scrollHeight + 'px');
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'getInputContainer',
+	        value: function getInputContainer(element) {
+	            return element.parentNode;
+	        }
+	    }, {
+	        key: 'removeFocus',
+	        value: function removeFocus(element) {
+	            (0, _domOps.removeClass)(this.getInputContainer(element), HAS_FOCUS);
+	        }
+	    }, {
+	        key: 'giveFocus',
+	        value: function giveFocus(element) {
+	            (0, _domOps.addClass)(this.getInputContainer(element), HAS_FOCUS);
+	        }
+	    }]);
+	
+	    return FormFields;
+	}();
+	
+	exports.default = {
+	    init: function init() {
+	        new FormFields();
+	    }
+	};
+
+/***/ },
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2929,7 +3050,7 @@
 	};
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3044,7 +3165,7 @@
 	};
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3181,7 +3302,7 @@
 	};
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	"use strict";
