@@ -1,7 +1,12 @@
 import { Delegate } from 'dom-delegate';
 import { selectFirst } from '@pod-point/dom-ops';
+import { isVisible, hide, show } from './../utilities';
 
 let instances = [];
+
+const LOCAL_KEY = 'toggle-state-';
+const HIDDEN = 'hidden';
+const VISIBLE = 'visible';
 
 class Toggle {
 
@@ -14,14 +19,28 @@ class Toggle {
         this.element = element;
         this.action = element.dataset.hasOwnProperty('action') ? element.dataset.action : 'click';
 
-        this.hide = element.dataset.hide;
-        this.show = element.dataset.hasOwnProperty('show') ? element.dataset.show : null;
+        this.shouldHide = element.getAttribute('data-hide');
+        this.shouldShow = element.getAttribute('data-show') ? element.dataset.show : null;
+
+        this.storageKey = null;
+
+        if (element.getAttribute('data-persist')) {
+            this.storageKey = LOCAL_KEY + element.getAttribute('id');
+
+            this.initialVisibility = localStorage.getItem(this.storageKey);
+
+            if (this.initialVisibility === HIDDEN) {
+                hide(selectFirst(this.shouldHide));
+            } else {
+                show(selectFirst(this.shouldHide));
+            }
+        }
 
         this.bindEvents();
     }
 
     /**
-     * Binds toggle event.
+     * Binds the event listeners from the elements.
      */
     bindEvents() {
         this.listener = new Delegate(this.element);
@@ -39,33 +58,33 @@ class Toggle {
     }
 
     /**
-     * Toggles the elements
+     * Toggles the elements.
+     *
      * @param {Event} event
-     * @param {Element} trigger
      */
     doToggle(event) {
         event.preventDefault();
 
-        let hideElement = selectFirst(this.hide);
-        let showElement = this.show ? selectFirst(this.show) : null;
+        let hideElement = selectFirst(this.shouldHide);
+        let showElement = this.shouldShow ? selectFirst(this.shouldShow) : null;
 
-        if (hideElement.style.display !== 'none' || hideElement.style.display === '') {
-
-            hideElement.style.display = 'none';
-
-            if (this.show) {
-                showElement.style.display = 'block';
-            }
-
-        } else {
-
-            hideElement.style.display = 'block';
-
-            if (this.show) {
-                showElement.style.display = 'none';
-            }
+        if (this.storageKey) {
+            localStorage.setItem(this.storageKey, this.isVisible(hideElement) ? HIDDEN : VISIBLE);
         }
 
+        if (isVisible(hideElement)) {
+            hide(hideElement);
+
+            if (this.shouldShow) {
+                show(showElement);
+            }
+        } else {
+            show(hideElement);
+
+            if (this.shouldShow) {
+                hide(showElement);
+            }
+        }
     }
 }
 

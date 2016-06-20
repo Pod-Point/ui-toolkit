@@ -1,66 +1,46 @@
 import { Delegate } from 'dom-delegate';
 import { selectFirst } from '@pod-point/dom-ops';
+import { isVisible, show, hide } from './../utilities';
 
 let instances = [];
 
 class Modal {
 
     /**
-     * Creates a new modal.
+     * Creates a new modal window.
      *
      * @param element
      */
     constructor(element) {
         this.openButton = element;
+        this.modal = selectFirst('#' + this.openButton.getAttribute('data-modal'));
         this.closeButton = selectFirst('.modal-close', this.modal);
-        this.modal = selectFirst('#' + this.openButton.dataset.modal);
-        this.overlay = this.getModalOverlay();
+        this.overlay = selectFirst('.modal__overlay', this.modal);
 
-        this.bindOpenEvent();
-        this.bindCloseEvent();
+        this.bindEvents();
     }
 
     /**
-     * Get the modal's overlay.
-     *
-     * @returns {*}
+     * Binds the event listeners from the elements.
      */
-    getModalOverlay() {
-        for (var i = 0; i < this.modal.childNodes.length; i++) {
-            if (this.modal.childNodes[i].className == 'modal__overlay') {
-                return this.modal.childNodes[i];
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * Binds open modal event.
-     */
-    bindOpenEvent() {
+    bindEvents() {
         this.openListener = new Delegate(this.openButton);
 
         this.openListener.on('click', (event) => {
-            this.doModal(event);
+            this.openModal();
         });
-    }
 
-    /**
-     * Bind the close modal event to the close button.
-     */
-    bindCloseEvent() {
         this.closeListener = new Delegate(this.closeButton);
 
         this.closeListener.on('click', (event) => {
-            this.closeModal(event);
+            this.closeModal();
         });
 
         this.overlayListener = new Delegate(this.overlay);
 
         this.overlayListener.on('click', (event) => {
-            this.closeModal(event);
-    });
+            this.closeModal();
+        });
     }
 
     /**
@@ -73,41 +53,36 @@ class Modal {
     }
 
     /**
-     * Opens the modal
+     * Handle the modal opening.
+     *
      * @param {Event} event
      */
     doModal(event) {
         event.preventDefault();
 
-        var elements = [
-            this.overlay,
-            this.modal
-        ];
-
-        for (var i = 0; i < elements.length; i++) {
-            if (elements[i].style.display === 'none' || !elements[i].style.display) {
-                elements[i].style.display = 'block';
-            } else {
-                elements[i].style.display = 'none';
-            }
+        if (isVisible(this.modal)) {
+            this.closeModal();
+        } else {
+            this.openModal();
         }
     }
 
     /**
-     * Closes the modal
-     * @param {Event} event
+     * Handle the modal opening.
      */
-    closeModal(event) {
-        event.preventDefault();
+    openModal() {
+        document.body.classList.add('fixed');
 
-        var elements = [
-            this.overlay,
-            this.modal
-        ];
+        show(this.modal);
+    }
 
-        for (var i = 0; i < elements.length; i++) {
-            elements[i].style.display = 'none';
-        }
+    /**
+     * Handle the modal closing.
+     */
+    closeModal() {
+        document.body.classList.remove('fixed');
+
+        hide(this.modal);
     }
 }
 

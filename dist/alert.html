@@ -6,6 +6,16 @@
     <title>Alerts</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="demo.css">
+    <script>
+        (function(d) {
+            var config = {
+                kitId: 'lcv3wao',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    </script>
 </head>
 <body>
     <header class="navbar" role="banner">
@@ -16,18 +26,35 @@
 
     <main class="main" role="main">
         <div class="container">
-            <div class="alert alert--success">
-                <strong>Well done!</strong> You successfully read this important alert message. <a href="#">I am a link</a>.
-            </div>
-            <div class="alert alert--info">
-                <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-            </div>
-            <div class="alert alert--warning">
-                <strong>Warning!</strong> Better check yourself, you're not looking too good.
-            </div>
-            <div class="alert alert--danger">
-                <strong>Oh snap!</strong> Change a few things up and try submitting again.
-            </div>
+            <article>
+                <h1 class="page-heading">Alerts</h1>
+
+                <section class="section">
+                    <h2 class="section__title">Basic</h2>
+
+                    <div class="alert alert--success">
+                        <strong>Well done!</strong> You successfully read this important alert message. <a href="#">I am a link</a>.
+                    </div>
+                    <div class="alert alert--info">
+                        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+                    </div>
+                    <div class="alert alert--warning">
+                        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+                    </div>
+                    <div class="alert alert--danger">
+                        <strong>Oh snap!</strong> Change a few things up and try submitting again.
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section__title">Dismissable</h2>
+
+                     <div class="alert alert--success" id="dismissable-alert">
+                        <button class="pull-right" data-js-module="toggle" data-hide="#dismissable-alert">&times;</button>
+                        <strong>Well done!</strong> You successfully read this important alert message.
+                    </div>
+                </section>
+            </article>
         </div>
     </main>
 

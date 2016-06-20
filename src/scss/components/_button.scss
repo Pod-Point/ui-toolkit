@@ -1,19 +1,15 @@
 $button-background-colour: $super-light-grey;
-$button-box-shadow-colour: mix(black, $button-background-colour, 15%);
 
 .button {
-    background-color: $super-light-grey;
     border-radius: $border-radius;
     border: 0;
-    box-shadow: 0 2px 0 0 $button-box-shadow-colour;
-    color: $dark-grey;
+    cursor: pointer;
     display: inline-block;
     height: 2rem;
     line-height: 2rem;
     padding: 0 1rem;
     outline: none;
     text-align: center;
-    text-shadow: 0 1px 0 $white;
     text-decoration: none;
     vertical-align: top;
     white-space: nowrap;
@@ -24,40 +20,34 @@ $button-box-shadow-colour: mix(black, $button-background-colour, 15%);
         opacity: 0.5;
     }
 
-    &:active {
+    &:active,
+    &.active {
         transform: translateY(2px);
-        box-shadow: 0 1px 0 0 $button-box-shadow-colour inset;
-    }
-
-    &.button--primary {
-        background-color: $brand-primary;
-        box-shadow: 0 2px 0 0 $brand-primary-dark;
-        color: $white;
-        text-shadow: 0 1px 0 $brand-primary-dark;
-
-        &:active {
-            box-shadow: 0 1px 0 0 $brand-primary-dark inset;
-        }
-    }
-
-    &.button--kilo {
-        font-size: $font-size-kilo;
-        height: 3rem;
-        line-height: 3rem;
-        padding: 0 2rem;
-    }
-
-    &.button--milli {
-        box-shadow: none;
-        font-size: $font-size-milli;
-        line-height: 1.5rem;
-        height: 1.5rem;
-        padding: 0 0.75rem;
-        text-shadow: none;
     }
 
     > .icon {
         margin-right: 0.5rem;
+    }
+}
+
+.button--default {
+    @include button-variant($super-light-grey, $dark-grey);
+}
+
+.button--danger {
+    @include button-variant($brand-danger, white);
+}
+
+&.button--primary {
+    @include button-variant($brand-primary, white);
+}
+
+@each $size, $multiplier in $sizes {
+    .button--#{$size} {
+        font-size: $multiplier * 1rem;
+        height: $multiplier * 2rem;
+        line-height: $multiplier * 2rem;
+        padding: 0 ($multiplier * 1rem);
     }
 }
 
@@ -66,16 +56,18 @@ $button-box-shadow-colour: mix(black, $button-background-colour, 15%);
 }
 
 .button--link {
-    background-color: transparent;
-    box-shadow: none;
     color: $brand-primary;
-    text-shadow: none;
 }
 
 .loading-icon {
     display: none;
 }
 
-.is-loading .loading-icon {
-    display: inline-block;
+.is-loading {
+    .loading-icon {
+        display: inline-block;
+    }
+    .loading-icon-hide {
+        display: none;
+    }
 }

@@ -6,8 +6,18 @@
     <title>Modals</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="demo.css">
+    <script>
+        (function(d) {
+            var config = {
+                kitId: 'lcv3wao',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    </script>
 </head>
-<body>
+<body class="fixed">
     <header class="navbar" role="banner">
         <div class="container-fluid">
             <a href="index.html" class="brand"><span>POD Point</span></a>
@@ -16,27 +26,104 @@
 
     <main class="main" role="main">
         <div class="container">
-            <button type="button" class="button button--primary" data-js-module="modal" data-modal="testModal">
-                Show Me A Modal!
-            </button>
+            <article>
+                <h1 class="page-heading">Modal</h1>
+
+                <p>
+                    <button type="button" class="button button--primary" data-js-module="modal" data-modal="testModal">
+                        Show Me One!
+                    </button>
+
+                    <button type="button" class="button button--primary" data-js-module="modal" data-modal="anotherTestModal">
+                        Show Me Another!
+                    </button>
+                </p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam enim libero quas
+                    reprehenderit sunt tempora tempore! Accusantium ad dolore, earum et, quidem quod ratione similique
+                    soluta suscipit, velit veritatis!</p>
+                <p>Dolore dolores, ducimus esse impedit incidunt nam officiis qui recusandae sint tempore tenetur ullam
+                    vel, voluptatibus. Aperiam deleniti dicta ducimus, eos error esse et illum inventore maxime
+                    molestiae numquam, tenetur.</p>
+                <p>Corporis dolor illo ipsam nihil nobis reprehenderit saepe suscipit vero voluptatum! Animi deleniti
+                    est excepturi iste, laboriosam magni mollitia necessitatibus veritatis. Aperiam facilis fugit
+                    mollitia non officiis quasi soluta temporibus.</p>
+                <p>Esse facere facilis labore porro? Aliquid aspernatur, atque consequatur ducimus eum harum iusto
+                    numquam reiciendis, sint suscipit veritatis, voluptatum. Doloribus harum ipsa molestias odit
+                    pariatur porro provident quae quaerat similique.</p>
+                <p>A, deserunt dolor error et explicabo laborum maxime nam perferendis quam quasi ratione veniam, vero
+                    voluptates? Culpa dolorem dolores enim exercitationem fugit laboriosam molestiae, nam perferendis
+                    porro praesentium quod saepe.</p>
+                <p>Alias animi asperiores assumenda consequuntur cum distinctio dolorum earum eius, hic impedit omnis
+                    quae sed sunt unde veritatis? Ad at corporis cupiditate deserunt enim, iste iure iusto nulla rem
+                    voluptate!</p>
+                <p>Accusantium dolorem ipsum laudantium molestiae natus necessitatibus porro quis rem vero voluptates.
+                    Alias, aliquid doloremque dolores error eveniet facere iure minus officiis perspiciatis praesentium
+                    quaerat quos ratione rem tempore voluptatem?</p>
+                <p>A amet animi, corporis debitis distinctio doloremque eius esse eum eveniet exercitationem fugit ipsam
+                    iste laudantium modi nisi nulla quam quidem quo ratione rem sint soluta tempore totam ut velit?</p>
+                <p>Amet assumenda at autem consectetur corporis culpa maiores, nulla perspiciatis quisquam vitae!
+                    Distinctio, doloremque dolorum eligendi exercitationem explicabo hic inventore ipsa iste nesciunt
+                    nulla obcaecati, omnis sit suscipit vel voluptatem.</p>
+                <p>Aperiam, consequatur expedita inventore maiores nisi nobis recusandae suscipit. Aut expedita nihil,
+                    officia officiis quaerat quisquam repellat reprehenderit sequi vero? Earum et magni minima quaerat
+                    repellat? Accusantium cumque nobis porro?</p>
+            </article>
         </div>
     </main>
 
-    <div class="modal" id="testModal">
+    <div class="modal hidden" id="testModal">
         <div class="modal__overlay"></div>
 
         <div class="modal__content">
             <div class="panel">
-                <h4 class="panel__title">A Title For This Panel</h4>
-                <img class="responsive" src="http://placehold.it/1000x400">
-                <h5 class="panel__subtitle">Some extra stuff you ought to know</h5>
-                <ul>
-                    <li>Buy our stuff now!</li>
-                    <li>Please&hellip;</li>
-                </ul>
+                <div class="panel__header">
+                    <h2 class="panel__title">A Title For This Panel</h2>
+                </div>
+                <div class="panel__body">
+                    <p><img class="responsive" src="http://placehold.it/1000x400"></p>
+                    <h3 class="panel__subtitle">Some extra stuff you ought to know</h3>
+                    <ul>
+                        <li>Buy our stuff now!</li>
+                        <li>Please&hellip;</li>
+                    </ul>
+                </div>
                 <div class="panel__footer">
                     <button class="button button--primary modal-close">
                         Don't Click Here
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="anotherTestModal">
+        <div class="modal__overlay"></div>
+
+        <div class="modal__content">
+            <div class="panel">
+                <div class="panel__header">
+                    <h2 class="panel__title">A Title For This Panel</h2>
+                </div>
+                <div class="panel__body">
+                    <p><img class="responsive" src="http://placehold.it/1000x400"></p>
+                    <h3 class="panel__subtitle">Some extra stuff you ought to know</h3>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Adipisci aut iusto laborum suscipit.</li>
+                        <li>Dicta distinctio, nobis. Pariatur, sint.</li>
+                        <li>Ad autem corporis facilis nostrum!</li>
+                        <li>Dolorem est quos ullam vero.</li>
+                        <li>Aliquam molestias quas suscipit temporibus!</li>
+                        <li>Aliquam autem ipsa laborum suscipit.</li>
+                        <li>Inventore officiis quae sit unde.</li>
+                        <li>Dignissimos ex minus quis recusandae.</li>
+                        <li>Assumenda deserunt excepturi omnis quos!</li>
+                    </ul>
+                </div>
+                <div class="panel__footer">
+                    <button class="button button--primary modal-close">
+                        Don't Click Here Either
                     </button>
                 </div>
             </div>

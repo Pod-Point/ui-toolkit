@@ -6,6 +6,16 @@
     <title>Forms</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="demo.css">
+    <script>
+        (function(d) {
+            var config = {
+                kitId: 'lcv3wao',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    </script>
 </head>
 <body>
     <header class="navbar" role="banner">
@@ -16,154 +26,214 @@
 
     <main class="main" role="main">
         <div class="container">
-            <h1>Forms</h1>
+            <article>
+                <h1 class="page-heading">Forms</h1>
 
-            <p>None of these forms are real - it's just a demo!</p>
+                <p>None of these forms are real - it's just a demo!</p>
 
-            <h2>Basic</h2>
+                <section class="section">
+                    <h2 class="section__title">Basic</h2>
 
-            <form class="form" action="https://httpbin.org/post" method="post" data-js-module="ajaxForm">
-                <fieldset class="form__group form__group--text">
-                    <label for="first_name" class="form__label">First Name</label>
+                    <form class="form" action="https://httpbin.org/post" method="post" data-js-module="ajaxForm">
+                        <fieldset class="form__group form__group--text">
+                            <label for="first_name" class="form__label">First Name</label>
 
-                    <input type="text" id="first_name" name="first_name" class="form__control">
-                </fieldset>
+                            <input type="text" id="first_name" name="first_name" class="form__control">
+                        </fieldset>
 
-                <fieldset class="form__group form__group--text">
-                    <label for="disabled__input" class="form__label">Disabled Input</label>
+                        <fieldset class="form__group form__group--text">
+                            <label for="disabled__input" class="form__label">Disabled Input</label>
 
-                    <input disabled type="text" value="You can't touch this" id="disabled__input" name="disabled__input" class="form__control">
-                </fieldset>
+                            <input disabled type="text" value="You can't touch this" id="disabled__input" name="disabled__input" class="form__control">
+                        </fieldset>
 
-                <fieldset class="form__group">
-                    <label for="status" class="form__label">Status</label>
+                        <fieldset class="form__group">
+                            <label for="status" class="form__label">Status</label>
 
-                    <div class="select-wrapper">
-                        <select class="form__control" name="status" id="status">
-                            <option value="">Lorem</option>
-                            <option value="">Iusto</option>
-                            <option value="">Harum</option>
-                            <option value="">Quae</option>
-                            <option value="">Quod</option>
-                        </select>
+                            <div class="select-wrapper">
+                                <select class="form__control" name="status" id="status">
+                                    <option value="">Lorem</option>
+                                    <option value="">Iusto</option>
+                                    <option value="">Harum</option>
+                                    <option value="">Quae</option>
+                                    <option value="">Quod</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form__group">
+                            <label for="status" class="form__label">Status</label>
+
+                            <select multiple class="form__control" name="status" id="status">
+                                <option value="">Lorem</option>
+                                <option value="">Iusto</option>
+                                <option value="">Harum</option>
+                                <option value="">Quae</option>
+                                <option value="">Quod</option>
+                            </select>
+                        </fieldset>
+
+                        <div class="form__group">
+                            <span class="form__label">Please choose:</span>
+
+                            <fieldset>
+                                <label for="radio_1" class="radio">
+                                    <input type="radio" id="radio_1" name='radios' />
+                                    <span>Choice 1</span>
+                                </label>
+
+                                <label for="radio_2" class="radio">
+                                    <input type="radio" id="radio_2" name='radios' />
+                                    <span>
+                                        Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just
+                                        needed to prove these labels can go on to two or more lines (just in case), that's all. We
+                                        just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                                    </span>
+                                </label>
+
+                                <label for="radio_3" class="radio">
+                                    <input id="radio_3" type="radio" name='radios'>
+                                    <span>Choice 3</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+                        <div class="form__group">
+                            <span class="form__label">Please choose:</span>
+
+                            <fieldset>
+                                <label for="inline_radio_1" class="radio radio--inline">
+                                    <input type="radio" id="inline_radio_1" name='inline_radios' />
+                                    <span>Yes</span>
+                                </label>
+
+                                <label for="inline_radio_2" class="radio radio--inline">
+                                    <input type="radio" id="inline_radio_2" name='inline_radios' />
+                                    <span>No</span>
+                                </label>
+
+                                <label for="inline_radio_3" class="radio radio--inline">
+                                    <input id="inline_radio_3" type="radio" name='inline_radios'>
+                                    <span>Maybe</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+                        <div class="form__group">
+                            <span class="form__label">Please tick all that apply:</span>
+
+                            <fieldset>
+                                <label for="checkbox_choice_1" class="checkbox">
+                                    <input type="checkbox" id="checkbox_choice_1" name="checkboxes" value="1">
+                                    <span>Choice 1</span>
+                                </label>
+
+                                <label for="checkbox_choice_2" class="checkbox">
+                                    <input type="checkbox" id="checkbox_choice_2" name="checkboxes" value="2">
+                                    <span>
+                                        Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just
+                                        needed to prove these labels can go on to two or more lines (just in case), that's all. We
+                                        just needed to prove these labels can go on to two or more lines (just in case), that's all.
+                                    </span>
+                                </label>
+
+                                <label for="checkbox_choice_3" class="checkbox">
+                                    <input type="checkbox" id="checkbox_choice_3" name="checkboxes" value="3">
+                                    <span>Choice 3</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+
+                        <div class="form__group">
+                            <p>You can also make switchable radio buttons like the one below:</p>
+
+                            <div class="switch">
+                                <input checked type="radio" id="switch_on" name="switch" value="on">
+                                <label for="switch_on">On</label>
+
+                                <input type="radio" id="switch_off" name="switch" value="off">
+                                <label for="switch_off">Off</label>
+                            </div>
+                        </div>
+
+                        <fieldset class="form__group">
+                            <label for="message" class="form__label">Message</label>
+
+                            <textarea id="message" name="message" class="form__control"></textarea>
+                        </fieldset>
+
+                        <div class="form__group">
+                            <button class="button button--primary" type="submit">
+                                <i class="icon icon--loading loading-icon"></i>
+                                Submit
+                            </button>
+                            <a href="#" class="button button--default">Cancel</a>
+                        </div>
+
+                    </form>
+                </section>
+
+                <section class="section">
+                    <h2 class="section__title">Form Errors</h2>
+
+                    <form class="form">
+                        <fieldset class="form__group form__group--error">
+                            <label for="first_name" class="form__label">First Name</label>
+
+                            <input type="text" id="first_name" name="first_name" class="form__control">
+
+                            <span class="form__error">omg this is required</span>
+                        </fieldset>
+                    </form>
+                </section>
+
+                <section class="section">
+                    <h2 class="section__title">Input Sizing</h2>
+
+                    <div class="form__group">
+                        <input type="text" class="form__control input--milli" placeholder="Small input">
                     </div>
-                </fieldset>
 
-                <fieldset class="form__group">
-                    <label for="status" class="form__label">Status</label>
-
-                    <select multiple class="form__control" name="status" id="status">
-                        <option value="">Lorem</option>
-                        <option value="">Iusto</option>
-                        <option value="">Harum</option>
-                        <option value="">Quae</option>
-                        <option value="">Quod</option>
-                    </select>
-                </fieldset>
-
-                <div class="form__group">
-                    <span class="form__label">Please choose one of the following:</span>
-
-                    <fieldset>
-                        <label for="radio_choice_1" class="radio">
-                            <input type="radio" id="radio_choice_1" name="radios" value="1">Choice 1
-                        </label>
-
-                        <label for="radio_choice_2" class="radio">
-                            <input type="radio" id="radio_choice_2" name="radios" value="2">Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.
-                        </label>
-
-                        <label for="radio_choice_3" class="radio">
-                            <input type="radio" id="radio_choice_3" name="radios" value="3">Choice 3
-                        </label>
-                    </fieldset>
-                </div>
-
-                <div class="form__group">
-                    <span class="form__label">Please tick all that apply:</span>
-
-                    <fieldset>
-                        <label for="checkbox_choice_1" class="radio">
-                            <input type="checkbox" id="checkbox_choice_1" name="checkboxes" value="1">Choice 1
-                        </label>
-
-                        <label for="checkbox_choice_2" class="checkbox">
-                            <input type="checkbox" id="checkbox_choice_2" name="checkboxes" value="2">Choice 2 which goes on to multiple lines - as in it's really, really, really long. We just needed to prove these labels can go on to two or more lines (just in case), that's all.
-                        </label>
-
-                        <label for="checkbox_choice_3" class="checkbox">
-                            <input type="checkbox" id="checkbox_choice_3" name="checkboxes" value="3">Choice 3
-                        </label>
-                    </fieldset>
-                </div>
-
-                <div class="form__group">
-                    <p>You can also make switchable radio buttons like the one below:</p>
-
-                    <div class="switch">
-                        <input checked type="radio" id="switch_on" name="switch" value="on">
-                        <label for="switch_on">On</label>
-
-                        <input type="radio" id="switch_off" name="switch" value="off">
-                        <label for="switch_off">Off</label>
-                    </div>
-                </div>
-
-                <fieldset class="form__group">
-                    <label for="message" class="form__label">Message</label>
-
-                    <textarea id="message" name="message" class="form__control"></textarea>
-                </fieldset>
-
-                <div class="form__group">
-                    <button class="button button--primary" type="submit">
-                        <i class="icon icon--loading loading-icon"></i>
-                        Submit
-                    </button>
-                    <a href="#" class="button">Cancel</a>
-                </div>
-
-            </form>
-
-            <h2>Form Errors</h2>
-
-            <form class="form">
-                <fieldset class="form__group form__group--error">
-                    <label for="first_name" class="form__label">First Name</label>
-
-                    <input type="text" id="first_name" name="first_name" class="form__control">
-
-                    <span class="form__error">omg this is required</span>
-                </fieldset>
-            </form>
-
-            <h2>Alternate Form</h2>
-
-            <form action="" class="form form--alternate">
-                <fieldset class="form__group">
-                    <input type="text" id="address_1" name="address_1" class="form__control">
-
-                    <label for="address_1" class="form__label">Address</label>
-                </fieldset>
-
-                <fieldset class="form__group">
-                    <input type="text" id="postcode" name="postcode" class="form__control" required value="E1 6PJ">
-
-                    <label for="postcode" class="form__label">Postcode</label>
-                </fieldset>
-
-                <fieldset class="form__group">
-                    <div class="select-wrapper">
-                        <select class="form__control" name="country" id="country">
-                            <option value="">Please select</option>
-                            <option>United Kingdom</option>
-                            <option>United States</option>
-                        </select>
+                    <div class="form__group">
+                        <input type="text" class="form__control" placeholder="Default input">
                     </div>
 
-                    <label for="country" class="form__label">Country</label>
-                </fieldset>
-            </form>
+                    <div class="form__group">
+                        <input type="text" class="form__control input--kilo" placeholder="Large input">
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section__title">Alternate Form</h2>
+
+                    <form action="" class="form form--alternate">
+                        <fieldset class="form__group">
+                            <input type="text" id="address_1" name="address_1" class="form__control">
+
+                            <label for="address_1" class="form__label">Address</label>
+                        </fieldset>
+
+                        <fieldset class="form__group">
+                            <input type="text" id="postcode" name="postcode" class="form__control" required value="E1 6PJ">
+
+                            <label for="postcode" class="form__label">Postcode</label>
+                        </fieldset>
+
+                        <fieldset class="form__group">
+                            <div class="select-wrapper">
+                                <select class="form__control" name="country" id="country">
+                                    <option value="">Please select</option>
+                                    <option>United Kingdom</option>
+                                    <option>United States</option>
+                                </select>
+                            </div>
+
+                            <label for="country" class="form__label">Country</label>
+                        </fieldset>
+                    </form>
+                </section>
+            </article>
         </div>
     </main>
 

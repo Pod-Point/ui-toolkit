@@ -1,0 +1,40 @@
+h1,
+.h1 {
+    font-size: $font-size-giga;
+    line-height: ($line-height * 2);
+}
+
+h2,
+.h2 {
+    font-size: $font-size-mega;
+}
+
+h3,
+.h3 {
+    font-size: $font-size-kilo;
+}
+
+/**
+ * Alignment
+ */
+
+.text--center {
+    text-align: center;
+}
+
+.text--left {
+    text-align: left;
+}
+
+.text--right {
+    text-align: right;
+}
+
+/**
+ * Typography
+ */
+
+.text--lead {
+    font-size: $font-size-mega;
+    line-height: ($line-height * 1.25);
+}

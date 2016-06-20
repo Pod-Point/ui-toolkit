@@ -6,6 +6,16 @@
     <title>Typography</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="demo.css">
+    <script>
+        (function(d) {
+            var config = {
+                kitId: 'lcv3wao',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    </script>
 </head>
 <body>
     <a href="https://github.com/pod-point/ui-toolkit"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 9999" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
@@ -18,60 +28,81 @@
 
     <main class="main" role="main">
         <div class="container">
-            <h1>Heading</h1>
-            <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>. Accusamus asperiores beatae cum doloribus, fuga inventore
-                modi <a href="https://pod-point.com">similique</a> tenetur unde vitae. Asperiores <em>eius eum fuga</em> officiis pariatur perspiciatis, rerum sapiente sunt!</p>
-            <h2>Heading 2</h2>
-            <p>Blanditiis cumque eveniet illum impedit laboriosam maiores nesciunt non totam voluptatibus! Debitis eos error fuga
-                harum hic iste maxime minus, necessitatibus non perferendis quaerat recusandae reprehenderit tenetur totam vel
-                vitae?</p>
-            <h3>Heading 3</h3>
-            <p>Ea eius eligendi minus nam, nemo perspiciatis quia quod sapiente similique voluptas? Dicta dolor eaque excepturi
-                labore, laboriosam laudantium maiores nihil quidem quod rerum sed totam veritatis voluptate voluptates
-                voluptatum?</p>
-            <h4>Heading 4</h4>
-            <p>At consequatur natus, nisi possimus praesentium provident quisquam rem saepe soluta vitae! Dolore ea facere, illo
-                laboriosam magnam modi nam provident qui quibusdam veritatis. Animi ipsum minus obcaecati quasi quibusdam.</p>
-            <hr>
-            <p>Ab asperiores ipsam perspiciatis sit voluptatem! Architecto blanditiis dignissimos excepturi fugiat in nihil, nisi
-                officia optio porro quasi quia similique sint totam unde voluptates. Architecto deserunt dolor esse necessitatibus
-                quos.</p>
-            <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </li>
-                <li>Aut consectetur, eligendi esse impedit, nesciunt nihil reiciendis rem repellat rerum tempore vitae
-                    voluptas voluptatem!
-                </li>
-                <li>Amet architecto assumenda, consequuntur culpa ea eius eligendi et eum expedita id illum iusto laborum
-                    maiores necessitatibus neque nostrum pariatur.
-                </li>
-                <li>Consectetur consequuntur corporis deserunt eius, error esse expedita minima neque obcaecati qui quos
-                    ratione temporibus velit.
-                </li>
-                <li>A asperiores assumenda beatae consequuntur.
-                </li>
-            </ul>
-            <ol>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </li>
-                <li>Aut consectetur, eligendi esse impedit, nesciunt nihil reiciendis rem repellat rerum tempore vitae
-                    voluptas voluptatem!
-                </li>
-                <li>Amet architecto assumenda, consequuntur culpa ea eius eligendi et eum expedita id illum iusto laborum
-                    maiores necessitatibus neque nostrum pariatur.
-                </li>
-                <li>Consectetur consequuntur corporis deserunt eius, error esse expedita minima neque obcaecati qui quos
-                    ratione temporibus velit.
-                </li>
-                <li>A asperiores assumenda beatae consequuntur.
-                </li>
-            </ol>
-            <span class="label label--default">Default</span>
-            <span class="label label--primary">Primary</span>
-            <span class="label label--success">Success</span>
-            <span class="label label--info">Info</span>
-            <span class="label label--warning">Warning</span>
-            <span class="label label--danger">Danger</span>
+            <article>
+                <h1 class="page-heading">Typography</h1>
+
+                <section class="section">
+                    <h2 class="section__title">Headings</h2>
+
+                    <h3 class="h1">Heading 1</h3>
+                    <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>. Accusamus asperiores beatae cum doloribus, fuga inventore
+                        modi <a href="https://pod-point.com">similique</a> tenetur unde vitae. Asperiores <em>eius eum fuga</em> officiis pariatur perspiciatis, rerum sapiente sunt!</p>
+
+                    <h3 class="h2">Heading 2</h3>
+                    <p>Blanditiis cumque eveniet illum impedit laboriosam maiores nesciunt non totam voluptatibus! Debitis eos error fuga
+                        harum hic iste maxime minus, necessitatibus non perferendis quaerat recusandae reprehenderit tenetur totam vel
+                        vitae?</p>
+
+                    <h3 class="h3">Heading 3</h3>
+                    <p>Ea eius eligendi minus nam, nemo perspiciatis quia quod sapiente similique voluptas? Dicta dolor eaque excepturi
+                        labore, laboriosam laudantium maiores nihil quidem quod rerum sed totam veritatis voluptate voluptates
+                        voluptatum?</p>
+
+                    <h3 class="h4">Heading 4</h3>
+                    <p>At consequatur natus, nisi possimus praesentium provident quisquam rem saepe soluta vitae! Dolore ea facere, illo
+                        laboriosam magnam modi nam provident qui quibusdam veritatis. Animi ipsum minus obcaecati quasi quibusdam.</p>
+
+                </section>
+                <section class="section">
+                    <h2 class="section__title">Horizontal Rule</h2>
+                    <p>Ab asperiores ipsam perspiciatis sit voluptatem! Architecto blanditiis dignissimos excepturi fugiat in nihil, nisi
+                        officia optio porro quasi quia similique sint totam unde voluptates. Architecto deserunt dolor esse necessitatibus
+                        quos.</p>
+
+                    <hr>
+
+                    <p>Ab asperiores ipsam perspiciatis sit voluptatem! Architecto blanditiis dignissimos excepturi fugiat in nihil, nisi
+                        officia optio porro quasi quia similique sint totam unde voluptates. Architecto deserunt dolor esse necessitatibus
+                        quos.</p>
+
+                </section>
+
+                <section class="section">
+                    <h2 class="section__title">Lists</h2>
+
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </li>
+                        <li>Aut consectetur, eligendi esse impedit, nesciunt nihil reiciendis rem repellat rerum tempore vitae
+                            voluptas voluptatem!
+                        </li>
+                        <li>Amet architecto assumenda, consequuntur culpa ea eius eligendi et eum expedita id illum iusto laborum
+                            maiores necessitatibus neque nostrum pariatur.
+                        </li>
+                        <li>Consectetur consequuntur corporis deserunt eius, error esse expedita minima neque obcaecati qui quos
+                            ratione temporibus velit.
+                        </li>
+                        <li>A asperiores assumenda beatae consequuntur.
+                        </li>
+                    </ul>
+
+                    <ol>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </li>
+                        <li>Aut consectetur, eligendi esse impedit, nesciunt nihil reiciendis rem repellat rerum tempore vitae
+                            voluptas voluptatem!
+                        </li>
+                        <li>Amet architecto assumenda, consequuntur culpa ea eius eligendi et eum expedita id illum iusto laborum
+                            maiores necessitatibus neque nostrum pariatur.
+                        </li>
+                        <li>Consectetur consequuntur corporis deserunt eius, error esse expedita minima neque obcaecati qui quos
+                            ratione temporibus velit.
+                        </li>
+                        <li>A asperiores assumenda beatae consequuntur.
+                        </li>
+                    </ol>
+                </section>
+            </article>
         </div>
     </main>
 

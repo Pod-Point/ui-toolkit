@@ -1,11 +1,7 @@
-$panel-spacing: $line-height;
-$panel-border: 1px solid $super-light-grey;
-$panel-dl-width: 200px;
-
 .panel {
     @include clearfix();
     background-color: white;
-    border: 1px solid $super-light-grey;
+    border: $panel-border;
     border-radius: $border-radius;
     list-style: none;
     margin-bottom: $line-height;
@@ -13,8 +9,12 @@ $panel-dl-width: 200px;
     padding-bottom: 0;
 }
 
-.panel {
-
+.panel--primary {
+    .panel__header {
+        background-color: $brand-primary;
+        color: white;
+        border-radius: $border-radius $border-radius 0 0;
+    }
 }
 
     .panel__header,
@@ -27,12 +27,18 @@ $panel-dl-width: 200px;
 
     .panel__header {
         border-bottom: $panel-border;
+        border-radius: $border-radius $border-radius 0 0;
         margin-top: ($panel-spacing * -1);
     }
 
     .panel__title {
         margin-bottom: 0;
         font-size: 1.25rem;
+    }
+
+    .panel__subtitle {
+        font-size: 1rem;
+        font-weight: bold;
     }
 
     .panel__body {
@@ -44,20 +50,23 @@ $panel-dl-width: 200px;
         }
     }
 
-    .panel__subtitle {
-        font-size: 1rem;
-    }
-
     .panel__footer {
         border-top: $panel-border;
+        border-radius: 0 0 $border-radius $border-radius;
     }
 
-    .panel__dl {
+    .panel__list {
+        list-style: none;
         margin: ($line-height * -1) ($line-height * -1) 0;
 
-        dt,
-        dd {
+        > li,
+        > dd {
             border-bottom: $panel-border;
+        }
+
+        > li,
+        > dt,
+        > dd {
             padding: ($line-height / 2) $line-height;
 
             &:last-of-type {
@@ -65,17 +74,28 @@ $panel-dl-width: 200px;
             }
         }
 
-        dt {
-            float: left;
-            font-weight: bold;
-            width: $panel-dl-width;
-            overflow: hidden;
-            clear: left;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+        > li {
+            @include clearfix();
         }
 
-        dd {
-            margin-left: $panel-dl-width;
+        > dt {
+            font-weight: bold;
+            padding-bottom: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            @include resp-min($screen-sm-min) {
+                clear: left;
+                float: left;
+                overflow: hidden;
+                padding-bottom: ($line-height / 2);
+                width: $panel-list-width;
+            }
+        }
+
+        > dd {
+            @include resp-min($screen-sm-min) {
+                padding-left: $panel-list-width;
+            }
         }
     }
