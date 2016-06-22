@@ -34,7 +34,11 @@ class FormFields {
         var listener = new Delegate(root);
 
         // Listen to change because of password managers etc
-        listener.on('change', 'input, textarea', (event, element) => this.giveFocus(element) );
+        listener.on('change', 'input, textarea', (event, element) => {
+            this.checkForContent(element);
+            this.checkForErrors(element);
+            this.giveFocus(element);
+        });
 
         // Text input focus handler
         listener.on('focus', 'input, textarea', (event, element) => this.giveFocus(element) );
