@@ -61,7 +61,9 @@ var FormFields = function () {
 
             // Listen to change because of password managers etc
             listener.on('change', 'input, textarea', function (event, element) {
-                return _this2.giveFocus(element);
+                _this2.checkForContent(element);
+                _this2.checkForErrors(element);
+                _this2.giveFocus(element);
             });
 
             // Text input focus handler
