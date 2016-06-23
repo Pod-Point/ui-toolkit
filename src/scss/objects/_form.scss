@@ -175,6 +175,18 @@ select.form__control > option {
 }
 
 .form--alternate {
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        /*
+            This looks like a weird hack. You're right! I can't stand the
+            yellow autofill background. I know when a field's been autofilled
+            because I can see with my eyes that the fields are filled and my
+            fingers aren't on the keyboard, they're up my nose.
+        */
+        box-shadow: 0 0 0px 500px white inset;
+    }
+    
     .form__group {
         padding-top: $line-height;
     }
