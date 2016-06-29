@@ -10,6 +10,7 @@
     "@pod-point/module-loader": "^2.2.0",
     "@pod-point/utils": "^1.5.0",
     "dom-delegate": "^2.0.3",
+    "popmotion": "^5.0.12",
     "superagent": "^1.8.3"
   },
   "devDependencies": {

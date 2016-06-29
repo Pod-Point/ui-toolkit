@@ -1,5 +1,6 @@
 import { Delegate } from 'dom-delegate';
 import { addClass, removeClass, select, nodesToArray } from '@pod-point/dom-ops';
+import { css } from 'popmotion';
 
 const HAS_CONTENT = 'has-content';
 const HAS_ERROR = 'has-error';
@@ -15,7 +16,7 @@ class FormFields {
         var inputs = nodesToArray(select('input'));
 
         if (inputs.length) {
-            inputs.forEach(input => this.checkForContent(input))
+            inputs.forEach(input => this.checkForContent(input));
         }
     }
 
@@ -41,7 +42,7 @@ class FormFields {
         });
 
         // Text input focus handler
-        listener.on('focus', 'input, textarea', (event, element) => this.giveFocus(element) );
+        listener.on('focus', 'input, textarea', (event, element) => this.giveFocus(element));
 
         // Text input focusout handler
         listener.on('focusout', 'input, textarea', (event, element) => {
@@ -53,10 +54,10 @@ class FormFields {
         listener.on('input', 'textarea', (event, element) => {
             var scrollHeight = element.scrollHeight;
 
-        if (scrollHeight > parseInt(css.get(element, 'height'))) {
-            css.set(element, 'height', scrollHeight + 'px');
-        }
-    });
+            if (scrollHeight > parseInt(css.get(element, 'height'))) {
+                css.set(element, 'height', scrollHeight + 'px');
+            }
+        });
     }
 
     getInputContainer(element) {
@@ -73,7 +74,7 @@ class FormFields {
 }
 
 export default {
-    init: function () {
+    init: function() {
         new FormFields();
     }
 };
