@@ -10,6 +10,8 @@ var _domDelegate = require('dom-delegate');
 
 var _domOps = require('@pod-point/dom-ops');
 
+var _popmotion = require('popmotion');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var HAS_CONTENT = 'has-content';
@@ -81,8 +83,8 @@ var FormFields = function () {
             listener.on('input', 'textarea', function (event, element) {
                 var scrollHeight = element.scrollHeight;
 
-                if (scrollHeight > parseInt(css.get(element, 'height'))) {
-                    css.set(element, 'height', scrollHeight + 'px');
+                if (scrollHeight > parseInt(_popmotion.css.get(element, 'height'))) {
+                    _popmotion.css.set(element, 'height', scrollHeight + 'px');
                 }
             });
         }
