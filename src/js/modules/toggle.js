@@ -69,7 +69,7 @@ class Toggle {
         let showElement = this.shouldShow ? selectFirst(this.shouldShow) : null;
 
         if (this.storageKey) {
-            localStorage.setItem(this.storageKey, this.isVisible(hideElement) ? HIDDEN : VISIBLE);
+            localStorage.setItem(this.storageKey, isVisible(hideElement) ? HIDDEN : VISIBLE);
         }
 
         if (isVisible(hideElement)) {

@@ -96,7 +96,7 @@ var Toggle = function () {
             var showElement = this.shouldShow ? (0, _domOps.selectFirst)(this.shouldShow) : null;
 
             if (this.storageKey) {
-                localStorage.setItem(this.storageKey, this.isVisible(hideElement) ? HIDDEN : VISIBLE);
+                localStorage.setItem(this.storageKey, (0, _utilities.isVisible)(hideElement) ? HIDDEN : VISIBLE);
             }
 
             if ((0, _utilities.isVisible)(hideElement)) {
