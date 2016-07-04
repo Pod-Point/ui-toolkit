@@ -15,7 +15,6 @@ class Modal {
         this.openButton = element;
         this.modal = selectFirst('#' + this.openButton.getAttribute('data-modal'));
         this.closeButton = selectFirst('.modal-close', this.modal);
-        this.overlay = selectFirst('.modal__overlay', this.modal);
 
         this.bindEvents();
     }
@@ -36,10 +35,20 @@ class Modal {
             this.closeModal();
         });
 
-        this.overlayListener = new Delegate(this.overlay);
+        this.overlayListener = new Delegate(this.modal);
 
         this.overlayListener.on('click', (event) => {
-            this.closeModal();
+            if (event.target === this.modal) {
+                this.closeModal();
+            }
+        });
+
+        this.windowListener = new Delegate(document.body);
+
+        this.windowListener.on('keyup', (event) => {
+            if (event.keyCode === 27) {
+                this.closeModal();
+            }
         });
     }
 
@@ -50,6 +59,7 @@ class Modal {
         this.openListener.destroy();
         this.closeListener.destroy();
         this.overlayListener.destroy();
+        this.windowListener.destroy();
     }
 
     /**
@@ -71,18 +81,25 @@ class Modal {
      * Handle the modal opening.
      */
     openModal() {
-        document.body.classList.add('fixed');
+        document.body.classList.add('is-modal-open');
 
         show(this.modal);
+
+        const overlay = document.createElement('div');
+        overlay.className = 'modal-overlay';
+        document.body.appendChild(overlay);
     }
 
     /**
      * Handle the modal closing.
      */
     closeModal() {
-        document.body.classList.remove('fixed');
+        document.body.classList.remove('is-modal-open');
 
         hide(this.modal);
+
+        const overlay = selectFirst('.modal-overlay');
+        overlay.remove();
     }
 }
 
