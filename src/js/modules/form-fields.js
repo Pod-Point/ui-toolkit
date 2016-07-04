@@ -1,6 +1,5 @@
 import { Delegate } from 'dom-delegate';
 import { addClass, removeClass, select, nodesToArray } from '@pod-point/dom-ops';
-import { css } from 'popmotion';
 
 const HAS_CONTENT = 'has-content';
 const HAS_ERROR = 'has-error';
@@ -54,8 +53,8 @@ class FormFields {
         listener.on('input', 'textarea', (event, element) => {
             var scrollHeight = element.scrollHeight;
 
-            if (scrollHeight > parseInt(css.get(element, 'height'))) {
-                css.set(element, 'height', scrollHeight + 'px');
+            if (scrollHeight > parseInt(window.getComputedStyle(element, null).height)) {
+                element.style.height = scrollHeight + 'px';
             }
         });
     }
