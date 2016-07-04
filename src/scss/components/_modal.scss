@@ -1,28 +1,27 @@
-body.fixed {
-    position: fixed;
-    width: 100%;
+body.is-modal-open {
+    overflow: hidden;
 }
 
 .modal {
-    height: 100%;
+    position: fixed;
     overflow-y: auto;
-    z-index: 2000;
+    overflow-x: hidden;
+    z-index: 2001;
 }
 
-    .modal,
-    .modal__overlay {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        top: 0;
-    }
+.modal,
+.modal-overlay {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
 
-    .modal__overlay {
-        background-color: rgba(black, 0.5);
-        position: fixed;
-        z-index: 2001;
-    }
+.modal-overlay {
+    background-color: rgba(black, 0.5);
+    position: absolute;
+    z-index: 2000;
+}
 
     .modal__content {
         margin: $modal-margin auto;

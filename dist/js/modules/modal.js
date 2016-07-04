@@ -30,7 +30,6 @@ var Modal = function () {
         this.openButton = element;
         this.modal = (0, _domOps.selectFirst)('#' + this.openButton.getAttribute('data-modal'));
         this.closeButton = (0, _domOps.selectFirst)('.modal-close', this.modal);
-        this.overlay = (0, _domOps.selectFirst)('.modal__overlay', this.modal);
 
         this.bindEvents();
     }
@@ -57,10 +56,20 @@ var Modal = function () {
                 _this.closeModal();
             });
 
-            this.overlayListener = new _domDelegate.Delegate(this.overlay);
+            this.overlayListener = new _domDelegate.Delegate(this.modal);
 
             this.overlayListener.on('click', function (event) {
-                _this.closeModal();
+                if (event.target === _this.modal) {
+                    _this.closeModal();
+                }
+            });
+
+            this.windowListener = new _domDelegate.Delegate(document.body);
+
+            this.windowListener.on('keyup', function (event) {
+                if (event.keyCode === 27) {
+                    _this.closeModal();
+                }
             });
         }
 
@@ -74,6 +83,7 @@ var Modal = function () {
             this.openListener.destroy();
             this.closeListener.destroy();
             this.overlayListener.destroy();
+            this.windowListener.destroy();
         }
 
         /**
@@ -101,9 +111,13 @@ var Modal = function () {
     }, {
         key: 'openModal',
         value: function openModal() {
-            document.body.classList.add('fixed');
+            document.body.classList.add('is-modal-open');
 
             (0, _utilities.show)(this.modal);
+
+            var overlay = document.createElement('div');
+            overlay.className = 'modal-overlay';
+            document.body.appendChild(overlay);
         }
 
         /**
@@ -113,9 +127,12 @@ var Modal = function () {
     }, {
         key: 'closeModal',
         value: function closeModal() {
-            document.body.classList.remove('fixed');
+            document.body.classList.remove('is-modal-open');
 
             (0, _utilities.hide)(this.modal);
+
+            var overlay = (0, _domOps.selectFirst)('.modal-overlay');
+            overlay.remove();
         }
     }]);
 
