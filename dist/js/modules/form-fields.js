@@ -81,8 +81,8 @@ var FormFields = function () {
             listener.on('input', 'textarea', function (event, element) {
                 var scrollHeight = element.scrollHeight;
 
-                if (scrollHeight > parseInt(css.get(element, 'height'))) {
-                    css.set(element, 'height', scrollHeight + 'px');
+                if (scrollHeight > parseInt(window.getComputedStyle(element, null).height)) {
+                    element.style.height = scrollHeight + 'px';
                 }
             });
         }

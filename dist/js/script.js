@@ -2337,16 +2337,14 @@
 
 /***/ },
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	
 	/**
 	 * Expose `Emitter`.
 	 */
 	
-	if (true) {
-	  module.exports = Emitter;
-	}
+	module.exports = Emitter;
 	
 	/**
 	 * Initialize a new `Emitter`.
@@ -2919,8 +2917,8 @@
 	            listener.on('input', 'textarea', function (event, element) {
 	                var scrollHeight = element.scrollHeight;
 	
-	                if (scrollHeight > parseInt(css.get(element, 'height'))) {
-	                    css.set(element, 'height', scrollHeight + 'px');
+	                if (scrollHeight > parseInt(window.getComputedStyle(element, null).height)) {
+	                    element.style.height = scrollHeight + 'px';
 	                }
 	            });
 	        }
