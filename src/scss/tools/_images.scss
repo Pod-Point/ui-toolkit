@@ -1,8 +1,0 @@
-@mixin create-image-background($width, $height: auto) {
-    .image-container.background {
-        position: absolute;
-        margin-left: - $width / 2;
-        width: $width;
-        height: $height;
-    }
-}
