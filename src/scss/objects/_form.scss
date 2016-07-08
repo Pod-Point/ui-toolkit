@@ -74,6 +74,10 @@ select.form__control > option {
     position: relative;
 }
 
+.form__group--actions {
+    text-align: right;
+}
+
 .form__group--error {
     .form__error {
         opacity: 1;
@@ -186,7 +190,7 @@ select.form__control > option {
         */
         box-shadow: 0 0 0px 500px white inset;
     }
-    
+
     .form__group {
         padding-top: $line-height;
     }

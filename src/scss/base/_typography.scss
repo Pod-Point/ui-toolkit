@@ -38,3 +38,33 @@ h3,
     font-size: $font-size-mega;
     line-height: ($line-height * 1.25);
 }
+
+/**
+ * Blockquote
+ */
+
+blockquote {
+    font-size: $font-size-giga;
+    line-height: ($line-height-base);
+    padding-left: ($line-height * 2.5);
+    position: relative;
+    text-align: left;
+
+    &:before {
+        color: $light-grey;
+        content: '“';
+        font-size: 8rem;
+        line-height: 5.5rem;
+        left: 0;
+        position: absolute;
+        top: 0;
+    }
+
+    > cite {
+        color: $grey;
+        display: block;
+        font-size: $font-size-mega;
+        margin-top: $line-height;
+        text-align: right;
+    }
+}
