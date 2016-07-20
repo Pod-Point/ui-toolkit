@@ -42,7 +42,7 @@
         position: absolute;
     }
 
-    > li {
+    .nav__item {
         display: block;
 
         &.separator {
@@ -50,10 +50,10 @@
             height: 1px;
             margin: ($line-height / 2) 0;
         }
+    }
 
-        > a {
-            padding: ($line-height / 4) $line-height;
-        }
+    .nav__link {
+        padding: ($line-height / 4) $line-height;
     }
 }
 

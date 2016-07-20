@@ -2,29 +2,65 @@
     background: no-repeat center center;
     background-size: cover;
     color: white;
-    margin-bottom: 1.5rem;
-    padding: 3rem 0;
+    display: block;
+    font-size: $font-size-kilo;
+    line-height: ($font-size-kilo * $line-height-base);
+    margin-bottom: $line-height;
+    padding: ($line-height * 2) 0 $line-height;
     position: relative;
-    text-align: center;
+    text-shadow: 0 1px 0 rgba(black, 0.5);
     z-index: 1;
+}
 
-    > .container {
-        position: relative;
-        z-index: 2;
+    .hero__cta,
+    .hero__body {
+        bottom: 0;
+        left: 0;
+        padding: ($line-height * 2);
+        position: absolute;
+        right: 0;
+    }
 
-        > *:last-child {
-            margin-bottom: 0;
+    .hero__body {
+        background-color: rgba(black, 0.5);
+        top: 0;
+
+        @include resp-min($screen-md-min) {
+            background-color: transparent;
         }
+
+        > ul {
+            margin: ($line-height * 2.5) 0 0;
+            list-style: none;
+
+            > li {
+                margin-bottom: ($line-height * 2);
+            }
+        }
+    }
+
+    .hero__cta {
+        @include resp-min($screen-md-min) {
+            padding: ($line-height * 2) 0;
+            position: relative;
+        }
+    }
+
+    .hero__title {
+        font-size: $font-size-mega;
+        margin-bottom: 0;
+    }
+
+.hero--primary {
+    .hero__title {
+        font-size: $font-size-giga;
+        line-height: $font-size-giga * $line-height-base;
     }
 }
 
-.hero--overlay:after {
-    background-color: rgba(black, 0.4);
-    bottom: 0;
-    content: '';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
+.hero--dark {
+    @include resp-min($screen-sm-min) {
+        color: $super-dark-grey;
+        text-shadow: 0 1px 0 rgba(white, 0.5);
+    }
 }

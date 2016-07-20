@@ -5,9 +5,9 @@ $text-muted: $grey;
 $line-height-computed: $line-height;
 $table-border-color: $light-grey;
 $table-condensed-cell-padding: $line-height;
-$table-bg-accent: $off-white;
+$table-bg-accent: #F9F9F9;
 
-$table-bg-hover: mix($off-white, black, 10%);
+$table-bg-hover: mix($table-bg-accent, black, 10%);
 $table-bg-active: $table-bg-hover;
 
 $table-border-color: $super-light-grey;

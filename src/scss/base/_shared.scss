@@ -12,11 +12,12 @@ body {
     font-weight: 300;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, ol, hr, address {
-    margin-bottom: 1.5rem;
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl, hr, address, pre {
+    margin-bottom: $line-height;
 }
 
-ul, ol {
+ul,
+ol {
     margin-left: 2rem;
 
     &.unstyled {
@@ -46,6 +47,15 @@ hr {
     height: 1px;
 }
 
-strong {
+em {
+    font-style: italic;
+}
+
+strong,
+dt {
     font-weight: bold;
+}
+
+pre {
+    padding-left: $line-height;
 }
