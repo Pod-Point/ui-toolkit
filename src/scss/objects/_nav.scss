@@ -1,23 +1,15 @@
-.nav,
-.nav ul {
+.nav {
     margin: 0;
-}
-
-.nav li {
     list-style: none;
 }
 
-.nav {
-    > li {
-        @include resp-min($screen-sm-min) {
-            display: inline-block;
-        }
-
-        > a {
-            display: block;
-        }
+    .nav__item {
+        display: inline-block;
     }
-}
+
+    .nav__link {
+        display: block;
+    }
 
 .dropdown {
     position: relative;
