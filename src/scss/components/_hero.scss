@@ -40,9 +40,12 @@
     }
 
     .hero__cta {
+        padding: 0;
+        position: relative;
+
         @include resp-min($screen-md-min) {
-            padding: ($line-height * 2) 0;
-            position: relative;
+            padding: ($line-height * 2);
+            position: absolute;
         }
     }
 
