@@ -6,7 +6,7 @@
     font-size: $font-size-kilo;
     line-height: ($font-size-kilo * $line-height-base);
     margin-bottom: $line-height;
-    padding: ($line-height * 2) 0 $line-height;
+    padding-top: $line-height;
     position: relative;
     text-shadow: 0 1px 0 rgba(black, 0.5);
     z-index: 1;
@@ -16,7 +16,7 @@
     .hero__body {
         bottom: 0;
         left: 0;
-        padding: ($line-height * 2);
+        padding: $line-height;
         position: absolute;
         right: 0;
     }
@@ -44,14 +44,16 @@
         position: relative;
 
         @include resp-min($screen-md-min) {
-            padding: ($line-height * 2);
+            padding: $line-height;
             position: absolute;
         }
     }
 
     .hero__title {
         font-size: $font-size-mega;
-        margin-bottom: 0;
+        @include resp-min($screen-sm-min) {
+            margin-bottom: 0;
+        }
     }
 
     .hero__sub-title {
@@ -61,7 +63,12 @@
 .hero--primary {
     .hero__title {
         font-size: $font-size-giga;
-        line-height: $font-size-giga * $line-height-base;
+        //line-height: $font-size-giga * $line-height-base;
+    }
+
+    .hero__body,
+    .hero__cta {
+        padding: ($line-height * 2);
     }
 }
 
