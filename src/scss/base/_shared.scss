@@ -57,6 +57,31 @@ dt {
     font-weight: bold;
 }
 
+del,
+s {
+    text-decoration: line-through;
+}
+
+sub,
+sup {
+    position: relative;
+}
+
+sub {
+    top: .15em;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -.15em;
+    vertical-align: top;
+}
+
+ins,
+u {
+    text-decoration: underline;
+}
+
 pre {
     padding-left: $line-height;
 }
