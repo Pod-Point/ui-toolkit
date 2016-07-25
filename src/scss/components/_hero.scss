@@ -3,13 +3,15 @@
     background-size: cover;
     color: white;
     display: block;
-    font-size: $font-size-kilo;
-    line-height: ($font-size-kilo * $line-height-base);
     margin-bottom: $line-height;
-    padding-top: $line-height;
+    padding: 0;
     position: relative;
     text-shadow: 0 1px 0 rgba(black, 0.5);
     z-index: 1;
+
+    @include resp-min($screen-md-min) {
+        padding: ($line-height * 2) 0 $line-height;
+    }
 }
 
     .hero__cta,
@@ -17,8 +19,13 @@
         bottom: 0;
         left: 0;
         padding: $line-height;
-        position: absolute;
+        position: relative;
         right: 0;
+
+        @include resp-min($screen-md-min) {
+            padding: ($line-height * 2);
+            position: absolute;
+        }
     }
 
     .hero__body {
@@ -33,7 +40,7 @@
             margin: ($line-height * 2.5) 0 0;
             list-style: none;
 
-            > li {
+            > li:not(:last-child) {
                 margin-bottom: ($line-height * 2);
             }
         }
@@ -44,15 +51,16 @@
         position: relative;
 
         @include resp-min($screen-md-min) {
-            padding: $line-height;
+            padding: ($line-height * 2);
             position: absolute;
         }
     }
 
     .hero__title {
         font-size: $font-size-mega;
+
         @include resp-min($screen-sm-min) {
-            margin-bottom: 0;
+            margin-bottom: ($line-height / 2);
         }
     }
 
