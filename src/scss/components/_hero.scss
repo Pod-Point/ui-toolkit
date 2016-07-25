@@ -58,6 +58,7 @@
 
     .hero__title {
         font-size: $font-size-mega;
+        line-height: $font-size-mega * $line-height-base;
 
         @include resp-min($screen-sm-min) {
             margin-bottom: ($line-height / 2);
