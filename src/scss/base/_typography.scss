@@ -1,19 +1,19 @@
 h1,
 .h1 {
     font-size: $font-size-giga;
-    line-height: ($line-height * $font-size-giga);
+    line-height: ($line-height-base * $font-size-giga);
 }
 
 h2,
 .h2 {
     font-size: $font-size-mega;
-    line-height: ($line-height * $font-size-mega);
+    line-height: ($line-height-base * $font-size-mega);
 }
 
 h3,
 .h3 {
     font-size: $font-size-kilo;
-    line-height: ($line-height * $font-size-kilo);
+    line-height: ($line-height-base * $font-size-kilo);
 }
 
 h4,
