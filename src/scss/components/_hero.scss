@@ -74,12 +74,12 @@
 
     .hero__sub-title {
         font-size: $font-size-kilo;
+        line-height: ($font-size-kilo * $line-height-base);
     }
 
 .hero--primary {
     .hero__title {
         font-size: $font-size-giga;
-        //line-height: $font-size-giga * $line-height-base;
     }
 
     .hero__body,
