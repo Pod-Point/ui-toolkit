@@ -2,25 +2,21 @@
     margin: 3rem 0;
 }
 
-.main .navbar {
-    margin-bottom: 3rem;
-}
-
-#basic-hero {
+.hero {
     background-image: url(https://unsplash.it/800/600?image=1056);
-    padding: 9rem 0;
+    height: 400px;
 }
 
-    #basic-hero .hero__title {
-        font-size: 4rem;
-    }
+.hero--dark {
+    background-image: none;
+    background-color: #eee;
+    height: 600px;
+}
 
-    #basic-hero .hero__intro {
-        font-size: 1.5rem;
-    }
-
-#overlay-hero {
-    background-image: url(https://unsplash.it/800/600?image=989);
+.hero--primary {
+    background-image: linear-gradient(to bottom right, #8cc63f, #a0d062);
+    height: auto;
+    padding: 4rem 0 2.5rem;
 }
 
 .section:not(:last-child) {
