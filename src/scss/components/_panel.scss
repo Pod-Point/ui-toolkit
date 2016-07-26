@@ -33,7 +33,8 @@
 
     .panel__title {
         margin-bottom: 0;
-        font-size: 1.25rem;
+        font-size: $font-size-kilo;
+        line-height: ($line-height-base * $font-size-kilo);
     }
 
     .panel__subtitle {

@@ -111,8 +111,8 @@ h4,
  */
 
 .text--lead {
-    font-size: $font-size-mega;
-    line-height: ($line-height * 1.25);
+    font-size: $font-size-kilo;
+    line-height: ($line-height-base * $font-size-kilo);
 }
 
 /**
@@ -121,7 +121,7 @@ h4,
 
 blockquote {
     font-size: $font-size-mega;
-    line-height: ($line-height-base);
+    line-height: ($line-height-base * $font-size-mega);
     padding-left: ($line-height * 2.5);
     position: relative;
     text-align: left;
