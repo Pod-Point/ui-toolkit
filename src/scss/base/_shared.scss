@@ -1,8 +1,3 @@
-html,
-body {
-    height: 100%;
-}
-
 body {
     background-color: $body-bg;
     color: $text-colour;
@@ -12,40 +7,8 @@ body {
     font-weight: 300;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, ol, hr, address {
-    margin-bottom: 1.5rem;
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, hr, address, pre, blockquote {
+    margin-bottom: $line-height;
 }
 
-ul, ol {
-    margin-left: 2rem;
-
-    &.unstyled {
-        margin-left: 0;
-        list-style: none;
-    }
-}
-
-address {
-    font-style: normal;
-}
-
-a {
-    color: $link-colour;
-    text-decoration: none;
-
-    &:focus {
-        text-decoration: none;
-        text-decoration-style: dashed;
-        outline: none;
-    }
-}
-
-hr {
-    background-color: $light-grey;
-    color: $light-grey;
-    height: 1px;
-}
-
-strong {
-    font-weight: bold;
-}

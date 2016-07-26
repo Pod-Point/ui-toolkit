@@ -1,17 +1,93 @@
+ul,
+ol {
+    margin-left: $line-height;
+
+    &.unstyled {
+        margin-left: 0;
+        list-style: none;
+    }
+}
+
+address {
+    font-style: normal;
+}
+
+a {
+    color: $link-colour;
+    text-decoration: none;
+
+    &:focus {
+        text-decoration: none;
+        text-decoration-style: dashed;
+        outline: none;
+    }
+}
+
+hr {
+    background-color: $light-grey;
+    color: $light-grey;
+    height: 1px;
+}
+
+em {
+    font-style: italic;
+}
+
+strong,
+dt {
+    font-weight: bold;
+}
+
+del,
+s {
+    text-decoration: line-through;
+}
+
+sub,
+sup {
+    position: relative;
+}
+
+sub {
+    top: .15em;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -.15em;
+    vertical-align: top;
+}
+
+ins,
+u {
+    text-decoration: underline;
+}
+
+pre {
+    padding-left: $line-height;
+}
+
 h1,
 .h1 {
     font-size: $font-size-giga;
-    line-height: ($line-height * 2);
+    line-height: ($line-height-base * $font-size-giga);
 }
 
 h2,
 .h2 {
     font-size: $font-size-mega;
+    line-height: ($line-height-base * $font-size-mega);
 }
 
 h3,
 .h3 {
     font-size: $font-size-kilo;
+    line-height: ($line-height-base * $font-size-kilo);
+}
+
+h4,
+.h4 {
+    font-size: 1rem;
 }
 
 /**
@@ -44,7 +120,7 @@ h3,
  */
 
 blockquote {
-    font-size: $font-size-giga;
+    font-size: $font-size-mega;
     line-height: ($line-height-base);
     padding-left: ($line-height * 2.5);
     position: relative;
@@ -63,7 +139,7 @@ blockquote {
     > cite {
         color: $grey;
         display: block;
-        font-size: $font-size-mega;
+        font-size: $font-size-kilo;
         margin-top: $line-height;
         text-align: right;
     }

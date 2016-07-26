@@ -1,64 +1,54 @@
-$border-radius: 0.25rem;
+$border-radius:         0.25rem;
 
-$line-height-base: 1.5;
-$line-height: $line-height-base * 1rem;
-
-$font-size-base: 17;
-
-$sprites-path: '../img/spritesheets/';
+$font-size-base:        17;
+$font-size:             $font-size-base * 1rem;
+$line-height-base:      1.7;
+$line-height:           $line-height-base * 1rem;
 
 $sizes: (
-    micro: 0.777,
-    milli: 0.888,
-    kilo: 1.111,
-    mega: 1.333,
-    giga: 2
+    micro:  0.777,
+    milli:  0.888,
+    kilo:   1.333,
+    mega:   2,
+    giga:   2.5
 );
 
-$font-size-micro: map_get($sizes, 'micro') * 1rem;
-$font-size-milli: map_get($sizes, 'milli') * 1rem;
-$font-size-kilo: map_get($sizes, 'kilo') * 1rem;
-$font-size-mega: map_get($sizes, 'mega') * 1rem;
-$font-size-giga: map_get($sizes, 'giga') * 1rem;
+$font-size-micro:       map_get($sizes, 'micro') * 1rem;
+$font-size-milli:       map_get($sizes, 'milli') * 1rem;
+$font-size-kilo:        map_get($sizes, 'kilo') * 1rem;
+$font-size-mega:        map_get($sizes, 'mega') * 1rem;
+$font-size-giga:        map_get($sizes, 'giga') * 1rem;
 
-$global: mainNavShade, mainNav, mainNavToggle, pageCta;
-
-$brand-primary: #8CC63F;
-$brand-primary-dark: mix(black, $brand-primary, 15%);
+$brand-primary:         #8CC63F;
+$brand-primary-dark:    mix(black, $brand-primary, 15%);
 $brand-success:         #5cb85c;
 $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 
-$red: #E9583A;
-$blue: #3AA8E9;
-$yellow: #ffe341;
+$super-light-grey:      #eee;
+$light-grey:            #CACACA;
+$grey:                  #888;
+$dark-grey:             #333;
+$super-dark-grey:       #222;
 
-$super-light-grey: #eee;
-$light-grey: #CACACA;
-$grey: #888;
-$dark-grey: #333;
-$super-dark-grey: #222;
+$body-bg:               white;
 
-$off-white: #f9f9f9;
+$state-success-text:    #3c763d;
+$state-success-bg:      #dff0d8;
+$state-success-border:  darken(adjust-hue($state-success-bg, -10), 5%);
 
-$body-bg: white;
+$state-info-text:       #31708f;
+$state-info-bg:         #d9edf7;
+$state-info-border:     darken(adjust-hue($state-info-bg, -10), 7%);
 
-$state-success-text:             #3c763d;
-$state-success-bg:               #dff0d8;
-$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%);
+$state-warning-text:    #8a6d3b;
+$state-warning-bg:      #fcf8e3;
+$state-warning-border:  darken(adjust-hue($state-warning-bg, -10), 5%);
 
-$state-info-text:                #31708f;
-$state-info-bg:                  #d9edf7;
-$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%);
+$state-danger-text:     #a94442;
+$state-danger-bg:       #f2dede;
+$state-danger-border:   darken(adjust-hue($state-danger-bg, -10), 5%);
 
-$state-warning-text:             #8a6d3b;
-$state-warning-bg:               #fcf8e3;
-$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%);
-
-$state-danger-text:              #a94442;
-$state-danger-bg:                #f2dede;
-$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%);
-
-$text-colour: $super-dark-grey;
-$link-colour: $brand-primary;
+$text-colour:           $super-dark-grey;
+$link-colour:           $brand-primary;

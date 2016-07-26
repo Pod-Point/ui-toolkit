@@ -1,10 +1,3 @@
-$navbar-dark-background-colour: #4F4D54;
-$navbar-dark-brand-background-colour: #3E3C42;
-$navbar-hover-background-colour: $super-light-grey;
-$navbar-background-colour: white;
-$navbar-border: 1px solid $super-light-grey;
-$navbar-brand-height: 40px;
-
 .navbar {
     @include clearfix();
     background-color: $navbar-background-colour;
@@ -16,42 +9,39 @@ $navbar-brand-height: 40px;
         border-width: 0 0 1px;
     }
 
-    .brand {
+    .navbar__brand {
         @include resp-min($screen-sm-min) {
             float: left;
         }
     }
 }
 
-    .navbar > .container-fluid {
-        padding: 0;
+    .navbar__brand {
+        display: block;
+        overflow: hidden;
+        padding: ($line-height / 2) $line-height;
+
+        > svg {
+            display: block;
+        }
+    }
+
+    .navbar > .container > .navbar__brand {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .navbar__toggle {
-        background-color: transparent;
-        box-shadow: none;
-        border: 1px solid $brand-primary;
-        color: $brand-primary;
-        line-height: $navbar-brand-height;
-        height: $navbar-brand-height;
-        padding: 0 1rem;
+        fill: $grey;
         position: absolute;
-        text-shadow: none;
-        top: 0.75rem;
+        top: ($line-height / 2);
         right: $line-height;
 
         > .icon {
+            display: block;
             margin: 0;
-            fill: $brand-primary;
-        }
-
-        &.collapsed {
-            border-color: $grey;
-            color: $grey;
-
-            > .icon {
-                fill: $grey;
-            }
+            height: $line-height;
+            width: $line-height;
         }
 
         @include resp-min($screen-sm-min) {
@@ -77,61 +67,20 @@ $navbar-brand-height: 40px;
                 float: right;
             }
         }
+    }
 
-        > li > a,
-        > li > .nav > li > a {
-            color: $grey;
-            padding: ($line-height / 2) $line-height;
-
-            &:hover {
-                background-color: $navbar-hover-background-colour;
-            }
+    .nav__item {
+        &.dropdown > .nav__link {
+            padding-right: 2rem;
         }
+    }
 
-        > li {
-            @include resp-min($screen-sm-min) {
-                float: left;
-            }
+    .nav__link {
+        color: $grey;
+        padding: ($line-height / 2) $line-height;
 
-            &.active > a {
-                position: relative;
-
-                &:after {
-                    background-color: $brand-primary;
-                    bottom: 0;
-                    content: '';
-                    left: 0;
-                    position: absolute;
-                    top: 0;
-                    width: 4px;
-
-                    @include resp-min($screen-sm-min) {
-                        height: 4px;
-                        right: 0;
-                        top: auto;
-                        width: auto;
-                    }
-                }
-            }
-
-            &.dropdown > a {
-                padding-right: 2rem;
-
-                &:after {
-                    top: 1.5rem;
-
-                    @include resp-min($screen-sm-min) {
-                        top: 50%;
-                    }
-                }
-            }
-
-            > a {
-                @include resp-min($screen-sm-min) {
-                    line-height: $navbar-brand-height;
-                }
-            }
-
+        &:hover {
+            background-color: $navbar-hover-background-colour;
         }
     }
 
@@ -139,73 +88,57 @@ $navbar-brand-height: 40px;
     background-color: $navbar-dark-background-colour;
     border-bottom: 0;
 
-    .brand {
+    .navbar__brand {
         background-color: $navbar-dark-brand-background-colour;
     }
 
-    .navbar__toggle {
-        border-color: white;
-        color: white;
-
-        > .icon {
-            fill: white;
-        }
+    .navbar__toggle > .icon {
+        fill: white;
     }
 
-    .navbar__nav > li > a:hover,
-    .navbar__nav > li > .nav > li > a:hover {
+    .nav__link:hover {
         background-color: $navbar-dark-brand-background-colour;
         color: $brand-primary;
     }
 }
 
 .navbar--vertical {
-    .brand,
+    .navbar__brand,
     .navbar__nav {
         float: none;
     }
 
     .navbar__nav {
-        margin: ($line-height * 2) 0;
+        margin: $line-height 0;
 
-        > li,
-        > li > .nav > li {
-            display: block;
-        }
-
-        > li {
-            float: none;
+        > .nav__item {
             margin: ($line-height / 2) 0;
 
-            &.dropdown {
-                > a:after {
-                    top: 1.5rem;
+            > .nav {
+                margin-top: ($line-height / 2);
+
+                .nav__link {
+                    color: white;
                 }
-
-                > .nav {
-                    background-color: transparent;
-                    padding: 0;
-                    position: relative;
-                }
-            }
-
-            > a {
-                line-height: normal;
-            }
-
-            > .nav > li > a {
-                color: white;
             }
         }
     }
-}
 
-.brand {
-    display: block;
-    overflow: hidden;
-    padding: ($line-height / 2) $line-height;
+    .dropdown > a:after {
+        top: $line-height;
+    }
 
-    > span {
-        @include sprite(pod-point-logo, .5);
+    .dropdown-menu {
+        background-color: transparent;
+        padding: 0;
+        position: relative;
+
+        .nav__link {
+            padding: ($line-height / 2) $line-height;
+        }
+    }
+
+    .nav__item {
+        display: block;
     }
 }

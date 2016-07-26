@@ -48,11 +48,6 @@ gulp.task('copy-fonts', () => {
         .pipe(gulp.dest(config.dist.root + '/' + config.dist.fonts));
 });
 
-gulp.task('copy-images', () => {
-    return gulp.src(config.src.root + '/' + config.src.images + '/**/*')
-        .pipe(gulp.dest(config.dist.root + '/' + config.dist.images));
-});
-
 gulp.task('serve', ['default'], () => {
     return browserSync.init({
         server: { baseDir: config.dist.root },
@@ -66,4 +61,4 @@ gulp.task('watch', ['serve'], () => {
     gulp.watch(config.dist.root + '/*.html').on('change', browserSync.reload);
 });
 
-gulp.task('default', ['css', 'js-modules', 'js', 'copy-fonts', 'copy-images']);
+gulp.task('default', ['css', 'js-modules', 'js', 'copy-fonts']);
