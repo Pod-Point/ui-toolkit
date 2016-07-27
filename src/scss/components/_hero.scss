@@ -79,12 +79,13 @@
 .hero--primary {
     .hero__title {
         font-size: $font-size-giga;
-        //line-height: $font-size-giga * $line-height-base;
     }
 
     .hero__body,
     .hero__cta {
-        padding: ($line-height * 2);
+        @include resp-min($screen-sm-min) {
+            padding: ($line-height * 2);
+        }
     }
 }
 
