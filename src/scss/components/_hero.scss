@@ -39,16 +39,8 @@
             margin-left: 0;
             list-style: none;
 
-            @include resp-min($screen-md-min) {
-                margin-top: ($line-height * 2.5);
-            }
-
             > li:not(:last-child) {
                 margin-bottom: $line-height;
-
-                @include resp-min($screen-md-min) {
-                    margin-bottom: ($line-height * 2);
-                }
             }
         }
     }
