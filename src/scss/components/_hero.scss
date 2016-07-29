@@ -36,8 +36,9 @@
         }
 
         ul {
-            margin-left: 0;
-            list-style: none;
+            @include resp-min($screen-sm-min) {
+                margin-top: ($line-height * 1.5);
+            }
 
             > li:not(:last-child) {
                 margin-bottom: $line-height;
