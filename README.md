@@ -6,14 +6,10 @@ The POD Point frontend framework is a library of base styles and components desi
 
 ## Installation
 
-Add the following to your project's `devDependencies`:
+Install via `npm`:
 
-```json
-{
-    "devDependencies": {
-        "ui-toolkit": "git+https://git@github.com/Pod-Point/ui-toolkit.git"
-    }
-}
+```bash
+npm install @pod-point/ui-toolkit
 ```
 
 Then either link to the production ready files:
