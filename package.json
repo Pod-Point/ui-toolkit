@@ -1,5 +1,5 @@
 {
-  "name": "ui-toolkit",
+  "name": "@pod-point/ui-toolkit",
   "version": "3.0.1",
   "description": "A rapid prototyping framework for getting a project off the ground quickly.",
   "author": "Mike Francis <mike.francis@pod-point.com>",
