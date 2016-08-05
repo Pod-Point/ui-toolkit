@@ -135,9 +135,8 @@ select.form__control > option {
         + span:before {
             @extend .icon;
             @extend .icon--circle-empty;
-
             color: $grey;
-            font-size: $font-size-mega;
+            font-size: $font-size-kilo;
             width: auto;
             top: 0;
             bottom: 0;
