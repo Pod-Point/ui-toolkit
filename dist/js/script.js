@@ -600,7 +600,7 @@
 	    }, {
 	        key: 'openModal',
 	        value: function openModal() {
-	            document.body.classList.add('is-modal-open');
+	            document.documentElement.classList.add('is-modal-open');
 	
 	            (0, _utilities.show)(this.modal);
 	
@@ -616,7 +616,7 @@
 	    }, {
 	        key: 'closeModal',
 	        value: function closeModal() {
-	            document.body.classList.remove('is-modal-open');
+	            document.documentElement.classList.remove('is-modal-open');
 	
 	            (0, _utilities.hide)(this.modal);
 	
