@@ -81,7 +81,7 @@ class Modal {
      * Handle the modal opening.
      */
     openModal() {
-        document.body.classList.add('is-modal-open');
+        document.documentElement.classList.add('is-modal-open');
 
         show(this.modal);
 
@@ -94,7 +94,7 @@ class Modal {
      * Handle the modal closing.
      */
     closeModal() {
-        document.body.classList.remove('is-modal-open');
+        document.documentElement.classList.remove('is-modal-open');
 
         hide(this.modal);
 
