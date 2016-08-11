@@ -132,7 +132,10 @@ var Modal = function () {
             (0, _utilities.hide)(this.modal);
 
             var overlay = (0, _domOps.selectFirst)('.modal-overlay');
-            overlay.remove();
+
+            if (overlay !== null) {
+                overlay.remove();
+            }
         }
     }]);
 
