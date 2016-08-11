@@ -99,7 +99,10 @@ class Modal {
         hide(this.modal);
 
         const overlay = selectFirst('.modal-overlay');
-        overlay.remove();
+
+        if (overlay !== null) {
+            overlay.remove();
+        }
     }
 }
 
