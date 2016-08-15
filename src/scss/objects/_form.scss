@@ -70,12 +70,21 @@ select.form__control > option {
 }
 
 .form__group {
-    margin-bottom: 1.5rem;
+    margin-bottom: $line-height;
     position: relative;
 }
 
 .form__group--actions {
     text-align: right;
+}
+
+.form--inline {
+    .form__group {
+        display: inline;
+    }
+    .form__control {
+        width: auto;
+    }
 }
 
 .form__group--error {
@@ -97,12 +106,6 @@ select.form__control > option {
     font-size: $font-size-milli;
     opacity: 0;
     transition: all 150ms ease-out;
-}
-
-.form--inline {
-    .form__control {
-        width: auto;
-    }
 }
 
 .radio,
