@@ -3,9 +3,10 @@
     border: 1px solid $input-border-colour;
     border-radius: $border-radius;
     color: $text-colour;
-    height: auto;
+    height: ($line-height * 1.5);
     line-height: $input-height;
     padding: $input-padding-y $input-padding-x;
+    vertical-align: baseline;
     width: 100%;
 
     &:focus {
@@ -29,6 +30,7 @@
 textarea.form__control,
 select[multiple].form__control {
     min-height: 6.5rem;
+    height: auto;
     overflow-y: hidden;
 }
 
@@ -36,20 +38,20 @@ textarea.form__control {
     resize: vertical;
 }
 
-select.form__control > option {
-    font: inherit;
-    height: $line-height;
+select.form__control {
+    height: ($line-height * 1.5);
 }
 
 .select-wrapper {
     background-color: $input-background-colour;
+    display: inline-block;
     position: relative;
     z-index: 1;
 
     &:after {
         @include caret('down', $grey, 0.4rem);
         position: absolute;
-        right: 0.5rem;
+        right: 0.25rem;
         top: 50%;
         z-index: -1;
     }
@@ -80,7 +82,7 @@ select.form__control > option {
 
 .form--inline {
     .form__group {
-        display: inline;
+        display: inline-block;
     }
     .form__control {
         width: auto;
