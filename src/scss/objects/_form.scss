@@ -51,7 +51,7 @@ select.form__control {
     &:after {
         @include caret('down', $grey, 0.4rem);
         position: absolute;
-        right: 0.25rem;
+        right: 0.5rem;
         top: 50%;
         z-index: -1;
     }
