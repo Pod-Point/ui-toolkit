@@ -1,6 +1,6 @@
 {
   "name": "@pod-point/ui-toolkit",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "A rapid prototyping framework for getting a project off the ground quickly.",
   "author": "Mike Francis <mike.francis@pod-point.com>",
   "license": "Apache-2.0",
