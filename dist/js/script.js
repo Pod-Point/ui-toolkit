@@ -3278,24 +3278,26 @@
 	        value: function doToggle(event) {
 	            event.preventDefault();
 	
-	            var hideElement = (0, _domOps.selectFirst)(this.shouldHide);
+	            var hideElement = this.shouldHide ? (0, _domOps.selectFirst)(this.shouldHide) : null;
 	            var showElement = this.shouldShow ? (0, _domOps.selectFirst)(this.shouldShow) : null;
 	
 	            if (this.storageKey) {
 	                localStorage.setItem(this.storageKey, (0, _utilities.isVisible)(hideElement) ? HIDDEN : VISIBLE);
 	            }
 	
-	            if ((0, _utilities.isVisible)(hideElement)) {
-	                (0, _utilities.hide)(hideElement);
-	
-	                if (this.shouldShow) {
+	            if (this.shouldShow) {
+	                if ((0, _utilities.isVisible)(showElement)) {
+	                    (0, _utilities.hide)(showElement);
+	                } else {
 	                    (0, _utilities.show)(showElement);
 	                }
-	            } else {
-	                (0, _utilities.show)(hideElement);
+	            }
 	
-	                if (this.shouldShow) {
-	                    (0, _utilities.hide)(showElement);
+	            if (this.shouldHide) {
+	                if ((0, _utilities.isVisible)(hideElement)) {
+	                    (0, _utilities.hide)(hideElement);
+	                } else {
+	                    (0, _utilities.show)(hideElement);
 	                }
 	            }
 	        }
