@@ -23,7 +23,6 @@ var Modal = function () {
      *
      * @param element
      */
-
     function Modal(element) {
         _classCallCheck(this, Modal);
 

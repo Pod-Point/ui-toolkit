@@ -18,7 +18,7 @@ var HAS_FOCUS = 'has-focus';
 
 var FormFields = function () {
     function FormFields() {
-        var root = arguments.length <= 0 || arguments[0] === undefined ? document.body : arguments[0];
+        var root = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
 
         _classCallCheck(this, FormFields);
 

@@ -27,7 +27,6 @@ var Toggle = function () {
      *
      * @param element
      */
-
     function Toggle(element) {
         _classCallCheck(this, Toggle);
 

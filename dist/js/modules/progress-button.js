@@ -18,7 +18,6 @@ var ProgressButton = function () {
      *
      * @param button
      */
-
     function ProgressButton(button) {
         _classCallCheck(this, ProgressButton);
 

@@ -26,16 +26,22 @@
                     <h2 class="section__title">Basic</h2>
 
                     <form class="form" action="https://httpbin.org/post" method="post" data-js-module="ajaxForm">
-                        <fieldset class="form__group form__group--text">
+                        <fieldset class="form__group">
                             <label for="first_name" class="form__label">First Name</label>
 
                             <input type="text" id="first_name" name="first_name" class="form__control">
                         </fieldset>
 
-                        <fieldset class="form__group form__group--text">
+                        <fieldset class="form__group">
                             <label for="disabled__input" class="form__label">Disabled Input</label>
 
-                            <input disabled type="text" value="You can't touch this" id="disabled__input" name="disabled__input" class="form__control">
+                            <input disabled type="text" value="Disabled text input" id="disabled__input" name="disabled__input" class="form__control">
+
+                            <div class="select-wrapper">
+                                <select name="disabled_select" id="disabled_select" class="form__control" disabled>
+                                    <option value="">Disabled select list</option>
+                                </select>
+                            </div>
                         </fieldset>
 
                         <fieldset class="form__group">
