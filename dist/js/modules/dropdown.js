@@ -19,7 +19,6 @@ var DropDown = function () {
      *
      * @param element
      */
-
     function DropDown(element) {
         _classCallCheck(this, DropDown);
 

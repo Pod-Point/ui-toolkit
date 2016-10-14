@@ -29,7 +29,6 @@ var AjaxForm = function () {
      *
      * @param form
      */
-
     function AjaxForm(form) {
         _classCallCheck(this, AjaxForm);
 

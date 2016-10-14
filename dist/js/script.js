@@ -512,7 +512,6 @@
 	     *
 	     * @param element
 	     */
-	
 	    function Modal(element) {
 	        _classCallCheck(this, Modal);
 	
@@ -1190,7 +1189,6 @@
 	     *
 	     * @param form
 	     */
-	
 	    function AjaxForm(form) {
 	        _classCallCheck(this, AjaxForm);
 	
@@ -1825,7 +1823,7 @@
 	Request.prototype.abort = function(){
 	  if (this.aborted) return;
 	  this.aborted = true;
-	  this.xhr.abort();
+	  this.xhr && this.xhr.abort();
 	  this.clearTimeout();
 	  this.emit('abort');
 	  return this;
@@ -2806,7 +2804,6 @@
 	     *
 	     * @param button
 	     */
-	
 	    function ProgressButton(button) {
 	        _classCallCheck(this, ProgressButton);
 	
@@ -2876,7 +2873,7 @@
 	
 	var FormFields = function () {
 	    function FormFields() {
-	        var root = arguments.length <= 0 || arguments[0] === undefined ? document.body : arguments[0];
+	        var root = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
 	
 	        _classCallCheck(this, FormFields);
 	
@@ -2997,7 +2994,6 @@
 	     *
 	     * @param element
 	     */
-	
 	    function Collapse(element) {
 	        _classCallCheck(this, Collapse);
 	
@@ -3096,7 +3092,6 @@
 	     *
 	     * @param element
 	     */
-	
 	    function DropDown(element) {
 	        _classCallCheck(this, DropDown);
 	
@@ -3219,7 +3214,6 @@
 	     *
 	     * @param element
 	     */
-	
 	    function Toggle(element) {
 	        _classCallCheck(this, Toggle);
 	

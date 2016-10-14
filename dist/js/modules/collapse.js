@@ -21,7 +21,6 @@ var Collapse = function () {
      *
      * @param element
      */
-
     function Collapse(element) {
         _classCallCheck(this, Collapse);
 
