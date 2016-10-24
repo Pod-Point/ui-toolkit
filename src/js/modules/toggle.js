@@ -65,24 +65,26 @@ class Toggle {
     doToggle(event) {
         event.preventDefault();
 
-        let hideElement = selectFirst(this.shouldHide);
+        let hideElement = this.shouldHide ? selectFirst(this.shouldHide) : null;
         let showElement = this.shouldShow ? selectFirst(this.shouldShow) : null;
 
         if (this.storageKey) {
             localStorage.setItem(this.storageKey, isVisible(hideElement) ? HIDDEN : VISIBLE);
         }
 
-        if (isVisible(hideElement)) {
-            hide(hideElement);
-
-            if (this.shouldShow) {
+        if (this.shouldShow) {
+            if (isVisible(showElement)) {
+                hide(showElement);
+            } else {
                 show(showElement);
             }
-        } else {
-            show(hideElement);
+        }
 
-            if (this.shouldShow) {
-                hide(showElement);
+        if (this.shouldHide) {
+            if (isVisible(hideElement)) {
+                hide(hideElement);
+            } else {
+                show(hideElement);
             }
         }
     }
