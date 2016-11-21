@@ -115,6 +115,18 @@ h4,
     line-height: ($line-height * 1.25);
 }
 
+.text--primary {
+  color: $brand-primary;
+}
+
+.text--warning {
+  color: $state-warning-text;
+}
+
+.text--danger {
+  color: $state-danger-text;
+}
+
 /**
  * Blockquote
  */
