@@ -622,7 +622,7 @@
 	            var overlay = (0, _domOps.selectFirst)('.modal-overlay');
 	
 	            if (overlay !== null) {
-	                overlay.remove();
+	                document.body.removeChild(overlay);
 	            }
 	        }
 	    }]);

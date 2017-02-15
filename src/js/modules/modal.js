@@ -101,7 +101,7 @@ class Modal {
         const overlay = selectFirst('.modal-overlay');
 
         if (overlay !== null) {
-            overlay.remove();
+            document.body.removeChild(overlay);
         }
     }
 }
