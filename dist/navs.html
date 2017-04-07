@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>POD Point Frontend Framework</title>
+    <title>Navs</title>
     <link rel="stylesheet" href="https://use.typekit.net/c/df2ab0/1w;myriad-pro,b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a,ftc:W:n3/d">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="demo.css">
@@ -17,54 +17,35 @@
         </div>
     </header>
 
-    <main role="main">
-        <figure class="hero hero--primary">
-            <div class="container">
-                <h1 class="hero__title">Pod Point UI Toolkit</h1>
-                <p class="hero__sub-title">A rapid prototyping framework for getting a project off the ground quickly.</p>
-            </div>
-        </figure>
+    <main class="main" role="main">
+        <div class="container">
+            <article>
+                <h1 class="page-heading">Navs</h1>
 
-        <div class="main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <article class="text--center">
-                            <h2>Base Elements</h2>
+                <section class="section">
+                    <h2 class="section__title">Pills</h2>
 
-                            <ul class="unstyled">
-                                <li><a href="typography.html">Typography</a></li>
-                                <li><a href="forms.html">Forms</a></li>
-                                <li><a href="tables.html">Tables</a></li>
-                                <li><a href="images.html">Images</a></li>
-                            </ul>
-                        </article>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <article class="text--center">
-                            <h2>Components</h2>
-
-                            <ul class="unstyled">
-                                <li><a href="buttons.html">Buttons</a></li>
-                                <li><a href="navbar.html">Navbar</a></li>
-                                <li><a href="navs.html">Navs</a></li>
-                                <li><a href="hero.html">Hero</a></li>
-                                <li><a href="alert.html">Alerts</a></li>
-                                <li><a href="panel.html">Panel</a></li>
-                                <li><a href="modal.html">Modal</a></li>
-                                <li><a href="labels.html">Labels</a></li>
-                            </ul>
-                        </article>
-                    </div>
-                </div>
-            </div>
+                    <ul class="nav nav--pills">
+                        <li class="active">1</li>
+                        <li><a href="http://contractors-tool.dev/contractors?page=2&amp;rowCount=15" data-page="2">2</a></li>
+                        <li><a href="http://contractors-tool.dev/contractors?page=3&amp;rowCount=15" data-page="3">3</a></li>
+                        <li><a href="http://contractors-tool.dev/contractors?page=4&amp;rowCount=15" data-page="4">4</a></li>
+                        <li><a href="http://contractors-tool.dev/contractors?page=5&amp;rowCount=15" data-page="5">5</a></li>
+                        <li class="page-next">
+                            <a href="" data-page="">&gt;</a>
+                        </li>
+                        <li class="page-last">
+                            <a href="" data-page="">»</a>
+                        </li>
+                    </ul>
+                </section>
+            </article>
         </div>
     </main>
 
     <footer class="footer" role="contentinfo">
         <div class="container">
-            &copy; POD Point <script>document.write(new Date().getFullYear())</script>
+            &copy; POD Point
         </div>
     </footer>
 
