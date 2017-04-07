@@ -52,3 +52,34 @@
 .dropdown.open .dropdown-menu {
     display: block;
 }
+
+.nav--pills {
+    @include clearfix();
+
+    > li {
+        background-color: $pagination-background-colour;
+        border: $pagination-border;
+        border-right: 0;
+        color: $dark-grey;
+        float: left;
+        text-align: center;
+        line-height: $pagination-size;
+        height: $pagination-size;
+        width: $pagination-size;
+
+        &.active {
+            background-color: $brand-primary;
+            border-color: $brand-primary;
+            color: white;
+        }
+
+        &:first-child {
+            border-radius: $border-radius 0 0 $border-radius;
+        }
+
+        &:last-child {
+            border-right: $pagination-border;
+            border-radius: 0 $border-radius $border-radius 0;
+        }
+    }
+}
