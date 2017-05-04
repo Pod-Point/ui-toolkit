@@ -37,7 +37,7 @@ $button-background-colour: $super-light-grey;
     @include button-variant($brand-danger, white);
 }
 
-&.button--primary {
+.button--primary {
     @include button-variant($brand-primary, white);
 }
 
